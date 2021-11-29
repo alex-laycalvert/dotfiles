@@ -38,24 +38,24 @@ require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- colorschemes
-	--use 'liuchengxu/space-vim-dark'
-    --use 'arcticicestudio/nord-vim'
-    --use 'olimorris/onedarkpro.nvim'
-    --use 'ldelossa/vimdark'
-    --use 'kvrohit/substrata.nvim'
+	use 'liuchengxu/space-vim-dark'
+    use 'arcticicestudio/nord-vim'
+    use 'olimorris/onedarkpro.nvim'
+    use 'ldelossa/vimdark'
+    use 'kvrohit/substrata.nvim'
     use 'EdenEast/nightfox.nvim'
-    --use 'FrenzyExists/aquarium-vim'
-    --use 'rose-pine/neovim'
-    --use 'dracula/vim'
-    --use 'NTBBloodbath/doom-one.nvim'
-    --use 'shaunsingh/moonlight.nvim'
-    --use 'cocopon/iceberg.vim'
-    --use 'yorickpeterse/happy_hacking.vim'
-    --use 'scheakur/vim-scheakur'
-    --use 'haystackandroid/carbonized'
-    --use 'gregsexton/Atom'
-    --use 'ayu-theme/ayu-vim'
-    --use 'tomasr/molokai'
+    use 'FrenzyExists/aquarium-vim'
+    use 'rose-pine/neovim'
+    use 'dracula/vim'
+    use 'NTBBloodbath/doom-one.nvim'
+    use 'shaunsingh/moonlight.nvim'
+    use 'cocopon/iceberg.vim'
+    use 'yorickpeterse/happy_hacking.vim'
+    use 'scheakur/vim-scheakur'
+    use 'haystackandroid/carbonized'
+    use 'gregsexton/Atom'
+    use 'ayu-theme/ayu-vim'
+    use 'tomasr/molokai'
     use 'savq/melange'
 
 	-- telescope fuzzyfinder
@@ -78,7 +78,7 @@ end)
 -- COLORSCHEME --
 -----------------
 vim.opt.termguicolors = true
-vim.cmd('colorscheme melange')
+vim.cmd('colorscheme onedark')
 
 --------------------
 -- UTILS FUNCTION --

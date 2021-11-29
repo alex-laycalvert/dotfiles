@@ -2,14 +2,14 @@
 # First param ─┌
 [username]
 format = " [╭─$user]($style)@"
-style_user = "bold yellow"
-style_root = "bold yellow"
+style_user = "bold blue"
+style_root = "bold blue"
 show_always = true
 
 # Second param
 [hostname]
 format = "[$hostname]($style) in "
-style = "bold dimmed yellow"
+style = "bold dimmed blue"
 trim_at = "-"
 ssh_only = false
 disabled = false
@@ -32,7 +32,7 @@ deleted = "x"
 # Last param in the first line/row
 [cmd_duration]
 min_time = 1
-format = "took [$duration]($style)"
+format = "took [$duration](bold purple)"
 disabled = false
 
 
@@ -68,8 +68,8 @@ disabled = true
 
 # Prompt: param 2 └─
 [character]
-success_symbol = " [╰─λ](bold yellow)"
-error_symbol = " [×](bold yellow)"
+success_symbol = " [╰─λ](bold blue)"
+error_symbol = " [×](bold blue)"
 
 # SYMBOLS
 [status]
