@@ -10,6 +10,7 @@
 --------------------------------------------
 --------------------------------------------
 
+
 ----------------
 -- LEADER KEY --
 ----------------
@@ -37,24 +38,25 @@ require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	-- colorschemes
-	use 'liuchengxu/space-vim-dark'
-    use 'arcticicestudio/nord-vim'
-    use 'olimorris/onedarkpro.nvim'
-    use 'ldelossa/vimdark'
-    use 'kvrohit/substrata.nvim'
+	--use 'liuchengxu/space-vim-dark'
+    --use 'arcticicestudio/nord-vim'
+    --use 'olimorris/onedarkpro.nvim'
+    --use 'ldelossa/vimdark'
+    --use 'kvrohit/substrata.nvim'
     use 'EdenEast/nightfox.nvim'
-    use 'FrenzyExists/aquarium-vim'
-    use 'rose-pine/neovim'
-    use 'dracula/vim'
-    use 'NTBBloodbath/doom-one.nvim'
-    use 'shaunsingh/moonlight.nvim'
-    use 'cocopon/iceberg.vim'
-    use 'yorickpeterse/happy_hacking.vim'
-    use 'scheakur/vim-scheakur'
-    use 'haystackandroid/carbonized'
-    use 'gregsexton/Atom'
-    use 'ayu-theme/ayu-vim'
-    use 'tomasr/molokai'
+    --use 'FrenzyExists/aquarium-vim'
+    --use 'rose-pine/neovim'
+    --use 'dracula/vim'
+    --use 'NTBBloodbath/doom-one.nvim'
+    --use 'shaunsingh/moonlight.nvim'
+    --use 'cocopon/iceberg.vim'
+    --use 'yorickpeterse/happy_hacking.vim'
+    --use 'scheakur/vim-scheakur'
+    --use 'haystackandroid/carbonized'
+    --use 'gregsexton/Atom'
+    --use 'ayu-theme/ayu-vim'
+    --use 'tomasr/molokai'
+    use 'savq/melange'
 
 	-- telescope fuzzyfinder
 	use {
@@ -64,12 +66,19 @@ require('packer').startup(function(use)
 
     -- language server
     use 'neovim/nvim-lspconfig'
+
+    -- file trees
+    use 'ms-jpq/chadtree'
+    use 'preservim/nerdtree'
+    --use 'Xuyuanp/nerdtree-git-plugin'
+    use 'ryanoasis/vim-devicons'
 end)
 
 -----------------
 -- COLORSCHEME --
 -----------------
-vim.cmd('colorscheme space-vim-dark')
+vim.opt.termguicolors = true
+vim.cmd('colorscheme melange')
 
 --------------------
 -- UTILS FUNCTION --
@@ -121,17 +130,46 @@ vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 -- AUTOCOMMANDS --
 ------------------
 vim.cmd 'autocmd BufWinEnter,WinEnter term://* startinsert'
-vim.cmd 'autocmd BufWritePost /home/alex/.config/nvim/**/*.lua :luafile %'
+vim.cmd 'autocmd BufWritePost /home/alex/.config/nvim/init.lua :luafile %'
 
 
 ----------------
--- LSP CONFIG --
+-- LSPCONFIG --
 ----------------
 -- Configure a language server with lsp.<lsp-server>.setup(stuff...)
 local lsp = require('lspconfig')
 lsp.eslint.setup({})
 lsp.clangd.setup({})
 lsp.pyright.setup({})
+
+-- sumneko lua-language-server specific
+local sumneko_binary_path = vim.fn.exepath('lua-language-server')
+local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ':h:h:h')
+local sumneko runtime_path = vim.split(package.path, ';')
+lsp.sumneko_lua.setup({
+    cmd =  { sumneko_binary_path, "-E", sumneko_root_path .. "/main.lua"};
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'Lua 5.3',
+                path = {
+                    '?.lua',
+                    '?/init.lua',
+                    vim.fn.expand'~/.luarocks/share/lua/5.3/?.lua',
+                    vim.fn.expand'~/.luarocks/share/lua/5.3/?/init.lua',
+                    '/usr/share/5.3/?.lua',
+                    '/usr/share/lua/5.3/?/init.lua'
+                }
+            },
+            workspace = {
+                library = {
+                    [vim.fn.expand'~/.luarocks/share/lua/5.3'] = true,
+                    ['/usr/share/lua/5.3'] = true
+                }
+            }
+        }
+    }
+})
 
 ------------------------------------------
 -- TELESCOPE FUZZY FINDER PLUGIN CONFIG --
@@ -144,7 +182,6 @@ telescope.setup({
         }
     }
 })
-
 
 -----------------
 -- KEYMAPPINGS --
@@ -169,7 +206,7 @@ utils.map('n', '<leader>fb', '<cmd>Telescope buffers<CR>')
 utils.map('n', '<leader>fh', '<cmd>Telescope help_tags<CR>')
 
 -- CHADtree Plugin
-utils.map('n', '<leader>tr', '<cmd>CHADopen<CR>')
+utils.map('n', '<leader>tr', '<cmd>NERDTreeToggle<CR>')
 
 -- EslintFixAll
 utils.map('n', '<leader>es', '<cmd>EslintFixAll<CR>')
