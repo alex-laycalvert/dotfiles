@@ -1,6 +1,6 @@
 --------------------------------------------
 --------------------------------------------
---                                        -- 
+--                                        --
 --     My Ultamite Neovim Configuration   --
 --                                        --
 --         author: alex-laycalvert        --
@@ -27,7 +27,7 @@ vim.g.timeoutlen = 2000
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 -------------
@@ -72,6 +72,9 @@ require('packer').startup(function(use)
     use 'preservim/nerdtree'
     --use 'Xuyuanp/nerdtree-git-plugin'
     use 'ryanoasis/vim-devicons'
+
+    -- syntax highlighting
+    use 'vim-python/python-syntax'
 end)
 
 -----------------
@@ -145,7 +148,6 @@ lsp.pyright.setup({})
 -- sumneko lua-language-server specific
 local sumneko_binary_path = vim.fn.exepath('lua-language-server')
 local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ':h:h:h')
-local sumneko runtime_path = vim.split(package.path, ';')
 lsp.sumneko_lua.setup({
     cmd =  { sumneko_binary_path, "-E", sumneko_root_path .. "/main.lua"};
     settings = {
@@ -166,6 +168,9 @@ lsp.sumneko_lua.setup({
                     [vim.fn.expand'~/.luarocks/share/lua/5.3'] = true,
                     ['/usr/share/lua/5.3'] = true
                 }
+            },
+            diagnostics = {
+                globals = { 'vim' }
             }
         }
     }
@@ -218,7 +223,7 @@ utils.map('n', '<leader>qs', '<cmd>!qtile check<CR>')
 ----------------------------------------------------------
 -- Uses h,j,k,l keys to move around like in normal mode
 -- Alt key and h,j,k,l will move around to different open
--- split screens. 
+-- split screens.
 -- Alt and H,J,K,L to resise screens
 -- Autocmd in main init.lua to enter terminal mode
 -- when entering a terminal buffer
@@ -259,8 +264,8 @@ utils.map('i', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 
 -- Splitting
 --------------------------------------------------
--- When I think of vsplit I think of the opposite 
--- type of split that vim does. 
+-- When I think of vsplit I think of the opposite
+-- type of split that vim does.
 -- V should be vertical right?
 utils.map('n', '<leader>hs', '<cmd>vsplit<CR>')
 utils.map('n', '<leader>vs', '<cmd>split<CR>')

@@ -33,14 +33,13 @@ import subprocess
 from typing import List  # noqa: F401
 
 from libqtile import qtile
-from libqtile.command import lazy
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "alacritty"
 
 keys = [
     # Switch between windows
@@ -88,6 +87,8 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
+
+    Key([mod, "control"], "d", lazy.spawn("edit-dotfile-dmenu"), desc="Spawn a dmenu to configure dotfiles faster"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -167,17 +168,7 @@ screens = [
                     format="{percent:2.0%} {hour:d}:{min:02d}",
                 ),
 
-                widget.Net(),
-
-                widget.CPU(
-                ),
-
-                widget.Memory(
-                ),
-
-                widget.Volume(
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn("nitrogen")}
-                ),
+                widget.Volume(),
             ],
             24,
         ),

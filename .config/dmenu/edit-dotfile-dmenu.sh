@@ -1,0 +1,34 @@
+#!/bin/bash
+
+DOTFILES="$HOME/.config/dmenu/dotfiles.txt"
+INPUT=`cat $DOTFILES | dmenu`
+
+case $INPUT in
+    qtile)
+        nvim "$HOME/.config/qtile/config.py"
+        ;;
+    alacritty)
+        nvim "$HOME/.config/alacritty/alacritty.yaml"
+        ;;
+    picom)
+        nvim "$HOME/.config/picom/picom.conf"
+        ;;
+    starship)
+        nvim "$HOME/.config/starship.toml"
+        ;;
+    neovim)
+        nvim "$HOME/.config/nvim/init.lua"
+        ;;
+    dmenu)
+        nvim "$HOME/.config/dmenu"
+        ;;
+    zshrc)
+        nvim "$HOME/.zshrc"
+        ;;
+    zsh_plugins)
+        nvim "$HOME/.zsh_plugins_list"
+        ;;
+    *)
+        echo "No such dotfile"
+        ;;
+esac

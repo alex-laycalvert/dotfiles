@@ -21,10 +21,6 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	startx
 fi
 
-#################
-# DMENU SCRIPTS #
-#################
-export DOTFILE_CONFIG_MENU="qtile\nalacritty\npicom\nstarship\nneovim\ndmenu\nzsh"
 
 ###########
 # PLUGINS #
@@ -53,12 +49,12 @@ pathmunge () {
            fi
         fi
 }
-pathmunge "/home/alex/.local/bin"
+pathmunge "$HOME/.local/bin"
 
 ###########
 # ALIASES #
 ###########
-alias dotgit="/usr/bin/git --git-dir=/home/alex/git/dotfiles --work-tree=/home/alex"
+alias dotgit="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
 alias ls="exa -l --icons"
 alias la="exa -la --icons"
 
@@ -74,8 +70,10 @@ alias l.="exa -a | egrep '^\.'"                                     # show only 
 alias cat='bat --style header --style rules --style snip --style changes --style header'
 #[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
-alias gittoken="cat ~/git/.git_token"
+alias gittoken="cat $HOME/git/.git_token"
 
 
 alias luamake=/home/alex/lua-language-server/3rd/luamake/luamake
 
+# dmenu scripts
+alias edit-dotfile-dmenu="/bin/bash $HOME/.config/dmenu/edit-dotfile-dmenu.sh"

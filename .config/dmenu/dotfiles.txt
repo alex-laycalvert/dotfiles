@@ -1,0 +1,8 @@
+qtile
+alacritty
+picom
+starship
+neovim
+dmenu
+zshrc
+zsh_plugins
