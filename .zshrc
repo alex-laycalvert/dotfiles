@@ -25,7 +25,7 @@ fi
 ###########
 # PLUGINS #
 ###########
-#
+
 # Change ZSH_PLUGINS and ZSH_PLUGINS_SH to your preffered filenames/path
 # ZSH_PLUGINS is the text file containing your plugins to use with antibody
 # Append any plugins there
@@ -51,6 +51,8 @@ pathmunge () {
 }
 pathmunge "$HOME/.local/bin"
 
+colorscript random
+
 ###########
 # ALIASES #
 ###########
@@ -72,8 +74,16 @@ alias cat='bat --style header --style rules --style snip --style changes --style
 
 alias gittoken="cat $HOME/git/.git_token"
 
-
-alias luamake=/home/alex/lua-language-server/3rd/luamake/luamake
-
 # dmenu scripts
 alias edit-dotfile-dmenu="/bin/bash $HOME/.config/dmenu/edit-dotfile-dmenu.sh"
+
+# typos
+alias clera="clear"
+alias sduo="sudo"
+alias pacmna="pacman"
+alias sodu="sudo"
+alias pamcan="pacman"
+
+alias lua="lua5.2"
+
+alias mkcd="mkdir $1 && cd $1"

@@ -7,8 +7,8 @@ case $INPUT in
     qtile)
         nvim "$HOME/.config/qtile/config.py"
         ;;
-    alacritty)
-        nvim "$HOME/.config/alacritty/alacritty.yaml"
+    kitty)
+        nvim "$HOME/.config/kitty/kitty.conf"
         ;;
     picom)
         nvim "$HOME/.config/picom/picom.conf"

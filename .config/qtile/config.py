@@ -25,21 +25,14 @@
 # SOFTWARE.
 
 
-import os
-import re
-import socket
-import subprocess
-
 from typing import List  # noqa: F401
 
-from libqtile import qtile
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "kitty"
 
 keys = [
     # Switch between windows
@@ -112,7 +105,7 @@ layouts = [
     layout.Columns(
         border_focus_stack=['#d75f5f', '#8f3d3d'], 
         border_width=3,
-        margin=7,
+        margin=15,
     ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
