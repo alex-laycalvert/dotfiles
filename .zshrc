@@ -11,6 +11,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# turn off that horrible beep
+unsetopt BEEP
+
 # Mapping Caps to Esc so I don't develop carpal tunnel
 setxkbmap -option caps:escape
 
