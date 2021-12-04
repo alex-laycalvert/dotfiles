@@ -17,8 +17,41 @@ unsetopt BEEP
 # Mapping Caps to Esc so I don't develop carpal tunnel
 setxkbmap -option caps:escape
 
+## PROMPT
+#
 # Starship
-source <(/usr/bin/starship init zsh --print-full-init)
+#source <(/usr/bin/starship init zsh --print-full-init)
+#
+# Custom prompt
+# %/ %d = current dir
+# %~ = current dir with ~ for home
+# %l = tty
+# %M = full hostname
+# %m = hostname up to '.'
+# %n = username
+# %# = shell privilege state
+# %i = shell line number
+# %j = number of jobs
+# %D = date in yy-mm-dd
+# %T = time in 24 hr format
+# %t %@ = time in 12 hr format am/pm
+# %* = time in 24 hr format with seconds
+# %w = date in day-dd
+# %W = date in mm/dd/yy
+# %D{string} = date in strftime format of string
+# %B %b = start/stop bold
+# %E = clear to end of line
+# %U %u = start/stop underline
+# %S %s = start/stop standout 
+# %F{color} %f = start/stop foreground color
+# %K{color} %k = start/stop background color
+# %(X.true-text.false-text) = ternary op
+#
+
+setopt prompt_subst
+setopt prompt_percent
+setopt prompt_bang
+PROMPT="%K{blue} %~ %k%F{blue}%f "
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	startx
@@ -54,7 +87,7 @@ pathmunge () {
 }
 pathmunge "$HOME/.local/bin"
 
-colorscript random
+#colorscript random
 
 ###########
 # ALIASES #
@@ -90,3 +123,6 @@ alias pamcan="pacman"
 alias lua="lua5.2"
 
 alias mkcd="mkdir $1 && cd $1"
+
+# sourcing custom plugins
+alias custnvim="nvim --cmd \"set rtp+=$(pwd)\""
