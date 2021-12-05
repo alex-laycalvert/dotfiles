@@ -1,0 +1,81 @@
+## PROMPT
+#
+#
+# Custom prompt
+# %/ %d = current dir
+# %~ = current dir with ~ for home
+# %l = tty
+# %M = full hostname
+# %m = hostname up to '.'
+# %n = username
+# %# = shell privilege state
+# %i = shell line number
+# %j = number of jobs
+# %D = date in yy-mm-dd
+# %T = time in 24 hr format
+# %t %@ = time in 12 hr format am/pm
+# %* = time in 24 hr format with seconds
+# %w = date in day-dd
+# %W = date in mm/dd/yy
+# %D{string} = date in strftime format of string
+# %B %b = start/stop bold
+# %E = clear to end of line
+# %U %u = start/stop underline
+# %S %s = start/stop standout 
+# %F{color} %f = start/stop foreground color
+# %K{color} %k = start/stop background color
+# %(X.true-text.false-text) = ternary op
+#
+
+setopt prompt_subst
+setopt prompt_percent
+setopt prompt_bang
+
+SYSTEM_BG="black"
+USERNAME_FG="blue"
+HOSTNAME_FG="blue"
+DIRECTORY_BG="blue"
+DIRECTORY_FG="black"
+STATUS_BG="white"
+CMD_DURATION_BG="black"
+CMD_DURATION_FG="blue"
+
+SEG_SEP=''
+RSEG_SEP=''
+
+
+RAINBOW_PROMPT="%K{black}      %k%K{red}%F{black}%f      %k%K{green}%F{red}%f      %k%K{yellow}%F{green}%f      %k%K{blue}%F{yellow}%f      %k%K{magenta}%F{blue}%f      %k%K{cyan}%F{magenta}%f      %k%K{white}%F{cyan}%f      %k%F{white}%f "
+
+function create_prompt {
+    local tmp_prompt=""  
+    for i in {1..$#..4}
+    do
+        local bg_color=${@:$i:1}
+        local fg_color=${@:$i+1:1}
+        local text=${@:$i+2:1}
+        local seg_sep=${@:$i+3:1}
+        tmp_prompt=$tmp_prompt"%K{$bg_color}%F{$fg_color}$text%f%k"
+        if [[ $i -ne `expr $# - 3` ]]; then
+            next_bg_color=${@:$i+4:1}
+            tmp_prompt=$tmp_prompt"%K{$next_bg_color}%F{$bg_color}$seg_sep%f%k"
+        else
+            tmp_prompt=$tmp_prompt"%F{$bg_color}$seg_sep%f"
+        fi
+    done
+    echo $tmp_prompt
+}
+
+PROMPT="$(create_prompt white black ' %n@%m ' $SEG_SEP black white ' %~ ' $SEG_SEP) "
+
+function preexec {
+  timer=${timer:-$SECONDS}
+}
+
+function precmd {
+    if [ $timer ]; then
+        timer_show=$(($SECONDS - $timer))
+        #RPROMPT="%F{$CMD_DURATION_BG}%f%k%K{$CMD_DURATION_BG}%F{$CMD_DURATION_FG} ${timer_show}s %f%k%F{$STATUS_BG}%K{$CMD_DURATION_BG}%k%f%K{$STATUS_BG}%B%(0?.%F{green}  %f.%F{red} × %f)%b"
+        unset timer
+    fi
+}
+
