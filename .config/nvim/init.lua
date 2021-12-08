@@ -29,6 +29,8 @@ require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- colorschemes
+    use 'doums/darcula'
+    use 'rafi/awesome-vim-colorschemes'
     use 'olimorris/onedarkpro.nvim'
     use 'EdenEast/nightfox.nvim'
     use 'dracula/vim'
@@ -40,7 +42,28 @@ require('packer').startup(function(use)
     use 'ayu-theme/ayu-vim'
     use 'tomasr/molokai'
     use 'savq/melange'
+
+    -- filetree
+    use 'ms-jpq/chadtree'
+
+    -- lsp
+    --use 'neovim/nvim-lspconfig' -- lspconfig
+    use {'neoclide/coc.nvim', branch = 'release'} -- coc.nvim
+    use 'rhysd/vim-clang-format' -- cpp clang format
+
+    -- syntax highlighting
+    use 'jackguo380/vim-lsp-cxx-highlight' -- cpp
+
+    -- fuzzy finding
+    use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
+    -- commenting
+    use 'preservim/nerdcommenter'
 end)
+
+vim.cmd('let g:cpp_class_scope_highlight = 1')
+vim.cmd('let g:cpp_member_variable_highlight = 1')
+vim.cmd('let g:cpp_class_decl_highlight = 1')
 
 ---------------------
 -- EDITOR SETTINGS --
@@ -79,6 +102,22 @@ utils.opt('w', 'number', true)
 --utils.opt('w', 'relativenumber', true)
 utils.opt('o', 'clipboard','unnamed,unnamedplus')
 
+---------------
+-- LSPCONFIG --
+---------------
+--local lspconfig = require('lspconfig')
+--lspconfig.ccls.setup {
+--    init_options = {
+--        compilationDatabaseDirectory = "build";
+--        index = {
+--            threads = 0;
+--        };
+--        clang = {
+--            excludeArgs = { "-frounding-math"} ;
+--        };
+--    }
+--}
+
 -----------------
 -- COLORSCHEME --
 -----------------
@@ -105,6 +144,7 @@ utils.map('n', '<leader>qq','<cmd>q<CR>')
 utils.map('n', '<leader>QQ','<cmd>qall<CR>')
 utils.map('n', '<leader>wo', '<cmd>w!<CR>')
 utils.map('n', '<leader>qs', '<cmd>!qtile check<CR>')
+utils.map('n', '<leader>tr', '<cmd>CHADopen<CR>')
 utils.map('n', '<M-h>', '<cmd>wincmd h<CR>')
 utils.map('i', '<M-h>', '<cmd>wincmd h<CR>')
 utils.map('t', '<M-h>', '<cmd>wincmd h<CR>')
@@ -130,15 +170,23 @@ utils.map('n', '<M-L>', '<cmd>wincmd ><CR>')
 utils.map('i', '<M-L>', '<cmd>wincmd ><CR>')
 utils.map('t', '<M-L>', '<cmd>wincmd ><CR>')
 utils.map('n', '<M-PageUp>', 'gT<CR>')
+utils.map('t', '<M-PageUp>', 'gT<CR>')
 utils.map('i', '<M-PageUp>', 'gT<CR>')
 utils.map('n', '<M-PageDown>', 'gt<CR>')
+utils.map('t', '<M-PageDown>', 'gt<CR>')
 utils.map('i', '<M-PageDown>', 'gt<CR>')
 utils.map('n', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
+utils.map('t', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
 utils.map('i', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
 utils.map('n', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
+utils.map('t', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 utils.map('i', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 utils.map('n', '<leader>hs', '<cmd>vsplit<CR>')
 utils.map('n', '<leader>vs', '<cmd>split<CR>')
 utils.map('n', '<leader>ot', '<cmd>terminal<CR>')
 utils.map('n', '<leader>vt', '<cmd>split<CR><cmd>terminal<CR>i')
 utils.map('n', '<leader>ht', '<cmd>vsplit<CR><cmd>terminal<CR>i')
+utils.map('n', '<leader>cf', '<cmd>ClangFormat<CR>')
+utils.map('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
+utils.map('n', '<leader>nh', '<cmd>noh<CR>')
+utils.map('n', '<leader>co', '<leader>c<space>')

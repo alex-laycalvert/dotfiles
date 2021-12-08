@@ -26,7 +26,6 @@
 
 
 from typing import List  # noqa: F401
-
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
@@ -81,7 +80,7 @@ keys = [
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
 
-    Key([mod, "control"], "d", lazy.spawn("edit-dotfile-dmenu"), desc="Spawn a dmenu to configure dotfiles faster"),
+    Key([mod, "control"], "d", lazy.spawn("bash /home/alex/scripts/edit-dotfile.sh"), desc="Spawn a dmenu to configure dotfiles faster"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -126,9 +125,10 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='monospace',
+    font='SauceCodePro Nerd Font',
     fontsize=16,
     padding=10,
+    background='#202030',
 )
 extension_defaults = widget_defaults.copy()
 
@@ -147,7 +147,6 @@ screens = [
 
                 widget.Clock(
                     format='%a %I:%M %p %Y-%m-%d',
-                    background='FF0000'
                 ),
 
                 widget.CryptoTicker(
@@ -157,7 +156,6 @@ screens = [
                 widget.BatteryIcon(),
 
                 widget.Battery(
-                    font="monospace",
                     format="{percent:2.0%} {hour:d}:{min:02d}",
                 ),
 

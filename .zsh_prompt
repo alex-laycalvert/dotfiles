@@ -27,23 +27,16 @@
 # %(X.true-text.false-text) = ternary op
 #
 
-setopt prompt_subst
-setopt prompt_percent
-setopt prompt_bang
-
-SYSTEM_BG="black"
-USERNAME_FG="blue"
-HOSTNAME_FG="blue"
-DIRECTORY_BG="blue"
-DIRECTORY_FG="black"
-STATUS_BG="white"
-CMD_DURATION_BG="black"
-CMD_DURATION_FG="blue"
+setopt PROMPT_SUBST
+setopt PROMPT_PERCENT
+setopt PROMPT_BANG
 
 SEG_SEP=''
+PIXEL_SQ=''
 RSEG_SEP=''
-
-
+GIT_SYMBOL=''
+STATUS_GOOD=''
+STATUS_BAD='×'
 RAINBOW_PROMPT="%K{black}      %k%K{red}%F{black}%f      %k%K{green}%F{red}%f      %k%K{yellow}%F{green}%f      %k%K{blue}%F{yellow}%f      %k%K{magenta}%F{blue}%f      %k%K{cyan}%F{magenta}%f      %k%K{white}%F{cyan}%f      %k%F{white}%f "
 
 function create_prompt {
@@ -56,7 +49,7 @@ function create_prompt {
         local seg_sep=${@:$i+3:1}
         tmp_prompt=$tmp_prompt"%K{$bg_color}%F{$fg_color}$text%f%k"
         if [[ $i -ne `expr $# - 3` ]]; then
-            next_bg_color=${@:$i+4:1}
+            local next_bg_color=${@:$i+4:1}
             tmp_prompt=$tmp_prompt"%K{$next_bg_color}%F{$bg_color}$seg_sep%f%k"
         else
             tmp_prompt=$tmp_prompt"%F{$bg_color}$seg_sep%f"
@@ -65,17 +58,44 @@ function create_prompt {
     echo $tmp_prompt
 }
 
-PROMPT="$(create_prompt white black ' %n@%m ' $SEG_SEP black white ' %~ ' $SEG_SEP) "
+function create_rprompt {
+    local tmp_prompt=""  
+    for i in {1..$#..4}
+    do
+        local bg_color=${@:$i:1}
+        local fg_color=${@:$i+1:1}
+        local text=${@:$i+2:1}
+        local seg_sep=${@:$i+3:1}
+        if [[ $i -ne 1 ]]; then
+            local prev_bg_color=${@:$i-4:1}
+            tmp_prompt=$tmp_prompt"%K{$prev_bg_color}%F{$bg_color}$seg_sep%f%k"
+        else
+            tmp_prompt="%F{$bg_color}$seg_sep%f"
+        fi
+        tmp_prompt=$tmp_prompt"%K{$bg_color}%F{$fg_color}$text%f%k"
+    done
+    echo $tmp_prompt
+}
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats "on $GIT_SYMBOL %b"
 
 function preexec {
   timer=${timer:-$SECONDS}
 }
 
 function precmd {
-    if [ $timer ]; then
-        timer_show=$(($SECONDS - $timer))
-        #RPROMPT="%F{$CMD_DURATION_BG}%f%k%K{$CMD_DURATION_BG}%F{$CMD_DURATION_FG} ${timer_show}s %f%k%F{$STATUS_BG}%K{$CMD_DURATION_BG}%k%f%K{$STATUS_BG}%B%(0?.%F{green}  %f.%F{red} × %f)%b"
-        unset timer
+    vcs_info
+    if [[ -z "${vcs_info_msg_0_// }" ]]; then
+        PROMPT="$(create_prompt '#303035' blue ' %n@%m ' $SEG_SEP blue black ' %~ ' $SEG_SEP) "
+    else
+        PROMPT="$(create_prompt '#303035' blue ' %n@%m ' $SEG_SEP blue black ' %~ ' $SEG_SEP '#303035' blue " $vcs_info_msg_0_ " $SEG_SEP) "
     fi
+    #if [ $timer ]; then
+    #   timer_show=$(($SECONDS - $timer))
+    #   RPROMPT='$(create_rprompt black white "%{0?.$STATUS_GOOD.$STATUS_BAD%}" $RSEG_SEP white black $timer_show $RSEG_SEP)'
+    #   RPROMPT="%F{white}$RSEG_SEP%f%K{white}%%F{black}{0?.$STATUS_GOOD.$STATUS_BAD%}%f%F{white}$RSEG_SEP%f%k%K{white}%F{black}$timer_show%f%k"
+    #   unset timer
+    #fi
 }
 

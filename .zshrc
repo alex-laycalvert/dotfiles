@@ -1,3 +1,12 @@
+set bell-style visible
+# 
+# alex-laycalvert
+#
+# .zshrc
+#
+
+EDITOR=nvim
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -78,9 +87,6 @@ alias cat='bat --style header --style rules --style snip --style changes --style
 
 alias gittoken="cat $HOME/git/.git_token"
 
-# dmenu scripts
-alias edit-dotfile-dmenu="/bin/bash $HOME/.config/dmenu/edit-dotfile-dmenu.sh"
-
 # typos
 alias clera="clear"
 alias sduo="sudo"
@@ -94,3 +100,4 @@ alias mkcd="mkdir $1 && cd $1"
 
 # sourcing custom plugins
 alias custnvim="nvim --cmd \"set rtp+=$(pwd)\""
+alias celra=clear
