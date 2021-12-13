@@ -126,11 +126,28 @@ layouts = [
 
 widget_defaults = dict(
     font='SauceCodePro Nerd Font',
-    fontsize=16,
+    fontsize=18,
     padding=10,
     background='#202030',
 )
 extension_defaults = widget_defaults.copy()
+
+red = 'ff5555'
+green = '50fa7b'
+yellow = 'f0fa8b'
+gold = 'ffcc33'
+blue = '2c79d9'
+magenta = 'ff78c5'
+cyan = '8ae9fc'
+lightGray = '505060'
+darkGray = '303045'
+black = '000000'
+
+widgetLSep = ''
+widgetRSep = ''
+widgetSepSize = 24 
+
+showFullClockWidgetFormat = False
 
 screens = [
     Screen(
@@ -145,23 +162,94 @@ screens = [
                 
                 widget.Systray(),
 
-                widget.Clock(
-                    format='%a %I:%M %p %Y-%m-%d',
+                widget.TextBox(
+                    foreground = lightGray,
+                    text = widgetRSep,
+                    padding = 0,
+                    fontsize = widgetSepSize,
                 ),
 
                 widget.CryptoTicker(
-                    update_interval=120
+                    crypto = "ETH",
+                    background = lightGray,
+                    foreground = magenta,
+                    #format = ' {symbol}{amount}',
+                    format = 'ﲹ',
+                    update_interval=60,
                 ),
 
-                widget.BatteryIcon(),
+                widget.TextBox(
+                    background = lightGray,
+                    foreground = darkGray,
+                    text = widgetRSep,
+                    padding = 0,
+                    fontsize = widgetSepSize,
+                ),
+
+                widget.CryptoTicker(
+                    background = darkGray,
+                    foreground = gold,
+                    #format = ' {symbol}{amount}',
+                    format = '',
+                    update_interval=60,
+                ),
+
+                widget.TextBox(
+                    background = darkGray,
+                    foreground = lightGray,
+                    text = widgetRSep,
+                    padding = 0,
+                    fontsize = widgetSepSize,
+                ),
+
+                widget.Volume(
+                    background = lightGray,
+                    foreground = red,
+                    emoji = True,
+                ),
+
+                widget.TextBox(
+                    background = lightGray,
+                    foreground = darkGray,
+                    text = widgetRSep,
+                    padding = 0,
+                    fontsize = widgetSepSize,
+                ),
+
+                widget.Clock(
+                    background = darkGray,
+                    foreground = blue,
+                    #format = '%a %I:%M %p %Y-%m-%d',
+                    #mouse_callbacks = { 'Button1': lambda: showFullClockWidgetFormat = not showFullClockWidgetFormat},
+                    format = 'Fuck you it\'s %H:%M',
+                ),
+
+
+                widget.TextBox(
+                    background = darkGray,
+                    foreground = lightGray,
+                    text = widgetRSep,
+                    padding = 0,
+                    fontsize = widgetSepSize,
+                ),
+
+                #widget.BatteryIcon(),
 
                 widget.Battery(
-                    format="{percent:2.0%} {hour:d}:{min:02d}",
+                    discharge_char = '',
+                    charge_char = '',
+                    full_char = '',
+                    empty_char = '',
+                    unknown_char = '',
+                    background = lightGray,
+                    foreground = green,
+                    format="{char} {percent:2.0%}",
+                    update_interval = 30,
                 ),
 
-                widget.Volume(),
             ],
-            24,
+            27,
+            opacity = 0.8,
         ),
     ),
 ]

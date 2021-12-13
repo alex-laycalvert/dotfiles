@@ -16,8 +16,9 @@
                     "onChange": true
                 },
                 // This is mandatory!
-                "highlight": { "lsRanges" : true }
+                "highlight": { "lsRanges": true }
             }
         }
-    }
+    },
+    "prettier.tabWidth": 4
 }

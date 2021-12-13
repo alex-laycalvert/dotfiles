@@ -24,8 +24,8 @@ compinit
 unsetopt BEEP
 
 # Starship
-#source <(/usr/bin/starship init zsh --print-full-init)
-source ~/.zsh_prompt
+source <(/usr/bin/starship init zsh --print-full-init)
+#source ~/.zsh_prompt
 
 # Mapping Caps to Esc so I don't develop carpal tunnel
 setxkbmap -option caps:escape
@@ -100,4 +100,5 @@ alias mkcd="mkdir $1 && cd $1"
 
 # sourcing custom plugins
 alias custnvim="nvim --cmd \"set rtp+=$(pwd)\""
-alias celra=clear
+alias celra="clear"
+alias ip="ip -color"

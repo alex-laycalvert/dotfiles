@@ -15,6 +15,7 @@
 ----------------
 vim.g.mapleader = ' '
 vim.g.timeoutlen = 2000
+vim.cmd('set mouse=nvi')
 
 -------------
 -- PLUGINS --
@@ -45,25 +46,42 @@ require('packer').startup(function(use)
 
     -- filetree
     use 'ms-jpq/chadtree'
+    use 'preservim/nerdtree'
+    use 'tpope/vim-fugitive'
+    use 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     -- lsp
     --use 'neovim/nvim-lspconfig' -- lspconfig
     use {'neoclide/coc.nvim', branch = 'release'} -- coc.nvim
     use 'rhysd/vim-clang-format' -- cpp clang format
 
-    -- syntax highlighting
+    -- syntax 
     use 'jackguo380/vim-lsp-cxx-highlight' -- cpp
+    --use 'mxw/vim-jsx'
+    use 'pangloss/vim-javascript'
+    --use 'neoclide/vim-jsx-improve'
+
+    -- auto close brackets
+    use 'jiangmiao/auto-pairs'
 
     -- fuzzy finding
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
-    -- commenting
-    use 'preservim/nerdcommenter'
+    -- status line
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+
+    -- icons
+    use 'ryanoasis/vim-devicons'
 end)
 
 vim.cmd('let g:cpp_class_scope_highlight = 1')
 vim.cmd('let g:cpp_member_variable_highlight = 1')
 vim.cmd('let g:cpp_class_decl_highlight = 1')
+vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.formatFile')
+
 
 ---------------------
 -- EDITOR SETTINGS --
@@ -102,22 +120,6 @@ utils.opt('w', 'number', true)
 --utils.opt('w', 'relativenumber', true)
 utils.opt('o', 'clipboard','unnamed,unnamedplus')
 
----------------
--- LSPCONFIG --
----------------
---local lspconfig = require('lspconfig')
---lspconfig.ccls.setup {
---    init_options = {
---        compilationDatabaseDirectory = "build";
---        index = {
---            threads = 0;
---        };
---        clang = {
---            excludeArgs = { "-frounding-math"} ;
---        };
---    }
---}
-
 -----------------
 -- COLORSCHEME --
 -----------------
@@ -131,11 +133,32 @@ vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
 vim.cmd 'autocmd BufWinEnter,WinEnter term://* startinsert'
 vim.cmd 'autocmd BufWritePost /home/alex/.config/nvim/*.lua :luafile %'
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+vim.cmd 'autocmd DirChanged global :NERDTreeCWD'
+vim.cmd 'autocmd BufWritePre *.c,*.cpp,*.h,*.hpp :ClangFormat'
+vim.cmd 'autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue CocCommand prettier.formatFile'
+
+-------------
+-- LUALINE --
+-------------
+require('lualine').setup()
+
+-------------------
+-- NERD/CHADTree --
+-------------------
+vim.cmd('let NERDTreeAutoDeleteBuffer = 1')
+vim.cmd('let NERDTreeMinimalUI = 1')
+vim.cmd('let NERDTreeDirArrows = 1')
+vim.cmd('let g:NERDTreeShowHidden = 1')
+
 
 -----------------
 -- KEYMAPPINGS --
 -----------------
+
+-- exit terminal mode
 utils.map('t', '<Esc>', '<C-\\><C-N>')
+
+-- writing and saving
 utils.map('n', '<leader>ww','<cmd>w<CR>')
 utils.map('n', '<leader>WW','<cmd>wall<CR>')
 utils.map('n', '<leader>wq','<cmd>wq<CR>')
@@ -143,8 +166,14 @@ utils.map('n', '<leader>WQ','<cmd>wqall<CR>')
 utils.map('n', '<leader>qq','<cmd>q<CR>')
 utils.map('n', '<leader>QQ','<cmd>qall<CR>')
 utils.map('n', '<leader>wo', '<cmd>w!<CR>')
+
+-- qtile
 utils.map('n', '<leader>qs', '<cmd>!qtile check<CR>')
-utils.map('n', '<leader>tr', '<cmd>CHADopen<CR>')
+
+-- opening a file tree
+utils.map('n', '<leader>tr', '<cmd>NERDTreeToggle<CR>')
+
+-- moving around windows
 utils.map('n', '<M-h>', '<cmd>wincmd h<CR>')
 utils.map('i', '<M-h>', '<cmd>wincmd h<CR>')
 utils.map('t', '<M-h>', '<cmd>wincmd h<CR>')
@@ -169,6 +198,8 @@ utils.map('t', '<M-K>', '<cmd>wincmd +<CR>')
 utils.map('n', '<M-L>', '<cmd>wincmd ><CR>')
 utils.map('i', '<M-L>', '<cmd>wincmd ><CR>')
 utils.map('t', '<M-L>', '<cmd>wincmd ><CR>')
+
+-- moving around tabs
 utils.map('n', '<M-PageUp>', 'gT<CR>')
 utils.map('t', '<M-PageUp>', 'gT<CR>')
 utils.map('i', '<M-PageUp>', 'gT<CR>')
@@ -181,12 +212,22 @@ utils.map('i', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
 utils.map('n', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 utils.map('t', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 utils.map('i', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
+
+-- spliting windows
 utils.map('n', '<leader>hs', '<cmd>vsplit<CR>')
 utils.map('n', '<leader>vs', '<cmd>split<CR>')
 utils.map('n', '<leader>ot', '<cmd>terminal<CR>')
 utils.map('n', '<leader>vt', '<cmd>split<CR><cmd>terminal<CR>i')
 utils.map('n', '<leader>ht', '<cmd>vsplit<CR><cmd>terminal<CR>i')
-utils.map('n', '<leader>cf', '<cmd>ClangFormat<CR>')
+
+-- telescope plugin
 utils.map('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
+
+-- I hate highlighting
 utils.map('n', '<leader>nh', '<cmd>noh<CR>')
-utils.map('n', '<leader>co', '<leader>c<space>')
+
+-- Packer
+utils.map('n', '<leader>pi', '<cmd>PackerInstall<CR>');
+utils.map('n', '<leader>pu', '<cmd>PackerUpdate<CR>');
+
+
