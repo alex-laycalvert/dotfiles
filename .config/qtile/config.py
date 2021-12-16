@@ -103,6 +103,7 @@ for i in groups:
 layouts = [
     layout.Columns(
         border_focus_stack=['#d75f5f', '#8f3d3d'], 
+        #border_focus_stack=['#e49070', '#ffffff'], 
         border_width=3,
         margin=15,
     ),
@@ -139,9 +140,12 @@ gold = 'ffcc33'
 blue = '2c79d9'
 magenta = 'ff78c5'
 cyan = '8ae9fc'
-lightGray = '505060'
+lightGray = '404050'
 darkGray = '303045'
 black = '000000'
+orangeBrown = 'e49070'
+bitcoinGold = 'ffcc33'
+ethereumGold = 'e068b5'
 
 widgetLSep = ''
 widgetRSep = ''
@@ -162,36 +166,51 @@ screens = [
                 
                 widget.Systray(),
 
-                widget.TextBox(
-                    foreground = lightGray,
-                    text = widgetRSep,
-                    padding = 0,
-                    fontsize = widgetSepSize,
-                ),
+                #widget.TextBox(
+                #    foreground = lightGray,
+                #    text = widgetRSep,
+                #    padding = 0,
+                #    fontsize = widgetSepSize,
+                #),
 
-                widget.CryptoTicker(
-                    crypto = "ETH",
-                    background = lightGray,
-                    foreground = magenta,
-                    #format = ' {symbol}{amount}',
-                    format = 'ﲹ',
-                    update_interval=60,
-                ),
+                #widget.CryptoTicker(
+                #    crypto = "ETH",
+                #    background = lightGray,
+                #    foreground = ethereumGold,
+                #    #format = ' {symbol}{amount}',
+                #    format = '{amount} ﲹ',
+                #    update_interval=60,
+                #),
+
+                #widget.TextBox(
+                #    background = lightGray,
+                #    foreground = darkGray,
+                #    text = widgetRSep,
+                #    padding = 0,
+                #    fontsize = widgetSepSize,
+                #),
+
+                #widget.CryptoTicker(
+                #    background = darkGray,
+                #    foreground = bitcoinGold,
+                #    format = ' {amount}',
+                #    update_interval=60,
+                #),
 
                 widget.TextBox(
-                    background = lightGray,
+                    #background = lightGray,
                     foreground = darkGray,
                     text = widgetRSep,
                     padding = 0,
                     fontsize = widgetSepSize,
                 ),
 
-                widget.CryptoTicker(
+                widget.Clock(
                     background = darkGray,
-                    foreground = gold,
-                    #format = ' {symbol}{amount}',
-                    format = '',
-                    update_interval=60,
+                    foreground = orangeBrown,
+                    #format = '%a %I:%M %p %Y-%m-%d',
+                    #mouse_callbacks = { 'Button1': lambda: showFullClockWidgetFormat = not showFullClockWidgetFormat},
+                    format = '%H:%M',
                 ),
 
                 widget.TextBox(
@@ -204,30 +223,15 @@ screens = [
 
                 widget.Volume(
                     background = lightGray,
-                    foreground = red,
+                    foreground = orangeBrown,
                     emoji = True,
                 ),
+
+
 
                 widget.TextBox(
                     background = lightGray,
                     foreground = darkGray,
-                    text = widgetRSep,
-                    padding = 0,
-                    fontsize = widgetSepSize,
-                ),
-
-                widget.Clock(
-                    background = darkGray,
-                    foreground = blue,
-                    #format = '%a %I:%M %p %Y-%m-%d',
-                    #mouse_callbacks = { 'Button1': lambda: showFullClockWidgetFormat = not showFullClockWidgetFormat},
-                    format = 'Fuck you it\'s %H:%M',
-                ),
-
-
-                widget.TextBox(
-                    background = darkGray,
-                    foreground = lightGray,
                     text = widgetRSep,
                     padding = 0,
                     fontsize = widgetSepSize,
@@ -241,8 +245,8 @@ screens = [
                     full_char = '',
                     empty_char = '',
                     unknown_char = '',
-                    background = lightGray,
-                    foreground = green,
+                    background = darkGray,
+                    foreground = orangeBrown,
                     format="{char} {percent:2.0%}",
                     update_interval = 30,
                 ),
