@@ -75,7 +75,12 @@ require('packer').startup(function(use)
 
     -- icons
     use 'ryanoasis/vim-devicons'
+
+    -- commenter
+    use 'terrortylor/nvim-comment'
 end)
+
+require('nvim_comment').setup()
 
 vim.cmd('let g:cpp_class_scope_highlight = 1')
 vim.cmd('let g:cpp_member_variable_highlight = 1')
@@ -124,7 +129,7 @@ utils.opt('o', 'clipboard','unnamed,unnamedplus')
 -- COLORSCHEME --
 -----------------
 vim.opt.termguicolors = true
-vim.cmd('colorscheme dracula')
+vim.cmd('colorscheme melange')
 vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
 
 ------------------
@@ -230,4 +235,8 @@ utils.map('n', '<leader>nh', '<cmd>noh<CR>')
 utils.map('n', '<leader>pi', '<cmd>PackerInstall<CR>');
 utils.map('n', '<leader>pu', '<cmd>PackerUpdate<CR>');
 
+-- commenting
+utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
+utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
+utils.map('v', '<M-/>', "<cmd>'<,'>CommentToggle<CR>")
 

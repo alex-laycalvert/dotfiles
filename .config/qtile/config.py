@@ -26,11 +26,13 @@
 
 
 from typing import List  # noqa: F401
+from libqtile import qtile
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 
 mod = "mod4"
+
 terminal = "kitty"
 
 keys = [
@@ -80,7 +82,6 @@ keys = [
     Key([mod], "r", lazy.spawncmd(),
         desc="Spawn a command using a prompt widget"),
 
-    Key([mod, "control"], "d", lazy.spawn("bash /home/alex/scripts/edit-dotfile.sh"), desc="Spawn a dmenu to configure dotfiles faster"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -108,7 +109,6 @@ layouts = [
         margin=15,
     ),
     layout.Max(),
-    # Try more layouts by unleashing below layouts.
     #layout.Stack(num_stacks=2),
     # layout.Bsp(),
     #layout.Matrix(
@@ -153,49 +153,57 @@ widgetSepSize = 24
 
 showFullClockWidgetFormat = False
 
+gmailCheckerFormat = ' {0}'
+showShortGmailCheckerFormat = True
+
+def toggleGmailCheckerFormat():
+    global showShortGmailCheckerFormat
+    global gmailCheckerFormat
+    if showShortGmailCheckerFormat:
+        gmailCheckerFormat = ''
+    else:
+        gmailCheckerFormat = ' {0}'
+    showShortGmailCheckerFormat = not showShortGmailCheckerFormat
+
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    hide_unused=True
-                ),
-                widget.Prompt(),
+                    background = darkGray,
+                    hide_unused=True,
+                    foreground = orangeBrown,
+                    ),
+
+                widget.TextBox(
+                    background = lightGray,
+                    foreground = darkGray,
+                    text = widgetLSep,
+                    padding = 0,
+                    fontsize = widgetSepSize,
+                    ),
+
+                widget.Prompt(
+                    foreground = orangeBrown,
+                    background = lightGray,
+                    ),
                 
-                widget.WindowName(),
-                
-                widget.Systray(),
+                widget.TextBox(
+                    foreground = lightGray,
+                    text = widgetLSep,
+                    padding = 0,
+                    fontsize = widgetSepSize,
+                    ),
 
-                #widget.TextBox(
-                #    foreground = lightGray,
-                #    text = widgetRSep,
-                #    padding = 0,
-                #    fontsize = widgetSepSize,
-                #),
+                widget.WindowName(
+                    foreground = orangeBrown,
+                    ),
 
-                #widget.CryptoTicker(
-                #    crypto = "ETH",
-                #    background = lightGray,
-                #    foreground = ethereumGold,
-                #    #format = ' {symbol}{amount}',
-                #    format = '{amount} ﲹ',
-                #    update_interval=60,
-                #),
+                widget.Systray(
+                    foreground = orangeBrown,
+                    ),
 
-                #widget.TextBox(
-                #    background = lightGray,
-                #    foreground = darkGray,
-                #    text = widgetRSep,
-                #    padding = 0,
-                #    fontsize = widgetSepSize,
-                #),
-
-                #widget.CryptoTicker(
-                #    background = darkGray,
-                #    foreground = bitcoinGold,
-                #    format = ' {amount}',
-                #    update_interval=60,
-                #),
+                ##############################
 
                 widget.TextBox(
                     #background = lightGray,
@@ -203,31 +211,29 @@ screens = [
                     text = widgetRSep,
                     padding = 0,
                     fontsize = widgetSepSize,
-                ),
+                    ),
 
                 widget.Clock(
                     background = darkGray,
                     foreground = orangeBrown,
                     #format = '%a %I:%M %p %Y-%m-%d',
-                    #mouse_callbacks = { 'Button1': lambda: showFullClockWidgetFormat = not showFullClockWidgetFormat},
                     format = '%H:%M',
-                ),
+                    ),
 
                 widget.TextBox(
-                    background = darkGray,
                     foreground = lightGray,
+                    background = darkGray,
                     text = widgetRSep,
                     padding = 0,
                     fontsize = widgetSepSize,
-                ),
+                    ),
 
-                widget.Volume(
+                widget.CryptoTicker(
                     background = lightGray,
                     foreground = orangeBrown,
-                    emoji = True,
-                ),
-
-
+                    format = ' {amount}',
+                    update_interval=60,
+                    ),
 
                 widget.TextBox(
                     background = lightGray,
@@ -235,9 +241,39 @@ screens = [
                     text = widgetRSep,
                     padding = 0,
                     fontsize = widgetSepSize,
-                ),
+                    ),
 
-                #widget.BatteryIcon(),
+                widget.GmailChecker(
+                    background = darkGray,
+                    foreground = orangeBrown,
+                    username = 'alex.laycalvert',
+                    password = 'caawevezsbctlnxs',
+                    email_path = 'INBOX',
+                    display_fmt = gmailCheckerFormat,
+                    mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn('brave https://gmail.com') },
+                    ),
+
+                widget.TextBox(
+                    background = darkGray,
+                    foreground = lightGray,
+                    text = widgetRSep,
+                    padding = 0,
+                    fontsize = widgetSepSize,
+                    ),
+
+                widget.Volume(
+                    background = lightGray,
+                    foreground = orangeBrown,
+                    emoji = True,
+                    ),
+
+                widget.TextBox(
+                    background = lightGray,
+                    foreground = darkGray,
+                    text = widgetRSep,
+                    padding = 0,
+                    fontsize = widgetSepSize,
+                    ),
 
                 widget.Battery(
                     discharge_char = '',
@@ -249,7 +285,7 @@ screens = [
                     foreground = orangeBrown,
                     format="{char} {percent:2.0%}",
                     update_interval = 30,
-                ),
+                    ),
 
             ],
             27,

@@ -35,3 +35,4 @@ picom &
 nitrogen --restore
 xrandr --output HDMI1 --right-of eDP1 --auto --primary
 #exec qtile start
+#exec qtile start

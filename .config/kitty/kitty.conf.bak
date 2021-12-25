@@ -1,9 +1,10 @@
-# Font
-font_family     RobotoMono Nerd Font
-font_size       16
+# Font 
+font_family SauceCodePro Nerd Font 
+font_size 14
 
-# Colorscheme
-background_opacity 0.80 
-include themes/Afterglow.conf
+# Colorscheme 
+background_opacity 0.80
+include themes/Dracula_cust.conf
 
-
+# that stupid f'in bell
+enable_audio_bell no

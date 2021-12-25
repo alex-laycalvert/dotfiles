@@ -63,6 +63,7 @@ pathmunge () {
         fi
 }
 pathmunge "$HOME/.local/bin"
+pathmunge "$HOME/.cargo/bin"
 
 #colorscript random
 
@@ -84,8 +85,9 @@ alias l.="exa -a | egrep '^\.'"                                     # show only 
 # Replace some more things with better alternatives
 alias cat='bat --style header --style rules --style snip --style changes --style header'
 #[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
-
 alias gittoken="cat $HOME/git/.git_token"
+alias cargotoken="cat $HOME/git/.cargo_token"
+
 
 # typos
 alias clera="clear"
@@ -93,12 +95,15 @@ alias sduo="sudo"
 alias pacmna="pacman"
 alias sodu="sudo"
 alias pamcan="pacman"
-
 alias lua="lua5.2"
-
 alias mkcd="mkdir $1 && cd $1"
-
-# sourcing custom plugins
 alias custnvim="nvim --cmd \"set rtp+=$(pwd)\""
 alias celra="clear"
 alias ip="ip -color"
+alias celar="clear"
+alias cjear="clear"
+alias ckear="clear"
+
+eval $(thefuck --alias)
+
+colorscript -r
