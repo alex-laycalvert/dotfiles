@@ -774,7 +774,8 @@
       },
       "sysPrefix": "/usr",
       "fileHash": "032de7e97049596df4220565b34f5e8ad44ab922b623844fd6ea39e9c177030a103a249fb1637516467d74229f8b01f66aafe38094343e53dc2238682247bd6a",
-      "type": "Unknown"
+      "type": "Unknown",
+      "cachedEntry": true
     },
     "preferredGlobalPyInterpreter": {
       "architecture": 3,
@@ -822,6 +823,7 @@
       "sysPrefix": "/usr",
       "fileHash": "032de7e97049596df4220565b34f5e8ad44ab922b623844fd6ea39e9c177030a103a249fb1637516467d74229f8b01f66aafe38094343e53dc2238682247bd6a",
       "type": "Unknown",
+      "cachedEntry": true,
       "displayName": "Python 3.10.1 64-bit"
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
