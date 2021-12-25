@@ -87,7 +87,7 @@ alias cat='bat --style header --style rules --style snip --style changes --style
 #[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 alias gittoken="cat $HOME/git/.git_token"
 alias cargotoken="cat $HOME/git/.cargo_token"
-
+alias gitss="git remote set-url origin git@github.com:alex-laycalvert/$(pwd | awk -F\/ '{print $(NF)}')"
 
 # typos
 alias clera="clear"
