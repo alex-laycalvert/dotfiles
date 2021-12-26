@@ -5,7 +5,13 @@ set bell-style visible
 # .zshrc
 #
 
-EDITOR=nvim
+export EDITOR=nvim
+
+export CHANGE_THEME_SCRIPT_DIR="$HOME/git/mythemes"
+export STARSHIP_THEME_DIR="$HOME/.config"
+export KITTY_THEME_DIR="$HOME/.config/kitty"
+export QTILE_THEME_DIR="$HOME/.config/qtile"
+export NVIM_THEME_DIR="$HOME/.config/nvim"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -64,6 +70,8 @@ pathmunge () {
 }
 pathmunge "$HOME/.local/bin"
 pathmunge "$HOME/.cargo/bin"
+pathmunge "$HOME/git/fun-scripts/christmas/"
+pathmunge "$HOME/git/fun-scripts/new-years/"
 
 #colorscript random
 

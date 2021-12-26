@@ -25,11 +25,13 @@
 # SOFTWARE.
 
 
+import os
 from typing import List  # noqa: F401
 from libqtile import qtile
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+from libqtile.log_utils import logger
 
 mod = "mod4"
 alt = "mod1"
@@ -149,21 +151,14 @@ ethereumGold = 'e068b5'
 
 widgetLSep = ''
 widgetRSep = ''
-widgetSepSize = 24 
+widgetSepSize = 24
 
-showFullClockWidgetFormat = False
-
-gmailCheckerFormat = ' {0}'
-showShortGmailCheckerFormat = True
-
-def toggleGmailCheckerFormat():
-    global showShortGmailCheckerFormat
-    global gmailCheckerFormat
-    if showShortGmailCheckerFormat:
-        gmailCheckerFormat = ''
-    else:
-        gmailCheckerFormat = ' {0}'
-    showShortGmailCheckerFormat = not showShortGmailCheckerFormat
+gmailUsernameFile = open("/home/alex/.cred/gmail/username")
+gmailPasswordFile = open("/home/alex/.cred/gmail/password")
+gmailUsername = gmailUsernameFile.read().strip()
+gmailPassword = gmailPasswordFile.read().strip()
+gmailUsernameFile.close()
+gmailPasswordFile.close()
 
 screens = [
     Screen(
@@ -206,7 +201,6 @@ screens = [
                 ##############################
 
                 widget.TextBox(
-                    #background = lightGray,
                     foreground = darkGray,
                     text = widgetRSep,
                     padding = 0,
@@ -216,7 +210,6 @@ screens = [
                 widget.Clock(
                     background = darkGray,
                     foreground = orangeBrown,
-                    #format = '%a %I:%M %p %Y-%m-%d',
                     format = '%H:%M',
                     ),
 
@@ -246,10 +239,10 @@ screens = [
                 widget.GmailChecker(
                     background = darkGray,
                     foreground = orangeBrown,
-                    username = 'alex.laycalvert',
-                    password = 'caawevezsbctlnxs',
+                    username = gmailUsername,
+                    password = gmailPassword,
                     email_path = 'INBOX',
-                    display_fmt = gmailCheckerFormat,
+                    display_fmt = ' {0}',
                     mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn('brave https://gmail.com') },
                     ),
 
