@@ -25,13 +25,11 @@
 # SOFTWARE.
 
 
-import os
 from typing import List  # noqa: F401
 from libqtile import qtile
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.log_utils import logger
 
 mod = "mod4"
 alt = "mod1"
@@ -135,23 +133,13 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-red = 'ff5555'
-green = '50fa7b'
-yellow = 'f0fa8b'
-gold = 'ffcc33'
-blue = '2c79d9'
-magenta = 'ff78c5'
-cyan = '8ae9fc'
 lightGray = '404050'
 darkGray = '303045'
-black = '000000'
-orangeBrown = 'e49070'
-bitcoinGold = 'ffcc33'
-ethereumGold = 'e068b5'
+text = 'e49070'
 
 widgetLSep = ''
 widgetRSep = ''
-widgetSepSize = 24
+widgetSepSize = 24 
 
 gmailUsernameFile = open("/home/alex/.cred/gmail/username")
 gmailPasswordFile = open("/home/alex/.cred/gmail/password")
@@ -167,7 +155,7 @@ screens = [
                 widget.GroupBox(
                     background = darkGray,
                     hide_unused=True,
-                    foreground = orangeBrown,
+                    foreground = text,
                     ),
 
                 widget.TextBox(
@@ -179,7 +167,7 @@ screens = [
                     ),
 
                 widget.Prompt(
-                    foreground = orangeBrown,
+                    foreground = text,
                     background = lightGray,
                     ),
                 
@@ -191,16 +179,17 @@ screens = [
                     ),
 
                 widget.WindowName(
-                    foreground = orangeBrown,
+                    foreground = text,
                     ),
 
                 widget.Systray(
-                    foreground = orangeBrown,
+                    foreground = text,
                     ),
 
                 ##############################
 
                 widget.TextBox(
+                    #background = lightGray,
                     foreground = darkGray,
                     text = widgetRSep,
                     padding = 0,
@@ -209,7 +198,8 @@ screens = [
 
                 widget.Clock(
                     background = darkGray,
-                    foreground = orangeBrown,
+                    foreground = text,
+                    #format = '%a %I:%M %p %Y-%m-%d',
                     format = '%H:%M',
                     ),
 
@@ -223,7 +213,7 @@ screens = [
 
                 widget.CryptoTicker(
                     background = lightGray,
-                    foreground = orangeBrown,
+                    foreground = text,
                     format = ' {amount}',
                     update_interval=60,
                     ),
@@ -238,7 +228,7 @@ screens = [
 
                 widget.GmailChecker(
                     background = darkGray,
-                    foreground = orangeBrown,
+                    foreground = text,
                     username = gmailUsername,
                     password = gmailPassword,
                     email_path = 'INBOX',
@@ -256,7 +246,7 @@ screens = [
 
                 widget.Volume(
                     background = lightGray,
-                    foreground = orangeBrown,
+                    foreground = text,
                     emoji = True,
                     ),
 
@@ -275,7 +265,7 @@ screens = [
                     empty_char = '',
                     unknown_char = '',
                     background = darkGray,
-                    foreground = orangeBrown,
+                    foreground = text,
                     format="{char} {percent:2.0%}",
                     update_interval = 30,
                     ),

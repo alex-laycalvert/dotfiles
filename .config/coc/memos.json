@@ -774,8 +774,7 @@
       },
       "sysPrefix": "/usr",
       "fileHash": "032de7e97049596df4220565b34f5e8ad44ab922b623844fd6ea39e9c177030a103a249fb1637516467d74229f8b01f66aafe38094343e53dc2238682247bd6a",
-      "type": "Unknown",
-      "cachedEntry": true
+      "type": "Unknown"
     },
     "preferredGlobalPyInterpreter": {
       "architecture": 3,
@@ -823,7 +822,6 @@
       "sysPrefix": "/usr",
       "fileHash": "032de7e97049596df4220565b34f5e8ad44ab922b623844fd6ea39e9c177030a103a249fb1637516467d74229f8b01f66aafe38094343e53dc2238682247bd6a",
       "type": "Unknown",
-      "cachedEntry": true,
       "displayName": "Python 3.10.1 64-bit"
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
@@ -848,7 +846,6 @@
       "sysPrefix": "/usr",
       "fileHash": "032de7e97049596df4220565b34f5e8ad44ab922b623844fd6ea39e9c177030a103a249fb1637516467d74229f8b01f66aafe38094343e53dc2238682247bd6a",
       "type": "Unknown",
-      "cachedEntry": true,
       "displayName": "Python 3.10.1 64-bit"
     },
     "/usr/bin/python.interpreter.Details.v7": {
@@ -966,11 +963,10 @@
           "sysPrefix": "/usr",
           "fileHash": "032de7e97049596df4220565b34f5e8ad44ab922b623844fd6ea39e9c177030a103a249fb1637516467d74229f8b01f66aafe38094343e53dc2238682247bd6a",
           "type": "Unknown",
-          "displayName": "Python 3.10.1 64-bit",
-          "__store": true
+          "displayName": "Python 3.10.1 64-bit"
         }
       },
-      "expiry": 1640572907683
+      "expiry": 1640579593619
     },
     "ProposeLSBanner": false,
     "/usr/sbin/python3.10.v3": {
@@ -1147,10 +1143,64 @@
     "INTERPRETERS_CACHE_v3_PipEnvService:12b131ad6e8cb83976f18eacc1e55701": [],
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:12b131ad6e8cb83976f18eacc1e55701": [],
     "INTERPRETERS_CACHE_v3_PipEnvService": [],
-    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
+    "autoSelectedWorkspacePythonInterpreter-/home/alex/git/mythemes": {
+      "architecture": 3,
+      "path": "/sbin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.10.1-final",
+        "major": 3,
+        "minor": 10,
+        "patch": 1,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.10.1-final"
+      },
+      "sysPrefix": "/usr",
+      "fileHash": "032de7e97049596df4220565b34f5e8ad44ab922b623844fd6ea39e9c177030a103a249fb1637516467d74229f8b01f66aafe38094343e53dc2238682247bd6a",
+      "type": "Unknown",
+      "displayName": "Python 3.10.1 64-bit"
+    }
   },
   "coc-python|/home/alex/.local/share/qtile": {
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
     "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-python|/home/alex/.config": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:70a1734e154ecd382b135d5dff40819b": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:70a1734e154ecd382b135d5dff40819b": [],
+    "autoSelectedWorkspacePythonInterpreter-/home/alex/.config": {
+      "architecture": 3,
+      "path": "/sbin/python",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.10.1-final",
+        "major": 3,
+        "minor": 10,
+        "patch": 1,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.10.1-final"
+      },
+      "sysPrefix": "/usr",
+      "fileHash": "032de7e97049596df4220565b34f5e8ad44ab922b623844fd6ea39e9c177030a103a249fb1637516467d74229f8b01f66aafe38094343e53dc2238682247bd6a",
+      "type": "Unknown",
+      "displayName": "Python 3.10.1 64-bit"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
   }
 }
