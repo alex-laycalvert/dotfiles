@@ -49,7 +49,7 @@ fi
 # ZSH_PLUGINS is the text file containing your plugins to use with antibody
 # Append any plugins there
 #
-# ZSH_PLUGINS_SH is a file created by antibody to bundle plugins
+# ZSH_PLUGINS is a file created by antibody to bundle plugins
 
 export ZSH_PLUGINS_LIST=$HOME/.zsh_plugins_list
 export ZSH_PLUGINS=$HOME/.zsh_plugins
@@ -82,6 +82,7 @@ alias dotgit="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
 alias ls="exa -l --icons"
 alias la="exa -la --icons"
 
+# Literally just taken from the Garuda Linux fish config file
 ## Useful aliases
 # Replace ls with exa
 alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
@@ -93,9 +94,9 @@ alias l.="exa -a | egrep '^\.'"                                     # show only 
 # Replace some more things with better alternatives
 alias cat='bat --style header --style rules --style snip --style changes --style header'
 #[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
-alias gittoken="cat $HOME/git/.git_token"
-alias cargotoken="cat $HOME/git/.cargo_token"
-alias gitss="git remote set-url origin git@github.com:alex-laycalvert/$(pwd | awk -F\/ '{print $(NF)}')"
+alias paru='paru --color=always'
+alias yay='yay --color=always'
+alias ip="ip -color"
 
 # typos
 alias clera="clear"
@@ -105,9 +106,7 @@ alias sodu="sudo"
 alias pamcan="pacman"
 alias lua="lua5.2"
 alias mkcd="mkdir $1 && cd $1"
-alias custnvim="nvim --cmd \"set rtp+=$(pwd)\""
 alias celra="clear"
-alias ip="ip -color"
 alias celar="clear"
 alias cjear="clear"
 alias ckear="clear"
@@ -115,3 +114,5 @@ alias ckear="clear"
 eval $(thefuck --alias)
 
 colorscript -r
+bindkey ";3D" backward-word
+bindkey ";3C" forward-word
