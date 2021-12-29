@@ -94,6 +94,7 @@ alias l.="exa -a | egrep '^\.'"                                     # show only 
 # Replace some more things with better alternatives
 alias cat='bat --style header --style rules --style snip --style changes --style header'
 #[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
+alias pacman='pacman --color=always'
 alias paru='paru --color=always'
 alias yay='yay --color=always'
 alias ip="ip -color"
@@ -105,7 +106,6 @@ alias pacmna="pacman"
 alias sodu="sudo"
 alias pamcan="pacman"
 alias lua="lua5.2"
-alias mkcd="mkdir $1 && cd $1"
 alias celra="clear"
 alias celar="clear"
 alias cjear="clear"

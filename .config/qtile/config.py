@@ -340,7 +340,16 @@ def start_once():
     home = os.path.expanduser('~')
     subprocess.call(['sh', home + '/.config/qtile/autostart.sh'])
 
+@hook.subscribe.shutdown
+def shutdown_script():
+    home = os.path.expanduser('~')
+    subprocess.call(['sh', home + '/.config/qtile/autoshut.sh'])
 
+@hook.subscribe.restart
+def restart_script():
+    home = os.path.expanduser('~')
+    subprocess.call(['sh', home + '/.config/qtile/autoshut.sh'])
+    
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
 # mailing lists, GitHub issues, and other WM documentation that suggest setting
