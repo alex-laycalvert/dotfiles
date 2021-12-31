@@ -942,11 +942,10 @@
           "sysPrefix": "/usr",
           "fileHash": "e61a5e4f4287508c4dca6897b850a3ead42da843e5f6362ed1a6e278e75bfbd23ce2577f04f1f6b202dfb11380403fc5fc0d06ff50cf2ebc4b613fdf70124fd0",
           "type": "Unknown",
-          "displayName": "Python 3.10.1 64-bit",
-          "__store": true
+          "displayName": "Python 3.10.1 64-bit"
         }
       },
-      "expiry": 1641047972461
+      "expiry": 1641055537938
     },
     "/bin/python.interpreter.Details.v7": {
       "data": {

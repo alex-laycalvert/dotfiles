@@ -35,6 +35,7 @@ red = 'ff0000'
 white = 'ffffff'
 black = '000000'
 bitcoin_orange = 'f2a900'
+burnt_orange = 'cc5500'
 
 # icons for web links and other stuff
 arch_icon = ' '
@@ -42,6 +43,7 @@ mail_icon = ''
 youtube_icon = ''
 bitcoin_icon = ''
 github_icon = ''
+rust_icon = ''
 
 widget_lsep = ''
 widget_rsep = ''
@@ -202,6 +204,18 @@ def init_widgets_list():
                 mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://github.com') },
                 ),
 
+            widget.TextBox(
+                fontsize = 26,
+                foreground = burnt_orange,
+                background = dark_gray,
+                text = rust_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://https://doc.rust-lang.org/book/') },
+                ),
+            
+            widget.Sep(
+                background = dark_gray,
+                foreground = text,
+                ),
 
             widget.TextBox(
                 background = dark_gray,
