@@ -209,7 +209,7 @@ def init_widgets_list():
                 foreground = burnt_orange,
                 background = dark_gray,
                 text = rust_icon,
-                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://https://doc.rust-lang.org/book/') },
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://doc.rust-lang.org/book/') },
                 ),
             
             widget.Sep(
