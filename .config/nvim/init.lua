@@ -45,7 +45,8 @@ require('packer').startup(function(use)
     use 'savq/melange'
 
     -- filetree
-    use 'ms-jpq/chadtree'
+    -- Not using CHADTree right now
+    -- use 'ms-jpq/chadtree'
     use 'preservim/nerdtree'
     use 'tpope/vim-fugitive'
     use 'tiagofumo/vim-nerdtree-syntax-highlight'

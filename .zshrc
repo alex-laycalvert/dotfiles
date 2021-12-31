@@ -113,6 +113,8 @@ alias ckear="clear"
 
 eval $(thefuck --alias)
 
+alias ssh="kitty +kitten ssh"
+
 colorscript -r
 bindkey ";3D" backward-word
 bindkey ";3C" forward-word

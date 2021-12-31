@@ -296,7 +296,8 @@ def init_screens():
                 size = 27,
                 opacity = 0.8
                 )
-            )
+            ),
+        Screen(),
         ]
 
 if __name__ in { "config", "__main__" }:
