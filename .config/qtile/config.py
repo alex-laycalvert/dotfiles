@@ -33,6 +33,7 @@ dark_gray = '303045'
 text = 'e49070'
 red = 'ff0000'
 white = 'ffffff'
+black = '000000'
 bitcoin_orange = 'f2a900'
 
 # icons for web links and other stuff
@@ -40,6 +41,7 @@ arch_icon = ' '
 mail_icon = ''
 youtube_icon = ''
 bitcoin_icon = ''
+github_icon = ''
 
 widget_lsep = ''
 widget_rsep = ''
@@ -194,6 +196,21 @@ def init_widgets_list():
                 ),
 
             widget.TextBox(
+                foreground = white,
+                background = dark_gray,
+                text = github_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://github.com') },
+                ),
+
+
+            widget.TextBox(
+                background = dark_gray,
+                foreground = red,
+                text = youtube_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://www.youtube.com') },
+                ),
+
+            widget.TextBox(
                 background = dark_gray,
                 foreground = white,
                 text = mail_icon,
@@ -210,13 +227,6 @@ def init_widgets_list():
                 display_fmt = '[{1}]',
                 mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://www.gmail.com') },
                 padding = 0,
-                ),
-
-            widget.TextBox(
-                background = dark_gray,
-                foreground = red,
-                text = youtube_icon,
-                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://www.youtube.com') },
                 ),
 
             # Sometimes I like seeing the price, sometimes I don't
