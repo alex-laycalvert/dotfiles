@@ -295,26 +295,6 @@ def init_widgets_list():
                 format = '%a %H:%M',
                 ),
 
-            widget.TextBox(
-                background = light_gray,
-                foreground = dark_gray,
-                text = widget_rsep,
-                padding = 0,
-                fontsize = widget_sep_size,
-                ),
-
-            widget.Battery(
-                discharge_char = '',
-                charge_char = '',
-                full_char = '',
-                empty_char = '',
-                unknown_char = '',
-                background = dark_gray,
-                foreground = text,
-                format="{char} {percent:2.0%}",
-                update_interval = 30,
-                ),
-
         ]
     return widgets_list
 
