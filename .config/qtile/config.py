@@ -36,6 +36,7 @@ white = 'ffffff'
 black = '000000'
 bitcoin_orange = 'f2a900'
 burnt_orange = 'cc5500'
+orange = 'ff4500'
 
 # icons for web links and other stuff
 arch_icon = ' '
@@ -44,6 +45,8 @@ youtube_icon = ''
 bitcoin_icon = ''
 github_icon = ''
 rust_icon = ''
+reddit_icon = ''
+# reddit_icon = ''
 
 widget_lsep = ''
 widget_rsep = ''
@@ -215,6 +218,13 @@ def init_widgets_list():
             widget.Sep(
                 background = dark_gray,
                 foreground = text,
+                ),
+
+            widget.TextBox(
+                background = dark_gray,
+                foreground = orange,
+                text = reddit_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://reddit.com') },
                 ),
 
             widget.TextBox(
