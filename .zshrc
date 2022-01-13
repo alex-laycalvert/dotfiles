@@ -72,6 +72,7 @@ pathmunge "$HOME/.local/bin"
 pathmunge "$HOME/.cargo/bin"
 pathmunge "$HOME/git/fun-scripts/christmas/"
 pathmunge "$HOME/git/fun-scripts/new-years/"
+pathmunge "/opt/idea-IC-213.6461.79/bin"
 
 #colorscript random
 
