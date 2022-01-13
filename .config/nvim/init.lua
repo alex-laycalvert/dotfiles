@@ -87,6 +87,7 @@ require('packer').startup(function(use)
 
     -- git
     use 'kdheepak/lazygit.nvim'
+
 end)
 
 require('nvim_comment').setup()
