@@ -45,7 +45,8 @@ require('packer').startup(function(use)
     use 'savq/melange'
 
     -- filetree
-    use 'ms-jpq/chadtree'
+    -- Not using CHADTree right now
+    -- use 'ms-jpq/chadtree'
     use 'preservim/nerdtree'
     use 'tpope/vim-fugitive'
     use 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -78,12 +79,6 @@ require('packer').startup(function(use)
 
     -- commenter
     use 'terrortylor/nvim-comment'
-
-    -- markdown
-    use 'iamcco/markdown-preview.nvim'
-
-    -- git
-    use 'kdheepak/lazygit.nvim'
 end)
 
 require('nvim_comment').setup()
@@ -135,7 +130,7 @@ utils.opt('o', 'clipboard','unnamed,unnamedplus')
 -- COLORSCHEME --
 -----------------
 vim.opt.termguicolors = true
-vim.cmd('colorscheme dracula')
+vim.cmd('colorscheme melange')
 vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
 
 ------------------
@@ -246,4 +241,3 @@ utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('v', '<M-/>', "<cmd>'<,'>CommentToggle<CR>")
 
-utils.map('n', '<leader>gg', '<cmd>LazyGit<CR>')
