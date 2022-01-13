@@ -87,11 +87,6 @@ require('packer').startup(function(use)
 
     -- git
     use 'kdheepak/lazygit.nvim'
-
-    use 'iamcco/markdown-preview.nvim'
-
-    -- git
-    use 'kdheepak/lazygit.nvim'
 end)
 
 require('nvim_comment').setup()
@@ -143,7 +138,7 @@ utils.opt('o', 'clipboard','unnamed,unnamedplus')
 -- COLORSCHEME --
 -----------------
 vim.opt.termguicolors = true
-vim.cmd('colorscheme melange')
+vim.cmd('colorscheme dracula')
 vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
 
 ------------------
@@ -254,3 +249,4 @@ utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('v', '<M-/>', "<cmd>'<,'>CommentToggle<CR>")
 
+utils.map('n', '<leader>gg', '<cmd>LazyGit<CR>')
