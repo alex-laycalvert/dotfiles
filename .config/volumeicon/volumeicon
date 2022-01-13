@@ -1,5 +1,6 @@
 [Alsa]
-card=default
+card=HD-Audio Generic
+channel=Headphone
 
 [Notification]
 show_notification=true
@@ -8,7 +9,7 @@ notification_type=1
 [StatusIcon]
 stepsize=5
 onclick=kitty 'alsamixer'
-theme=firewatch
+theme=White Gnome
 use_panel_specific_icons=false
 lmb_slider=true
 mmb_mute=false

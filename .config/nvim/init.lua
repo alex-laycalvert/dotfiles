@@ -78,6 +78,12 @@ require('packer').startup(function(use)
 
     -- commenter
     use 'terrortylor/nvim-comment'
+
+    -- markdown
+    use 'iamcco/markdown-preview.nvim'
+
+    -- git
+    use 'kdheepak/lazygit.nvim'
 end)
 
 require('nvim_comment').setup()
@@ -240,3 +246,4 @@ utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('v', '<M-/>', "<cmd>'<,'>CommentToggle<CR>")
 
+utils.map('n', '<leader>gg', '<cmd>LazyGit<CR>')

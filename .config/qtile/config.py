@@ -30,7 +30,7 @@ browser = "brave"
 bar_bg_color = '202030'
 light_gray = '404055'
 dark_gray = '303045'
-text = 'e49070'
+text = 'CA80F5'
 red = 'ff0000'
 white = 'ffffff'
 black = '000000'
@@ -171,16 +171,9 @@ extension_defaults = widget_defaults.copy()
 def init_widgets_list():
     widgets_list = [
             widget.TextBox(
-                background = dark_gray,
                 foreground = text,
                 text = arch_icon,
                 mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://archlinux.org/') },
-                ),
-
-            widget.TextBox(
-                foreground = dark_gray,
-                text = widget_lsep,
-                padding = 0,
                 ),
 
             widget.GroupBox(
@@ -283,14 +276,14 @@ def init_widgets_list():
 
             widget.TextBox(
                 background = dark_gray,
-                foreground = light_gray,
+                foreground = bar_bg_color,
                 text = widget_rsep,
                 padding = 0,
                 fontsize = widget_sep_size,
                 ),
 
             widget.Clock(
-                background = light_gray,
+                # background = light_gray,
                 foreground = text,
                 format = '%a %H:%M',
                 ),
