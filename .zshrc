@@ -5,13 +5,7 @@ set bell-style visible
 # .zshrc
 #
 
-export EDITOR=nvim
-
-export CHANGE_THEME_SCRIPT_DIR="$HOME/git/mythemes"
-export STARSHIP_THEME_DIR="$HOME/.config"
-export KITTY_THEME_DIR="$HOME/.config/kitty"
-export QTILE_THEME_DIR="$HOME/.config/qtile"
-export NVIM_THEME_DIR="$HOME/.config/nvim"
+EDITOR=nvim
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -30,11 +24,11 @@ compinit
 unsetopt BEEP
 
 # Starship
-source <(/usr/bin/starship init zsh --print-full-init)
+source <(/usr/local/bin/starship init zsh --print-full-init)
 #source ~/.zsh_prompt
 
 # Mapping Caps to Esc so I don't develop carpal tunnel
-setxkbmap -option caps:escape
+#setxkbmap -option caps:escape
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	startx
@@ -49,7 +43,7 @@ fi
 # ZSH_PLUGINS is the text file containing your plugins to use with antibody
 # Append any plugins there
 #
-# ZSH_PLUGINS is a file created by antibody to bundle plugins
+# ZSH_PLUGINS_SH is a file created by antibody to bundle plugins
 
 export ZSH_PLUGINS_LIST=$HOME/.zsh_plugins_list
 export ZSH_PLUGINS=$HOME/.zsh_plugins
@@ -60,7 +54,7 @@ source $ZSH_PLUGINS
 # ADD TO PATH VAR #
 ###################
 pathmunge () {
-        if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
+        if ! echo "$PATH" | /usr/bin/grep -Eq "(^|:)$1($|:)" ; then
            if [ "$2" = "after" ] ; then
               PATH="$PATH:$1"
            else
@@ -69,10 +63,6 @@ pathmunge () {
         fi
 }
 pathmunge "$HOME/.local/bin"
-pathmunge "$HOME/.cargo/bin"
-pathmunge "$HOME/git/fun-scripts/christmas/"
-pathmunge "$HOME/git/fun-scripts/new-years/"
-pathmunge "/opt/idea-IC-213.6461.79/bin"
 
 #colorscript random
 
@@ -83,7 +73,6 @@ alias dotgit="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
 alias ls="exa -l --icons"
 alias la="exa -la --icons"
 
-# Literally just taken from the Garuda Linux fish config file
 ## Useful aliases
 # Replace ls with exa
 alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
@@ -95,10 +84,8 @@ alias l.="exa -a | egrep '^\.'"                                     # show only 
 # Replace some more things with better alternatives
 alias cat='bat --style header --style rules --style snip --style changes --style header'
 #[ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
-alias pacman='pacman --color=always'
-alias paru='paru --color=always'
-alias yay='yay --color=always'
-alias ip="ip -color"
+
+alias gittoken="cat $HOME/git/.git_token"
 
 # typos
 alias clera="clear"
@@ -106,16 +93,13 @@ alias sduo="sudo"
 alias pacmna="pacman"
 alias sodu="sudo"
 alias pamcan="pacman"
+
 alias lua="lua5.2"
+
+alias mkcd="mkdir $1 && cd $1"
+
+# sourcing custom plugins
+alias custnvim="nvim --cmd \"set rtp+=$(pwd)\""
 alias celra="clear"
-alias celar="clear"
-alias cjear="clear"
-alias ckear="clear"
-
-eval $(thefuck --alias)
-
+alias ip="ip -color"
 alias ssh="kitty +kitten ssh"
-
-colorscript -r
-bindkey ";3D" backward-word
-bindkey ";3C" forward-word

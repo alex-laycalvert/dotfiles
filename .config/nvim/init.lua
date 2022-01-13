@@ -45,8 +45,8 @@ require('packer').startup(function(use)
     use 'savq/melange'
 
     -- filetree
+    use 'ms-jpq/chadtree'
     use 'preservim/nerdtree'
-    use 'Xuyuanp/nerdtree-git-plugin'
     use 'tpope/vim-fugitive'
     use 'tiagofumo/vim-nerdtree-syntax-highlight'
 
@@ -54,9 +54,6 @@ require('packer').startup(function(use)
     --use 'neovim/nvim-lspconfig' -- lspconfig
     use {'neoclide/coc.nvim', branch = 'release'} -- coc.nvim
     use 'rhysd/vim-clang-format' -- cpp clang format
-
-    -- for java ( i hate java )
-    use 'eclipse/eclipse.jdt.ls'
 
     -- syntax 
     use 'jackguo380/vim-lsp-cxx-highlight' -- cpp
@@ -78,19 +75,7 @@ require('packer').startup(function(use)
 
     -- icons
     use 'ryanoasis/vim-devicons'
-
-    -- commenter
-    use 'terrortylor/nvim-comment'
-
-    -- markdown
-    use 'iamcco/markdown-preview.nvim' 
-
-    -- git
-    use 'kdheepak/lazygit.nvim'
-
 end)
-
-require('nvim_comment').setup()
 
 vim.cmd('let g:cpp_class_scope_highlight = 1')
 vim.cmd('let g:cpp_member_variable_highlight = 1')
@@ -150,7 +135,7 @@ vim.cmd 'autocmd BufWritePost /home/alex/.config/nvim/*.lua :luafile %'
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 vim.cmd 'autocmd DirChanged global :NERDTreeCWD'
 vim.cmd 'autocmd BufWritePre *.c,*.cpp,*.h,*.hpp :ClangFormat'
-vim.cmd 'autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue CocCommand prettier.formatFile'
+vim.cmd 'autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue CocCommand prettier.formatFile'
 
 -------------
 -- LUALINE --
@@ -245,9 +230,4 @@ utils.map('n', '<leader>nh', '<cmd>noh<CR>')
 utils.map('n', '<leader>pi', '<cmd>PackerInstall<CR>');
 utils.map('n', '<leader>pu', '<cmd>PackerUpdate<CR>');
 
--- commenting
-utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
-utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
-utils.map('v', '<M-/>', "<cmd>'<,'>CommentToggle<CR>")
 
-utils.map('n', '<leader>gg', '<cmd>LazyGit<CR>')
