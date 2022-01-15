@@ -46,3 +46,8 @@ sync-chain.txt
 wallpapers/
 .config/coc/
 .config/TabNine/
+.config/lazygit/
+.local/include/
+.local/lib/
+.npm/
+Downloads/
