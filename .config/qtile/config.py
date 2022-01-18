@@ -28,9 +28,16 @@ browser = "brave"
 
 # colorscheming
 bar_bg_color = '202030'
+<<<<<<< HEAD
+light_gray = '353560'
+dark_gray = '303040'
+# text = '1d73dd'
+text = 'b260ef'
+=======
 light_gray = '404055'
 dark_gray = '303045'
 text = 'CA80F5'
+>>>>>>> ee7aa0a (Setting up PC)
 red = 'ff0000'
 white = 'ffffff'
 black = '000000'
@@ -48,18 +55,9 @@ rust_icon = ''
 reddit_icon = ''
 # reddit_icon = ''
 
-cpu_icon = ''
-memory_icon = ''
-disk_icon = ''
-
-
-#widget_lsep = ''
-#widget_rsep = ''
-widget_lsep = ')'
-widget_rsep = '('
-widget_lsep = ''
-widget_rsep = ''
-widget_sep_size = 22 
+widget_lsep = ''
+widget_rsep = ''
+widget_sep_size = 24 
 
 # Reading gmail user info so I don't post it on GitHub again
 gmail_user_file = open("/home/alex/.cred/gmail/username")
@@ -179,31 +177,35 @@ extension_defaults = widget_defaults.copy()
 
 def init_widgets_list():
     widgets_list = [
-
-            ### LEFT SIDE
-
-            # Arch Icon Link
             widget.TextBox(
+<<<<<<< HEAD
+                # background = dark_gray,
+=======
+>>>>>>> ee7aa0a (Setting up PC)
                 foreground = text,
                 text = arch_icon,
                 mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://archlinux.org/') },
                 ),
 
-            # Current Groups
+<<<<<<< HEAD
+            # widget.TextBox(
+            #     foreground = dark_gray,
+            #     text = widget_lsep,
+            #     padding = 0,
+            #     ),
+
+=======
+>>>>>>> ee7aa0a (Setting up PC)
             widget.GroupBox(
                 # background = dark_gray,
                 hide_unused = True,
                 foreground = text,
                 ),
             
-            # Window Name
             widget.WindowName(
                 foreground = text,
                 ),
 
-            ### RIGHT SIDE
-
-            # Separator
             widget.TextBox(
                 foreground = dark_gray,
                 text = widget_rsep,
@@ -211,70 +213,119 @@ def init_widgets_list():
                 fontsize = widget_sep_size,
                 ),
 
-            # CPU Usage
-            widget.CPU(
-                background = dark_gray,
-                format = cpu_icon + ' {load_percent}%',
-                ),
-
-            # Memory Usage
-            widget.Memory(
-                background = dark_gray,
-                measure_mem = 'G',
-                format = memory_icon + '{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
-                ),
-
-            # Separator
             widget.TextBox(
-                foreground = dark_gray,
-                text = widget_lsep + " ",
-                padding = 0,
-                fontsize = widget_sep_size,
+                foreground = white,
+                background = dark_gray,
+                text = github_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://github.com') },
                 ),
 
-            # Separator
             widget.TextBox(
-                foreground = dark_gray,
-                text = widget_rsep,
-                padding = 0,
-                fontsize = widget_sep_size,
+                fontsize = 26,
+                foreground = burnt_orange,
+                background = dark_gray,
+                text = rust_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://doc.rust-lang.org/book/') },
+                ),
+            
+            widget.Sep(
+                background = dark_gray,
+                foreground = text,
                 ),
 
-            # System Tray
+            widget.TextBox(
+                background = dark_gray,
+                foreground = orange,
+                text = reddit_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://reddit.com') },
+                ),
+
+            widget.TextBox(
+                background = dark_gray,
+                foreground = red,
+                text = youtube_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://www.youtube.com') },
+                ),
+
+            widget.TextBox(
+                background = dark_gray,
+                foreground = white,
+                text = mail_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://www.gmail.com') },
+                ),
+
+            widget.GmailChecker(
+                background = dark_gray,
+                foreground = white,
+                username = gmail_username,
+                password = gmail_password,
+                email_path = 'INBOX',
+                status_only_unseen = True,
+                display_fmt = '[{1}]',
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://www.gmail.com') },
+                padding = 0,
+                ),
+
+            # Sometimes I like seeing the price, sometimes I don't
+            # maybe I'll make it dynamic
+            # widget.CryptoTicker(
+            #     background = light_gray,
+            #     foreground = text,
+            #     format = ' {amount}',
+            #     update_interval=60,
+            #     mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://www.coinbase.com/price/bitcoin') },
+            #     ),
+
+            widget.TextBox(
+                background = dark_gray,
+                foreground = bitcoin_orange,
+                text = bitcoin_icon,
+                mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://www.coinbase.com/price/bitcoin') },
+                ),
+
+            widget.Sep(
+                background = dark_gray,
+                foreground = text,
+                ),
+
             widget.Systray(
                 background = dark_gray,
                 foreground = text,
                 padding = 4,
                 ),
 
-            # Separator
             widget.TextBox(
-                foreground = dark_gray,
-                text = widget_lsep + " ",
+                background = dark_gray,
+                foreground = bar_bg_color,
+                text = widget_rsep,
                 padding = 0,
                 fontsize = widget_sep_size,
                 ),
 
-            # Separator
+            widget.Clock(
+                # background = light_gray,
+                foreground = text,
+                format = '%a %H:%M',
+                ),
+
             widget.TextBox(
+                background = light_gray,
                 foreground = dark_gray,
                 text = widget_rsep,
                 padding = 0,
                 fontsize = widget_sep_size,
                 ),
 
-            # What Fuckin' Time Is It
-            widget.Clock(
+            widget.Battery(
+                discharge_char = '',
+                charge_char = '',
+                full_char = '',
+                empty_char = '',
+                unknown_char = '',
                 background = dark_gray,
-                format = '%a %H:%M',
-                ),
-
-            # Separator
-            widget.TextBox(
-                foreground = dark_gray,
-                text = widget_lsep + " ",
-                padding = 0,
-                fontsize = widget_sep_size,
+                foreground = text,
+                format="{char} {percent:2.0%}",
+                update_interval = 30,
                 ),
 
         ]
@@ -290,7 +341,7 @@ def init_screens():
         Screen(top = bar.Bar(
                 widgets = init_widgets_screen(), 
                 size = 27,
-                opacity = 0.8
+                opacity = 0.9
                 )
             ),
         Screen(),

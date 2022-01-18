@@ -47,28 +47,33 @@ require('packer').startup(function(use)
     -- filetree
     use 'preservim/nerdtree'
     use 'Xuyuanp/nerdtree-git-plugin'
-    use 'tpope/vim-fugitive'
     use 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     -- lsp
-    --use 'neovim/nvim-lspconfig' -- lspconfig
     use {'neoclide/coc.nvim', branch = 'release'} -- coc.nvim
-    use 'rhysd/vim-clang-format' -- cpp clang format
 
-    -- for java ( i hate java )
-    use 'eclipse/eclipse.jdt.ls'
+    -- formatting
+    use 'rhysd/vim-clang-format' -- cpp clang format
+    use 'sbdchd/neoformat'
 
     -- syntax 
     use 'jackguo380/vim-lsp-cxx-highlight' -- cpp
-    --use 'mxw/vim-jsx'
     use 'pangloss/vim-javascript'
-    --use 'neoclide/vim-jsx-improve'
 
     -- auto close brackets
     use 'jiangmiao/auto-pairs'
 
     -- fuzzy finding
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+
+    -- spotless
+    use 'diffplug/spotless'
+
+    -- treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
     -- status line
     use {
@@ -88,10 +93,7 @@ require('packer').startup(function(use)
     -- git
     use 'kdheepak/lazygit.nvim'
 
-    use 'iamcco/markdown-preview.nvim'
-
-    -- git
-    use 'kdheepak/lazygit.nvim'
+    use 'google/google-java-format'
 end)
 
 require('nvim_comment').setup()
@@ -100,6 +102,13 @@ vim.cmd('let g:cpp_class_scope_highlight = 1')
 vim.cmd('let g:cpp_member_variable_highlight = 1')
 vim.cmd('let g:cpp_class_decl_highlight = 1')
 vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.formatFile')
+
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    highlight = {
+        enable = true,              -- false will disable the whole extension
+    },
+}
 
 
 ---------------------
@@ -254,3 +263,4 @@ utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('v', '<M-/>', "<cmd>'<,'>CommentToggle<CR>")
 
+utils.map('n', '<leader>gg', '<cmd>LazyGit<CR>')
