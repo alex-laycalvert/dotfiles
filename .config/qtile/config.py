@@ -48,10 +48,13 @@ rust_icon = ''
 reddit_icon = ''
 # reddit_icon = ''
 clock_icon = ''
+down_arrow_icon = '↓'
+up_arrow_icon = '↑'
 
 cpu_icon = ''
 memory_icon = ''
 disk_icon = ''
+net_icon = ''
 
 # widget_lsep = ''
 # widget_rsep = ''
@@ -225,6 +228,12 @@ def init_widgets_list():
                 background = dark_gray,
                 visible_on_warn = False,
                 format = disk_icon + ' {r:.0f}%',
+                ),
+
+            widget.Net(
+                foreground = text,
+                background = dark_gray,
+                format = net_icon + ' {down} ' + down_arrow_icon,
                 ),
 
             # Separator

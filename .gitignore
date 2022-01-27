@@ -68,3 +68,16 @@ Geekbench-5.3.2-Linux/
 hackthebox/
 torrents/
 .local/bin/
+.BurpSuite/
+.gnupg/
+.grip/
+.gtkrc-2.0
+.icons/
+.java/
+.nv/
+.nvidia-settings-rc
+hydra.restore
+test/
+vpn/
+.config/chromium/
+.config/lutris/
