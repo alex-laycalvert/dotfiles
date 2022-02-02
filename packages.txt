@@ -10,6 +10,7 @@ intel-ucode
 btrfs-progs
 
 networkmanager
+network-manager-applet
 wpa_supplicant
 bluez
 bluez-utils
@@ -39,3 +40,5 @@ exa
 bat
 
 lazygit
+nitrogen
+pulseaudio
