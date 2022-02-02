@@ -1,8 +1,0 @@
-qtile
-kitty
-picom
-starship
-neovim
-dmenu
-zshrc
-zsh_plugins

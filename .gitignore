@@ -1,0 +1,13 @@
+.bash_history
+.cache/
+.histfile
+.lesshst
+.pki/
+.ssh/
+git/
+.zcompdump
+.Xauthority
+.config/mimeapps.list
+.config/BraveSoftware/
+.config/qtile/__pycache__/
+.local/
