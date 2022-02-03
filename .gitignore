@@ -1,15 +1,11 @@
 .bash_history
-.cache/
 .histfile
 .lesshst
-.pki/
-.ssh/
-git/
 .zcompdump
 .Xauthority
-.local/
-
+.gtk*
 .fehbg
+.yarnrc
 
 .config/mimeapps.list
 .config/BraveSoftware/
@@ -17,3 +13,16 @@ git/
 .config/gtk-2.0/
 .config/pulse/
 .config/dconf/
+.config/coc/
+.config/TabNine/
+.config/gtk*/
+.config/QtProject.conf
+
+.icons/
+.local/
+.cache/
+.pki/
+.ssh/
+.npm/
+
+git/

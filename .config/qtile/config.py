@@ -1,3 +1,6 @@
+# .config/qtile/config.py
+# alex-laycalvert
+
 import os
 import subprocess
 from typing import List  # noqa: F401
@@ -21,28 +24,34 @@ arch_icon = ' '
 arch_color = '1793d1'
 
 mail_icon = ''
-youtube_icon = ''
-bitcoin_icon = ''
 github_icon = ''
-rust_icon = ''
 reddit_icon = ''
 clock_icon = ''
+
+cpu_icon = ''
+
+memory_icon = ''
+
+disk_icon = ''
+
+net_icon = ''
 down_arrow_icon = '↓'
 up_arrow_icon = '↑'
 
-cpu_icon = ''
-memory_icon = ''
-disk_icon = ''
-net_icon = ''
+power_icon = ''
 
 widget_lsep = ''
 widget_rsep = ''
-widget_sep_size = 24
+widget_sep_size = 30
+
+window_margin = 4
+
+term_colors = ['000000', 'ff5555', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'bbbbbb', '999999', 'ff5454', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'ffffff']
 
 # dmenu_run setup
 def dmenu_run_extension():
     return extension.DmenuRun(
-        dmenu_font = 'Nerd Font SourceCodePro',
+        dmenu_font = 'SourceCodePro',
         background = bar_bg,
         #foreground = text,
         #selected_background = widget_group_color,
@@ -83,7 +92,8 @@ keys = [
     Key([mod], "b", lazy.spawn(myBrowser), desc = "Spawn Browser"),
 
     # Toggle between different layouts as defined below
-    Key([mod, "shift"], "Tab", lazy.next_layout(), desc = "Toggle between layouts"),
+    Key([mod], "Tab", lazy.next_layout(), desc = "Toggle between layouts"),
+    Key([mod, "shift"], "Tab", lazy.prev_layout(), desc = "Toggle between layouts"),
 
     Key([mod], "w", lazy.window.kill(), desc = "Kill focused window"),
 
@@ -92,11 +102,11 @@ keys = [
     Key([mod], "r", lazy.run_extension(dmenu_run_extension()), desc = "Spawn DistroTube's dmenu_run"),
 
     # emulating the macOS keybinding
-    Key(["mod4"], "space", lazy.run_extension(dmenu_run_extension()),
+    Key(["mod1"], "space", lazy.run_extension(dmenu_run_extension()),
         desc = "Spawn DistroTube's dmenu_run"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "1234567890"]
 
 for i in groups:
     keys.extend(
@@ -108,6 +118,7 @@ for i in groups:
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
             ),
+
             # mod1 + shift + letter of group = switch to & move focused window to group
             Key(
                 [mod, "shift"],
@@ -115,6 +126,7 @@ for i in groups:
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
+
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
             # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
@@ -124,28 +136,24 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        border_focus_stack=["#d75f5f", "#8f3d3d"], 
-        border_width=2, 
-        margin=5
+        border_focus_stack = ["#d75f5f", "#8f3d3d"], 
+        border_width = 2, 
+        margin = window_margin,
         ),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+
+    layout.Max(
+        ),
+
+    layout.Floating(
+        border_focus = "#d75f5f", 
+        border_normal = "#8f3d3d",
+        ),
 ]
 
 widget_defaults = dict(
     font = "SauceCodePro Nerd Font",
     fontsize = 18,
-    padding = 3,
+    padding = 10,
     background = bar_bg,
 )
 
@@ -153,6 +161,7 @@ extension_defaults = widget_defaults.copy()
 
 def init_widgets_list():
     widgets_list = [
+
                 # Arch Icon Link
                 widget.TextBox(
                     foreground = arch_color,
@@ -161,22 +170,60 @@ def init_widgets_list():
                     fontsize = 20,
                     ),
 
-                widget.CurrentLayout(),
+                widget.CurrentLayoutIcon(
+                    ),
 
                 widget.GroupBox(
                     hide_unused = True,
                     ),
 
-                widget.Prompt(),
-
                 widget.WindowName(),
 
-                #widget.Chord(
-                #    chords_colors={
-                #        "launch": ("#ff0000", "#ffffff"),
-                #    },
-                #    name_transform=lambda name: name.upper(),
-                #),
+
+                # Separator
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_rsep,
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
+
+                # CPU Usage
+                widget.CPU(
+                    foreground = term_colors[4],
+                    background = widget_group_color,
+                    format = cpu_icon + ' {load_percent}%',
+                    ),
+
+                # Memory Usage
+                widget.Memory(
+                    foreground = term_colors[2],
+                    background = widget_group_color,
+                    measure_mem = 'G',
+                    format = memory_icon + ' {MemPercent:.0f}%',
+                    ),
+
+                # Disk Space
+                widget.DF(
+                    foreground = term_colors[5],
+                    background = widget_group_color,
+                    visible_on_warn = False,
+                    format = disk_icon + ' {r:.0f}%',
+                    ),
+
+                widget.Net(
+                    foreground = term_colors[6],
+                    background = widget_group_color,
+                    format = net_icon + ' {down} ' + down_arrow_icon,
+                    ),
+
+                # Separator
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_lsep + " ",
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
 
                 # Separator
                 widget.TextBox(
@@ -191,21 +238,28 @@ def init_widgets_list():
                     ),
 
                 widget.Clock(
-                    format="%a %I:%M",
+                    format = clock_icon + " %a %I:%M",
                     background = widget_group_color,
                     padding = 10,
                     ),
 
-                # Separator
-                widget.TextBox(
-                    foreground = widget_group_color,
-                    text = widget_lsep,
-                    padding = 0,
-                    fontsize = widget_sep_size,
+                widget.Battery(
+                    discharge_char = '',
+                    charge_char = '',
+                    full_char = '',
+                    empty_char = '',
+                    unknown_char = '',
+                    background = widget_group_color,
+                    format="{char} {percent:2.0%}",
+                    update_interval = 30,
                     ),
 
+                widget.TextBox(
+                    text = " ",
+                    padding = 0,
+                    background = widget_group_color,
+                    ),
 
-                #widget.QuickExit(),
             ]
     return widgets_list
 
@@ -218,8 +272,9 @@ def init_screens():
     return [
         Screen(top = bar.Bar(
                 widgets = init_widgets_screen(),
-                size = 30,
+                size = 35,
                 opacity = 0.85,
+                margin = window_margin,
                 )
             ),
         Screen(),
@@ -240,17 +295,17 @@ dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = False
-cursor_warp = False
+cursor_warp = True
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
-        Match(wm_class="confirmreset"),  # gitk
-        Match(wm_class="makebranch"),  # gitk
-        Match(wm_class="maketag"),  # gitk
-        Match(wm_class="ssh-askpass"),  # ssh-askpass
-        Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class="confirmreset"),     # gitk
+        Match(wm_class="makebranch"),       # gitk
+        Match(wm_class="maketag"),          # gitk
+        Match(wm_class="ssh-askpass"),      # ssh-askpass
+        Match(title="branchdialog"),        # gitk
+        Match(title="pinentry"),            # GPG key password entry
     ]
 )
 auto_fullscreen = True

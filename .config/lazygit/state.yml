@@ -1,5 +1,7 @@
 lastupdatecheck: 0
-recentrepos: []
+recentrepos:
+- /home/alex/git/git-branching-abcs
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+- q
 hidecommandlog: false
