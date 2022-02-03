@@ -63,6 +63,7 @@ pathmunge () {
         fi
 }
 pathmunge "$HOME/.local/bin"
+pathmunge "/usr/local/sbin"
 
 #colorscript random
 
