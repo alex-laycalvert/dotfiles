@@ -1,28 +1,3 @@
-# Copyright (c) 2010 Aldo Cortesi
-# Copyright (c) 2010, 2014 dequis
-# Copyright (c) 2012 Randall Ma
-# Copyright (c) 2012-2014 Tycho Andersen
-# Copyright (c) 2012 Craig Barnes
-# Copyright (c) 2013 horsik
-# Copyright (c) 2013 Tao Sauvage
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
 import os
 import subprocess
 from typing import List  # noqa: F401
@@ -37,60 +12,87 @@ mod = "mod4"
 myTerm = "kitty"
 myBrowser = "brave"
 
+bar_bg = "202030"
+text = "ddddee"
+widget_group_color = '303045'
+
+# icons for web links and other stuff
+arch_icon = ' '
+arch_color = '1793d1'
+
+mail_icon = ''
+youtube_icon = ''
+bitcoin_icon = ''
+github_icon = ''
+rust_icon = ''
+reddit_icon = ''
+clock_icon = ''
+down_arrow_icon = '↓'
+up_arrow_icon = '↑'
+
+cpu_icon = ''
+memory_icon = ''
+disk_icon = ''
+net_icon = ''
+
+widget_lsep = ''
+widget_rsep = ''
+widget_sep_size = 24
+
 # dmenu_run setup
 def dmenu_run_extension():
     return extension.DmenuRun(
-        dmenu_font = 'SourceCodePro',
-        #background = bar_bg_color,
+        dmenu_font = 'Nerd Font SourceCodePro',
+        background = bar_bg,
         #foreground = text,
-        #selected_background = dark_gray,
-        #selected_foreground = text,
-        dmenu_height = 28,
+        #selected_background = widget_group_color,
+        selected_foreground = text,
+        dmenu_height = 30,
         )
 
 keys = [
-    # A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-    # Switch between windows
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+        # Switch between windows
+    Key([mod], "h", lazy.layout.left(), desc = "Move focus to left"),
+    Key([mod], "l", lazy.layout.right(), desc = "Move focus to right"),
+    Key([mod], "j", lazy.layout.down(), desc = "Move focus down"),
+    Key([mod], "k", lazy.layout.up(), desc = "Move focus up"),
+    Key([mod], "space", lazy.layout.next(), desc = "Move window focus to other window"),
+
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc = "Move window to the left"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc = "Move window to the right"),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc = "Move window down"),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc = "Move window up"),
+
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod, "control"], "h", lazy.layout.grow_left(), desc = "Grow window to the left"),
+    Key([mod, "control"], "l", lazy.layout.grow_right(), desc ="Grow window to the right"),
+    Key([mod, "control"], "j", lazy.layout.grow_down(), desc ="Grow window down"),
+    Key([mod, "control"], "k", lazy.layout.grow_up(), desc = "Grow window up"),
+    Key([mod], "n", lazy.layout.normalize(), desc ="Reset all window sizes"),
+
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
-    Key([mod], "Return", lazy.spawn(myTerm), desc="Launch terminal"),
-    # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc = "Toggle between split and unsplit sides of stack"),
 
+    Key([mod], "Return", lazy.spawn(myTerm), desc = "Launch terminal"),
+    Key([mod], "b", lazy.spawn(myBrowser), desc = "Spawn Browser"),
+
+    # Toggle between different layouts as defined below
+    Key([mod, "shift"], "Tab", lazy.next_layout(), desc = "Toggle between layouts"),
+
+    Key([mod], "w", lazy.window.kill(), desc = "Kill focused window"),
+
+    Key([mod, "control"], "r", lazy.restart(), desc = "Restart Qtile"),
+    Key([mod, "control"], "q", lazy.shutdown(), desc = "Shutdown Qtile"),
     Key([mod], "r", lazy.run_extension(dmenu_run_extension()), desc = "Spawn DistroTube's dmenu_run"),
 
     # emulating the macOS keybinding
-    Key(["mod1"], "space", lazy.run_extension(dmenu_run_extension()),
+    Key(["mod4"], "space", lazy.run_extension(dmenu_run_extension()),
         desc = "Spawn DistroTube's dmenu_run"),
 ]
 
@@ -121,7 +123,11 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2, margin=10),
+    layout.Columns(
+        border_focus_stack=["#d75f5f", "#8f3d3d"], 
+        border_width=2, 
+        margin=5
+        ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -137,38 +143,91 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
+    font = "SauceCodePro Nerd Font",
+    fontsize = 18,
+    padding = 3,
+    background = bar_bg,
 )
+
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(
-        top=bar.Bar(
-            [
+def init_widgets_list():
+    widgets_list = [
+                # Arch Icon Link
+                widget.TextBox(
+                    foreground = arch_color,
+                    text = " " + arch_icon,
+                    mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://archlinux.org/') },
+                    fontsize = 20,
+                    ),
+
                 widget.CurrentLayout(),
-                widget.GroupBox(),
+
+                widget.GroupBox(
+                    hide_unused = True,
+                    ),
+
                 widget.Prompt(),
+
                 widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.QuickExit(),
-            ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
-    ),
-]
+
+                #widget.Chord(
+                #    chords_colors={
+                #        "launch": ("#ff0000", "#ffffff"),
+                #    },
+                #    name_transform=lambda name: name.upper(),
+                #),
+
+                # Separator
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_rsep,
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
+
+                widget.Systray(
+                    background = widget_group_color,
+                    ),
+
+                widget.Clock(
+                    format="%a %I:%M",
+                    background = widget_group_color,
+                    padding = 10,
+                    ),
+
+                # Separator
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_lsep,
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
+
+
+                #widget.QuickExit(),
+            ]
+    return widgets_list
+
+def init_widgets_screen():
+    widgets_screen = init_widgets_list()
+    #del widgets_screen[x:x]
+    return widgets_screen
+
+def init_screens():
+    return [
+        Screen(top = bar.Bar(
+                widgets = init_widgets_screen(),
+                size = 30,
+                opacity = 0.85,
+                )
+            ),
+        Screen(),
+        ]
+
+if __name__ in { "config", "__main__" }:
+    screens = init_screens()
+    widget_list = init_widgets_list()
 
 # Drag floating layouts.
 mouse = [
