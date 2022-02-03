@@ -23,16 +23,30 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+import os
+import subprocess
 from typing import List  # noqa: F401
-
-from libqtile import bar, layout, widget
+from libqtile import qtile
+from libqtile import bar, layout, widget, hook
+from libqtile import extension
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal()
+
+myTerm = "kitty"
+myBrowser = "brave"
+
+# dmenu_run setup
+def dmenu_run_extension():
+    return extension.DmenuRun(
+        dmenu_font = 'SourceCodePro',
+        #background = bar_bg_color,
+        #foreground = text,
+        #selected_background = dark_gray,
+        #selected_foreground = text,
+        dmenu_height = 28,
+        )
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -66,13 +80,18 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn(myTerm), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+
+    Key([mod], "r", lazy.run_extension(dmenu_run_extension()), desc = "Spawn DistroTube's dmenu_run"),
+
+    # emulating the macOS keybinding
+    Key(["mod1"], "space", lazy.run_extension(dmenu_run_extension()),
+        desc = "Spawn DistroTube's dmenu_run"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -102,7 +121,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2, margin=10),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -126,7 +145,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
@@ -182,6 +201,22 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
+
+# Scripts
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call(['sh', home + '/.config/qtile/autostart.sh'])
+
+@hook.subscribe.shutdown
+def shutdown_script():
+    home = os.path.expanduser('~')
+    subprocess.call(['sh', home + '/.config/qtile/autoshut.sh'])
+
+@hook.subscribe.restart
+def restart_script():
+    home = os.path.expanduser('~')
+    subprocess.call(['sh', home + '/.config/qtile/autoshut.sh'])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

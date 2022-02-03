@@ -42,3 +42,4 @@ bat
 lazygit
 nitrogen
 pulseaudio
+cronie

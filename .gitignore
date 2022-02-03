@@ -7,7 +7,10 @@
 git/
 .zcompdump
 .Xauthority
+.local/
+
 .config/mimeapps.list
 .config/BraveSoftware/
 .config/qtile/__pycache__/
-.local/
+.config/gtk-2.0/
+.config/pulse/
