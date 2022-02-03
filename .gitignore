@@ -9,8 +9,11 @@ git/
 .Xauthority
 .local/
 
+.fehbg
+
 .config/mimeapps.list
 .config/BraveSoftware/
 .config/qtile/__pycache__/
 .config/gtk-2.0/
 .config/pulse/
+.config/dconf/

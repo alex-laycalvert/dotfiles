@@ -1,2 +1,0 @@
-#!/bin/sh
-feh --no-fehbg --bg-max '/home/alex/.wallpaper/beach_eye.jpg' '/home/alex/.wallpaper/astronaut.jpg' '/home/alex/.wallpaper/painted_sky_ocean.jpg' '/home/alex/.wallpaper/lone_island.jpg' '/home/alex/.wallpaper/lake_sunset.png' '/home/alex/.wallpaper/mushroom_forest.jpg' '/home/alex/.wallpaper/city_light.jpg' '/home/alex/.wallpaper/nova.png' '/home/alex/.wallpaper/elephant_sky.jpg' '/home/alex/.wallpaper/whale_sky.jpg' 
