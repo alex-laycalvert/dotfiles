@@ -243,6 +243,10 @@ def init_widgets_list():
                     background = widget_group_color,
                     ),
 
+                widget.CheckUpdates(
+                        background = widget_group_color,
+                    ),
+
                 # Separator
                 widget.TextBox(
                     foreground = widget_group_color,
