@@ -48,7 +48,7 @@ term_colors = [
             ]
 
 # dmenu_run setup
-def dmenu_run_extension():
+def drun_ext():
     return extension.DmenuRun(
         dmenu_font = 'SourceCodePro',
         background = bar_bg,
@@ -59,6 +59,11 @@ def dmenu_run_extension():
         dmenu_ignorecase = True,
         dmenu_prompt = " >>> ",
         dmenu_prompt_bg = "000000",
+        )
+
+def ddot_ext():
+    return extension.Dmenu(
+        dmenu_prompt = " >>> ",
         )
 
 keys = [
@@ -101,10 +106,10 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart(), desc = "Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc = "Shutdown Qtile"),
-    Key([mod], "r", lazy.run_extension(dmenu_run_extension()), desc = "Spawn DistroTube's dmenu_run"),
+    Key([mod], "r", lazy.run_extension(drun_ext()), desc = "Spawn DistroTube's dmenu_run"),
 
     # emulating the macOS keybinding
-    Key(["mod1"], "space", lazy.run_extension(dmenu_run_extension()),
+    Key(["mod1"], "space", lazy.run_extension(drun_ext()),
         desc = "Spawn DistroTube's dmenu_run"),
 ]
 
