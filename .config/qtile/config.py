@@ -15,37 +15,32 @@ mod = "mod4"
 myTerm = "kitty"
 myBrowser = "brave"
 
+### COLORS
 bar_bg = "202030"
-text = "ddddee"
 widget_group_color = '303045'
-
-arch_icon = ' '
 arch_color = '1793d1'
 
-# used when I have weblinks in my bar
+### ICONS
+arch_icon = ' '
 mail_icon = ''
 github_icon = ''
 reddit_icon = ''
-
 clock_icon = ''
-
 cpu_icon = ''
-
 memory_icon = ''
-
 disk_icon = ''
-
 net_icon = ''
 down_arrow_icon = '↓'
 up_arrow_icon = '↑'
-
 power_icon = ''
-
 widget_lsep = ''
 widget_rsep = ''
+
 widget_sep_size = 30
 
 window_margin = 4
+
+bar_size = 35
 
 term_colors = [
             '000000', 'ff5555', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'bbbbbb', 
@@ -57,10 +52,13 @@ def dmenu_run_extension():
     return extension.DmenuRun(
         dmenu_font = 'SourceCodePro',
         background = bar_bg,
-        #foreground = text,
-        #selected_background = widget_group_color,
-        selected_foreground = text,
-        dmenu_height = 30,
+        foreground = arch_color,
+        selected_background = widget_group_color,
+        selected_foreground = arch_color,
+        dmenu_height = bar_size * 1.5,
+        dmenu_ignorecase = True,
+        dmenu_prompt = " >>> ",
+        dmenu_prompt_bg = "000000",
         )
 
 keys = [
@@ -140,9 +138,19 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        border_focus_stack = ["#d75f5f", "#8f3d3d"], 
-        border_width = 2, 
+        border_focus = arch_color,
+        border_width = 3, 
         margin = window_margin,
+        ),
+
+    layout.TreeTab(
+        font = "Sauce Code Pro Nerd Font",
+        bg_color = bar_bg,
+        active_bg = arch_color,
+        section_fg = arch_color,
+        section_top = 10,
+        section_left = 10,
+        sections = ['main'],
         ),
 
     layout.Max(
@@ -194,34 +202,43 @@ def init_widgets_list():
                     fontsize = widget_sep_size,
                     ),
 
-                # CPU Usage
-                widget.CPU(
-                    foreground = term_colors[3],
-                    background = widget_group_color,
-                    format = cpu_icon + ' {load_percent}%',
-                    ),
+                widget.WidgetBox(
+                    widgets = [
+                        # CPU Usage
+                        widget.CPU(
+                            foreground = term_colors[3],
+                            background = widget_group_color,
+                            format = cpu_icon + ' {load_percent}%',
+                            ),
 
-                # Memory Usage
-                widget.Memory(
-                    foreground = term_colors[2],
-                    background = widget_group_color,
-                    measure_mem = 'G',
-                    format = memory_icon + ' {MemPercent:.0f}%',
-                    ),
+                        # Memory Usage
+                        widget.Memory(
+                            foreground = term_colors[2],
+                            background = widget_group_color,
+                            measure_mem = 'G',
+                            format = memory_icon + ' {MemPercent:.0f}%',
+                            ),
 
-                # Disk Space
-                widget.DF(
-                    foreground = term_colors[5],
-                    background = widget_group_color,
-                    visible_on_warn = False,
-                    format = disk_icon + ' {r:.0f}%',
-                    ),
+                        # Disk Space
+                        widget.DF(
+                            foreground = term_colors[5],
+                            background = widget_group_color,
+                            visible_on_warn = False,
+                            format = disk_icon + ' {r:.0f}%',
+                            ),
 
-                widget.Net(
-                    foreground = term_colors[6],
+                        # Download Speed
+                        widget.Net(
+                            foreground = term_colors[6],
+                            background = widget_group_color,
+                            format = net_icon + ' {down} ' + down_arrow_icon,
+                            ),
+                        ],
                     background = widget_group_color,
-                    format = net_icon + ' {down} ' + down_arrow_icon,
-                    ),
+                    foreground = arch_color,
+                    text_closed = '<',
+                    text_open = '>',
+                ),
 
                 # Separator
                 widget.TextBox(
@@ -243,10 +260,6 @@ def init_widgets_list():
                     background = widget_group_color,
                     ),
 
-                widget.CheckUpdates(
-                        background = widget_group_color,
-                    ),
-
                 # Separator
                 widget.TextBox(
                     foreground = widget_group_color,
@@ -264,7 +277,7 @@ def init_widgets_list():
                     ),
 
                 widget.Clock(
-                    format = clock_icon + " %a %I:%M",
+                    format = clock_icon + " %a %H:%M",
                     background = widget_group_color,
                     foreground = arch_color,
                     padding = 10,
@@ -282,10 +295,12 @@ def init_widgets_list():
                     update_interval = 30,
                     ),
 
+                # Separator
                 widget.TextBox(
-                    text = " ",
+                    foreground = widget_group_color,
+                    text = widget_lsep,
                     padding = 0,
-                    background = widget_group_color,
+                    fontsize = widget_sep_size,
                     ),
 
             ]
@@ -300,10 +315,12 @@ def init_screens():
     return [
         Screen(top = bar.Bar(
                 widgets = init_widgets_screen(),
-                size = 35,
+                size = bar_size,
                 opacity = 0.85,
                 margin = window_margin,
-                )
+                border_width = [5, 5, 5, 0],
+                border_color = bar_bg,
+                ),
             ),
         Screen(),
         ]
