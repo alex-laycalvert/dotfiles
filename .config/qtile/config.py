@@ -266,7 +266,7 @@ def init_widgets_list():
                 widget.Clock(
                     format = clock_icon + " %a %I:%M",
                     background = widget_group_color,
-                    foreground = term_colors[1],
+                    foreground = arch_color,
                     padding = 10,
                     ),
 
