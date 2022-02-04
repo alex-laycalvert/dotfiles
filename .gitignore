@@ -18,6 +18,7 @@
 .config/TabNine/
 .config/gtk*/
 .config/QtProject.conf
+.config/lazygit/state.yml
 
 .icons/
 .local/
