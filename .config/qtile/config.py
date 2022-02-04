@@ -19,13 +19,14 @@ bar_bg = "202030"
 text = "ddddee"
 widget_group_color = '303045'
 
-# icons for web links and other stuff
 arch_icon = ' '
 arch_color = '1793d1'
 
+# used when I have weblinks in my bar
 mail_icon = ''
 github_icon = ''
 reddit_icon = ''
+
 clock_icon = ''
 
 cpu_icon = ''
@@ -46,7 +47,10 @@ widget_sep_size = 30
 
 window_margin = 4
 
-term_colors = ['000000', 'ff5555', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'bbbbbb', '999999', 'ff5454', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'ffffff']
+term_colors = [
+            '000000', 'ff5555', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'bbbbbb', 
+            '999999', 'ff5454', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'ffffff'
+            ]
 
 # dmenu_run setup
 def dmenu_run_extension():
@@ -151,7 +155,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font = "SauceCodePro Nerd Font",
+    font = "Sauce Code Pro Nerd Font",
     fontsize = 18,
     padding = 10,
     background = bar_bg,
@@ -177,7 +181,9 @@ def init_widgets_list():
                     hide_unused = True,
                     ),
 
-                widget.WindowName(),
+                widget.WindowName(
+                    foreground = arch_color,
+                    ),
 
 
                 # Separator
@@ -190,7 +196,7 @@ def init_widgets_list():
 
                 # CPU Usage
                 widget.CPU(
-                    foreground = term_colors[4],
+                    foreground = term_colors[3],
                     background = widget_group_color,
                     format = cpu_icon + ' {load_percent}%',
                     ),
@@ -237,9 +243,26 @@ def init_widgets_list():
                     background = widget_group_color,
                     ),
 
+                # Separator
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_lsep + " ",
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
+
+                # Separator
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_rsep,
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
+
                 widget.Clock(
                     format = clock_icon + " %a %I:%M",
                     background = widget_group_color,
+                    foreground = term_colors[1],
                     padding = 10,
                     ),
 
@@ -250,6 +273,7 @@ def init_widgets_list():
                     empty_char = '',
                     unknown_char = '',
                     background = widget_group_color,
+                    foreground = term_colors[2],
                     format="{char} {percent:2.0%}",
                     update_interval = 30,
                     ),

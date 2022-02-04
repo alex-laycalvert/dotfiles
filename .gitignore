@@ -6,6 +6,7 @@
 .gtk*
 .fehbg
 .yarnrc
+.python_history
 
 .config/mimeapps.list
 .config/BraveSoftware/
@@ -26,3 +27,11 @@
 .npm/
 
 git/
+Desktop/
+Documents/
+Pictures/
+Public/
+Shared/
+Music/
+Templates/
+Videos/

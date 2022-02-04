@@ -154,5 +154,11 @@ utils.map('n', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 utils.map('t', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 utils.map('i', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 
-utils.map('n', '<leader>`', '<cmd>10split<CR><cmd>terminal<CR>i')
-utils.map('n', '<leader>~', '<cmd>vsplit<CR><cmd>terminal<CR>i')
+utils.map('n', '<leader><return>', '<cmd>10split<CR><cmd>terminal<CR>i')
+-- utils.map('n', '<leader><S-return>', '<cmd>vsplit<CR>')
+
+utils.map('n', '<leader>g', '<cmd>LazyGit<CR>')
+
+utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
+utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
+utils.map('v', '<M-/>', '<cmd>CommentToggle<CR>')
