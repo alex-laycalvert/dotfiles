@@ -53,6 +53,8 @@ require('packer').startup(function(use)
 	-- git
 	use 'kdheepak/lazygit.nvim'
 
+    -- vim-doge (doc generator)
+    use 'kkoomen/vim-doge'
 end)
 
 -- plugin setup
@@ -162,3 +164,5 @@ utils.map('n', '<leader>g', '<cmd>LazyGit<CR>')
 utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('v', '<M-/>', '<cmd>CommentToggle<CR>')
+
+utils.map('n', '<leader>p', '<cmd>PackerUpdate<CR>')
