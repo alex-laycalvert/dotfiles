@@ -4,7 +4,7 @@
             "command": "ccls",
             "args": ["--log-file=/tmp/ccls.log", "-v=1"],
             "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
-            "rootPatterns": [".ccls", "compile_flags.txt"],
+            "rootPatterns": [".ccls", "compile_commands.json"],
             "initializationOptions": {
                 "cache": {
                     "directory": "/tmp/ccls"
@@ -12,17 +12,10 @@
                 "client": {
                     "snippetSupport": true
                 },
-                "index": {
-                    "onChange": true
-                },
-                // This is mandatory!
-                "highlight": { "lsRanges": true }
+                "highlight": {
+                    "lsRanges" : true
+                }
             }
         }
-    },
-    "prettier.tabWidth": 4,
-    "codeLens.enable": true,
-    "java.referencesCodeLens.enabled": true,
-    "java.jdt.ls.vmargs": "-javaagent:/usr/local/share/lombok/lombok.jar",
-    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd"
+    }
 }
