@@ -117,6 +117,15 @@ alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
-
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
+# typos
+alias clera="clear"
+alias claer="clear"
+alias ckear="clear"
+alias celas="clear"
+alias celar="clear"
+
+alias sdou="sudo"
+alias sodu="sudo"

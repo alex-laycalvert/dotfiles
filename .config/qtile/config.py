@@ -38,7 +38,7 @@ widget_rsep = ''
 
 widget_sep_size = 30
 
-window_margin = 4
+window_margin = 6
 
 bar_size = 35
 

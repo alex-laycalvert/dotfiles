@@ -34,6 +34,9 @@ require('packer').startup(function(use)
 	-- syntax highlighting
 	use 'nvim-treesitter/nvim-treesitter'
 
+    -- javascript/jsx/typescript/tsx
+    use 'MaxMEllon/vim-jsx-pretty'
+
 	-- editor tools/settings
 	use 'jiangmiao/auto-pairs'	-- auto close brackets
 	use {				-- status line
@@ -58,6 +61,9 @@ require('packer').startup(function(use)
 end)
 
 -- plugin setup
+vim.cmd([[
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-emmet', 'coc-java', 'coc-java-debug', 'coc-clangd', 'coc-ccls']
+]])
 require('nvim_comment').setup()		-- commentor
 vim.opt.termguicolors = true		-- colorscheme
 vim.cmd('colorscheme dracula')

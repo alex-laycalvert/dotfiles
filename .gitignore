@@ -36,3 +36,10 @@ Shared/
 Music/
 Templates/
 Videos/
+
+.cert/nm-openvpn
+.config/configstore
+.mozilla/firefox
+htb
+.NERDTreeBookmarks
+.config/lazygit

@@ -17,5 +17,7 @@
                 }
             }
         }
-    }
+    },
+    "prettier.tabWidth": 4,
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "jsx", "typescript", "tsx", "json"]
 }
