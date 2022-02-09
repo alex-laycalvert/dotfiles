@@ -43,22 +43,13 @@ Videos/
 htb
 .NERDTreeBookmarks
 .config/lazygit
-.config/draw.io/Cache
-.config/draw.io/Code Cache
-.config/draw.io/Crashpad
-.config/draw.io/Dictionaries
-.config/draw.io/GPUCache
-.config/draw.io/IndexedDB/file__0.indexeddb.leveldb
-.config/draw.io/Local Storage/leveldb
-.config/draw.io/Session Storage
-.config/draw.io/Cookies
-.config/draw.io/Cookies-journal
-.config/draw.io/Network Persistent State
 .config/draw.io
-.config/fontconfig/conf.d
 .config/kcminputrc
 .config/kglobalshortcutsrc
 .config/kwinrc
 .gnupg/crls.d
 .gnupg
 drawio
+
+Downloads
+.viminfo
