@@ -2,7 +2,7 @@ set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-set EDITOR "nvim"
+set -Ux EDITOR "nvim"
 
 # Add ~/.local/bin to PATH
 if test -d ~/.local/bin
@@ -13,7 +13,7 @@ end
 
 ## Starship Prompt
 if status is-interactive
-    source ("/usr/local/bin/starship" init fish --print-full-init | psub)
+    source ("/usr/bin/starship" init fish --print-full-init | psub)
 end
 
 ## Advanced command-not-found hook
@@ -89,7 +89,7 @@ alias wget='wget -c '
 alias rmpkg="sudo pacman -Rdd"
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-alias upd='/usr/local/bin/update'
+alias upd='/usr/bin/update'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
