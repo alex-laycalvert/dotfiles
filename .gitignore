@@ -64,3 +64,5 @@ git/
 .config/xmrig.json
 .config/dmenu/
 .config/neofetch/
+
+.Trash/favorite-wallpapers
