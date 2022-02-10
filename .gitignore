@@ -53,3 +53,8 @@ drawio
 
 Downloads
 .viminfo
+.cargo
+.gradle
+.java/.userPrefs
+.m2/repository
+projects
