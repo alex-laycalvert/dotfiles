@@ -3,6 +3,7 @@ set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 set -Ux EDITOR "nvim"
+set -Ux TERM "kitty"
 
 # Add ~/.local/bin to PATH
 if test -d ~/.local/bin

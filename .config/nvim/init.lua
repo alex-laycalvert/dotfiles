@@ -57,19 +57,35 @@ require('packer').startup(function(use)
 	use 'kdheepak/lazygit.nvim'
 
     -- vim-doge (doc generator)
-    use 'kkoomen/vim-doge'
+    -- use 'kkoomen/vim-doge'
+    use '/home/alex/git/vim-doge'
 end)
 
 -- plugin setup
 vim.cmd([[
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-emmet', 'coc-java', 'coc-java-debug', 'coc-clangd', 'coc-ccls']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-emmet', 'coc-java', 'coc-java-debug', 'coc-clangd', 'coc-ccls', 'coc-snippets']
 ]])
-require('nvim_comment').setup()		-- commentor
-vim.opt.termguicolors = true		-- colorscheme
+
+-- tab to move through completion options
+vim.cmd([[
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+]])
+
+-- commenter
+require('nvim_comment').setup()
+
+-- colorscheme
+vim.opt.termguicolors = true
 vim.cmd('colorscheme dracula')
 vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
-require('lualine').setup()		-- statusline
-vim.cmd('let NERDTreeAutoDeleteBuffer = 1') -- nerdtree
+
+-- status line
+require('lualine').setup()
+
+-- file tree
+vim.cmd('let NERDTreeAutoDeleteBuffer = 1')
 vim.cmd('let NERDTreeMinimalUI = 1')
 vim.cmd('let NERDTreeDirArrows = 1')
 vim.cmd('let g:NERDTreeShowHidden = 1')
@@ -149,18 +165,30 @@ utils.map('n', '<M-L>', '<cmd>wincmd ><CR>')
 utils.map('i', '<M-L>', '<cmd>wincmd ><CR>')
 utils.map('t', '<M-L>', '<cmd>wincmd ><CR>')
 
-utils.map('n', '<M-PageUp>', 'gT<CR>')
-utils.map('t', '<M-PageUp>', 'gT<CR>')
-utils.map('i', '<M-PageUp>', 'gT<CR>')
-utils.map('n', '<M-PageDown>', 'gt<CR>')
-utils.map('t', '<M-PageDown>', 'gt<CR>')
-utils.map('i', '<M-PageDown>', 'gt<CR>')
+utils.map('n', '<M-PageDown>', '<cmd>tabnext<CR>')
+utils.map('i', '<M-PageDown>', '<cmd>tabnext<CR>')
+utils.map('t', '<M-PageDown>', '<cmd>tabnext<CR>')
+utils.map('n', '<M-PageUp>', '<cmd>tabprevious<CR>')
+utils.map('i', '<M-PageUp>', '<cmd>tabprevious<CR>')
+utils.map('t', '<M-PageUp>', '<cmd>tabprevious<CR>')
+utils.map('n', '<M-Tab>', '<cmd>tabnext<CR>')
+utils.map('i', '<M-Tab>', '<cmd>tabnext<CR>')
+utils.map('t', '<M-Tab>', '<cmd>tabnext<CR>')
+utils.map('n', '<M-S-Tab>', '<cmd>tabprevious<CR>')
+utils.map('i', '<M-S-Tab>', '<cmd>tabprevious<CR>')
+utils.map('t', '<M-S-Tab>', '<cmd>tabprevious<CR>')
 utils.map('n', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
-utils.map('t', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
 utils.map('i', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
+utils.map('t', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
 utils.map('n', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
-utils.map('t', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 utils.map('i', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
+utils.map('t', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
+utils.map('n', '<M-t>', '<cmd>tabnew<CR>')
+utils.map('i', '<M-t>', '<cmd>tabnew<CR>')
+utils.map('t', '<M-t>', '<cmd>tabnew<CR>')
+utils.map('n', '<M-w>', '<cmd>tabclose<CR>')
+utils.map('i', '<M-w>', '<cmd>tabclose<CR>')
+utils.map('t', '<M-w>', '<cmd>tabclose<CR>')
 
 utils.map('n', '<leader><return>', '<cmd>10split<CR><cmd>terminal<CR>i')
 -- utils.map('n', '<leader><S-return>', '<cmd>vsplit<CR>')

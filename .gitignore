@@ -58,3 +58,5 @@ Downloads
 .java/.userPrefs
 .m2/repository
 projects
+.config/libreoffice/4/user
+.gitconfig

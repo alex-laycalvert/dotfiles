@@ -47,6 +47,8 @@ term_colors = [
             '999999', 'ff5454', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'ffffff'
             ]
 
+home = os.path.expanduser('~')
+
 # dmenu_run setup
 def drun_ext():
     return extension.DmenuRun(
@@ -57,13 +59,7 @@ def drun_ext():
         selected_foreground = arch_color,
         dmenu_height = bar_size * 1.5,
         dmenu_ignorecase = True,
-        dmenu_prompt = " >>> ",
-        dmenu_prompt_bg = "000000",
-        )
-
-def ddot_ext():
-    return extension.Dmenu(
-        dmenu_prompt = " >>> ",
+        dmenu_prompt = " run > ",
         )
 
 keys = [
@@ -107,10 +103,11 @@ keys = [
     Key([mod, "control"], "r", lazy.restart(), desc = "Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc = "Shutdown Qtile"),
     Key([mod], "r", lazy.run_extension(drun_ext()), desc = "Spawn DistroTube's dmenu_run"),
-
     # emulating the macOS keybinding
     Key(["mod1"], "space", lazy.run_extension(drun_ext()),
         desc = "Spawn DistroTube's dmenu_run"),
+    Key([mod], "e", lazy.spawn(home + "/.config/scripts/edit-dotfiles.sh"), desc = "Edit dotfiles"),
+    Key([mod], "g", lazy.spawn(home + "/.config/scripts/git-projects.sh"), desc = "Edit git projects"),
 ]
 
 groups = [Group(i) for i in "1234567890"]
@@ -369,17 +366,14 @@ auto_minimize = True
 # Scripts
 @hook.subscribe.startup_once
 def start_once():
-    home = os.path.expanduser('~')
     subprocess.call(['sh', home + '/.config/qtile/autostart.sh'])
 
 @hook.subscribe.shutdown
 def shutdown_script():
-    home = os.path.expanduser('~')
     subprocess.call(['sh', home + '/.config/qtile/autoshut.sh'])
 
 @hook.subscribe.restart
 def restart_script():
-    home = os.path.expanduser('~')
     subprocess.call(['sh', home + '/.config/qtile/autoshut.sh'])
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
