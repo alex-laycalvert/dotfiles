@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 set bell-style visible
 # 
 # alex-laycalvert
@@ -7,6 +8,8 @@ set bell-style visible
 
 EDITOR=nvim
 
+=======
+>>>>>>> 636da67504ba6845b93a4dcee1865e4c05b73722
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -19,6 +22,7 @@ zstyle :compinstall filename '/home/alex/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+<<<<<<< HEAD
 
 # turn off that horrible beep
 unsetopt BEEP
@@ -104,3 +108,5 @@ alias custnvim="nvim --cmd \"set rtp+=$(pwd)\""
 alias celra="clear"
 alias ip="ip -color"
 alias ssh="kitty +kitten ssh"
+=======
+>>>>>>> 636da67504ba6845b93a4dcee1865e4c05b73722

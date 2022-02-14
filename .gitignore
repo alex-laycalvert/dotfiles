@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Other shells
 .bash_history
 .histfile
@@ -39,6 +40,29 @@ git/
 .profile
 .viminfo
 
+=======
+.bash_history
+.histfile
+.lesshst
+.zcompdump
+.Xauthority
+.gtk*
+.fehbg
+.yarnrc
+.python_history
+
+.config/mimeapps.list
+.config/BraveSoftware/
+.config/qtile/__pycache__/
+.config/gtk-2.0/
+.config/pulse/
+.config/dconf/
+.config/coc/
+.config/TabNine/
+.config/gtk*/
+.config/QtProject.conf
+.config/lazygit/state.yml
+>>>>>>> 636da67504ba6845b93a4dcee1865e4c05b73722
 
 .icons/
 .local/
@@ -46,6 +70,7 @@ git/
 .pki/
 .ssh/
 .npm/
+<<<<<<< HEAD
 .cargo/
 .bitmonero/
 .android/
@@ -67,3 +92,39 @@ git/
 
 .Trash/favorite-wallpapers
 .m2/repository
+=======
+
+git/
+Desktop/
+Documents/
+Pictures/
+Public/
+Shared/
+Music/
+Templates/
+Videos/
+
+.cert/nm-openvpn
+.config/configstore
+.mozilla/firefox
+htb
+.NERDTreeBookmarks
+.config/lazygit
+.config/draw.io
+.config/kcminputrc
+.config/kglobalshortcutsrc
+.config/kwinrc
+.gnupg/crls.d
+.gnupg
+drawio
+
+Downloads
+.viminfo
+.cargo
+.gradle
+.java/.userPrefs
+.m2/repository
+projects
+.config/libreoffice/4/user
+.gitconfig
+>>>>>>> 636da67504ba6845b93a4dcee1865e4c05b73722
