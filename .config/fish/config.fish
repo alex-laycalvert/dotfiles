@@ -2,7 +2,7 @@ set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-set -Ux EDITOR "nvim"
+set EDITOR "nvim"
 
 # Add ~/.local/bin to PATH
 if test -d ~/.local/bin
@@ -13,7 +13,7 @@ end
 
 ## Starship Prompt
 if status is-interactive
-    source ("/usr/local/bin/starship" init fish --print-full-init | psub)
+    source ("/usr/bin/starship" init fish --print-full-init | psub)
 end
 
 ## Advanced command-not-found hook
