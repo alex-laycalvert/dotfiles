@@ -4,7 +4,7 @@
             "command": "ccls",
             "args": ["--log-file=/tmp/ccls.log", "-v=1"],
             "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
-            "rootPatterns": [".ccls", "compile_flags.txt"],
+            "rootPatterns": [".ccls", "compile_commands.json"],
             "initializationOptions": {
                 "cache": {
                     "directory": "/tmp/ccls"
@@ -12,13 +12,12 @@
                 "client": {
                     "snippetSupport": true
                 },
-                "index": {
-                    "onChange": true
-                },
-                // This is mandatory!
-                "highlight": { "lsRanges": true }
+                "highlight": {
+                    "lsRanges" : true
+                }
             }
         }
     },
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "jsx", "typescript", "tsx", "json"]
 }

@@ -1,116 +1,103 @@
---------------------------------------------
---------------------------------------------
---                                        --
---     My Ultamite Neovim Configuration   --
---                                        --
---         author: alex-laycalvert        --
---                                        --
---   various functions stolen from others --
---                                        --
---------------------------------------------
---------------------------------------------
+-- .config/nvim/init.lua
+-- alex-laycalvert
 
-----------------
--- LEADER KEY --
-----------------
+-- leader key
 vim.g.mapleader = ' '
 vim.g.timeoutlen = 2000
 vim.cmd('set mouse=nvi')
 
--------------
--- PLUGINS --
--------------
+-- plugins
+
+-- bootstrapping packer
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
+
 require('packer').startup(function(use)
-    -- Packer package manager
-    use 'wbthomason/packer.nvim'
 
-    -- colorschemes
-    use 'doums/darcula'
-    use 'rafi/awesome-vim-colorschemes'
-    use 'olimorris/onedarkpro.nvim'
-    use 'EdenEast/nightfox.nvim'
-    use 'dracula/vim'
-    use 'NTBBloodbath/doom-one.nvim'
-    use 'shaunsingh/moonlight.nvim'
-    use 'cocopon/iceberg.vim'
-    use 'haystackandroid/carbonized'
-    use 'gregsexton/Atom'
-    use 'ayu-theme/ayu-vim'
-    use 'tomasr/molokai'
-    use 'savq/melange'
+	-- packer
+	use 'wbthomason/packer.nvim'
 
-    -- filetree
-    use 'preservim/nerdtree'
-    use 'Xuyuanp/nerdtree-git-plugin'
-    use 'tpope/vim-fugitive'
-    use 'tiagofumo/vim-nerdtree-syntax-highlight'
+	-- colorscheme
+	use 'dracula/vim'
 
-    -- lsp
-    use {'neoclide/coc.nvim', branch = 'release'} -- coc.nvim
-    use 'rhysd/vim-clang-format' -- cpp clang format
+	-- filetree
+	use 'preservim/nerdtree'
+	use 'Xuyuanp/nerdtree-git-plugin'
+	use 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-    -- for java ( i hate java )
-    use 'eclipse/eclipse.jdt.ls'
+	-- lsp
+	use {'neoclide/coc.nvim', branch = 'release'}	-- coc.nvim
 
-    -- syntax 
-    use 'jackguo380/vim-lsp-cxx-highlight' -- cpp
-    use 'pangloss/vim-javascript'
-    use 'nvim-treesitter/nvim-treesitter'
+	-- syntax highlighting
+	use 'nvim-treesitter/nvim-treesitter'
 
-    -- auto close brackets
-    use 'jiangmiao/auto-pairs'
+    -- javascript/jsx/typescript/tsx
+    use 'MaxMEllon/vim-jsx-pretty'
 
-    -- fuzzy finding
-    use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+	-- editor tools/settings
+	use 'jiangmiao/auto-pairs'	-- auto close brackets
+	use {				-- status line
+		'nvim-lualine/lualine.nvim',
+		requires = {'kyazdani42/nvim-web-devicons', opt = true}
+	    }
 
-    -- status line
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
+	use 'ryanoasis/vim-devicons' 	-- icons
+	use 'terrortylor/nvim-comment' 	-- commenting
 
-    -- icons
-    use 'ryanoasis/vim-devicons'
 
-    -- commenter
-    use 'terrortylor/nvim-comment'
+	-- language specific
+	use 'iamcco/markdown-preview.nvim'
+	use 'rhysd/vim-clang-format'
+	use 'eclipse/eclipse.jdt.ls'
 
-    -- markdown
-    use 'iamcco/markdown-preview.nvim' 
+	-- git
+	use 'kdheepak/lazygit.nvim'
 
-    -- git
-    use 'kdheepak/lazygit.nvim'
-
-    -- TESTING
+    -- vim-doge (doc generator)
+    -- use 'kkoomen/vim-doge'
     use '/home/alex/git/vim-doge'
-    -- use 'alex-laycalvert/vim-doge'
 end)
 
+-- plugin setup
+vim.cmd([[
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-emmet', 'coc-java', 'coc-java-debug', 'coc-clangd', 'coc-ccls', 'coc-snippets']
+]])
+
+-- tab to move through completion options
+vim.cmd([[
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<Tab>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+]])
+
+-- commenter
 require('nvim_comment').setup()
 
-vim.cmd('let g:cpp_class_scope_highlight = 1')
-vim.cmd('let g:cpp_member_variable_highlight = 1')
-vim.cmd('let g:cpp_class_decl_highlight = 1')
-vim.cmd('command! -nargs=0 Prettier :CocCommand prettier.formatFile')
+-- colorscheme
+vim.opt.termguicolors = true
+vim.cmd('colorscheme dracula')
+vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+
+-- status line
+require('lualine').setup()
+
+-- file tree
+vim.cmd('let NERDTreeAutoDeleteBuffer = 1')
+vim.cmd('let NERDTreeMinimalUI = 1')
+vim.cmd('let NERDTreeDirArrows = 1')
+vim.cmd('let g:NERDTreeShowHidden = 1')
 
 
----------------------
--- EDITOR SETTINGS --
----------------------
+-- nvim settings
 local utils = { }
-
 local scopes = {o = vim.o, b = vim.bo, w = vim.wo}
-
 function utils.opt(scope, key, value)
     scopes[scope][key] = value
     if scope ~= 'o' then scopes['o'][key] = value end
 end
-
 function utils.map(mode, lhs, rhs, opts)
   local options = {noremap = true}
   if opts then options = vim.tbl_extend('force', options, opts) end
@@ -133,63 +120,26 @@ utils.opt('o', 'splitbelow', true)
 utils.opt('o', 'splitright', true)
 utils.opt('o', 'wildmode', 'list:longest')
 utils.opt('w', 'number', true)
---utils.opt('w', 'relativenumber', true)
 utils.opt('o', 'clipboard','unnamed,unnamedplus')
 
------------------
--- COLORSCHEME --
------------------
-vim.opt.termguicolors = true
-vim.cmd('colorscheme dracula')
-vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
-
-------------------
--- AUTOCOMMANDS --
-------------------
+-- autocommands
 vim.cmd 'autocmd BufWinEnter,WinEnter term://* startinsert'
 vim.cmd 'autocmd BufWritePost /home/alex/.config/nvim/*.lua :luafile %'
 vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
 vim.cmd 'autocmd DirChanged global :NERDTreeCWD'
-vim.cmd 'autocmd BufWritePre *.c,*.cpp,*.h,*.hpp :ClangFormat'
-vim.cmd 'autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue CocCommand prettier.formatFile'
 
--------------
--- LUALINE --
--------------
-require('lualine').setup()
-
--------------------
--- NERD/CHADTree --
--------------------
-vim.cmd('let NERDTreeAutoDeleteBuffer = 1')
-vim.cmd('let NERDTreeMinimalUI = 1')
-vim.cmd('let NERDTreeDirArrows = 1')
-vim.cmd('let g:NERDTreeShowHidden = 1')
-
-
------------------
--- KEYMAPPINGS --
------------------
-
--- exit terminal mode
+-- keymappings
 utils.map('t', '<Esc>', '<C-\\><C-N>')
 
--- writing and saving
-utils.map('n', '<leader>ww','<cmd>w<CR>')
-utils.map('n', '<leader>WW','<cmd>wall<CR>')
-utils.map('n', '<leader>wq','<cmd>wq<CR>')
-utils.map('n', '<leader>WQ','<cmd>wqall<CR>')
-utils.map('n', '<leader>qq','<cmd>q<CR>')
-utils.map('n', '<leader>QQ','<cmd>qall<CR>')
-utils.map('n', '<leader>wo', '<cmd>w!<CR>')
+utils.map('n', '<leader>w', '<cmd>w<CR>')
+utils.map('n', '<leader>W', '<cmd>wall<CR>')
+utils.map('n', '<leader>q', '<cmd>q<CR>')
+utils.map('n', '<leader>Q', '<cmd>qall<CR>')
+utils.map('n', '<leader>ow', '<cmd>w!<CR>')
+utils.map('n', '<leader>oq', '<cmd>q!<CR>')
 
--- qtile
-utils.map('n', '<leader>qs', '<cmd>!qtile check<CR>')
+utils.map('n', '<leader><Tab>', '<cmd>NERDTreeToggle<CR>')
 
--- opening a file tree
-utils.map('n', '<leader>tr', '<cmd>NERDTreeToggle<CR>')
-
--- moving around windows
 utils.map('n', '<M-h>', '<cmd>wincmd h<CR>')
 utils.map('i', '<M-h>', '<cmd>wincmd h<CR>')
 utils.map('t', '<M-h>', '<cmd>wincmd h<CR>')
@@ -215,40 +165,38 @@ utils.map('n', '<M-L>', '<cmd>wincmd ><CR>')
 utils.map('i', '<M-L>', '<cmd>wincmd ><CR>')
 utils.map('t', '<M-L>', '<cmd>wincmd ><CR>')
 
--- moving around tabs
-utils.map('n', '<M-PageUp>', 'gT<CR>')
-utils.map('t', '<M-PageUp>', 'gT<CR>')
-utils.map('i', '<M-PageUp>', 'gT<CR>')
-utils.map('n', '<M-PageDown>', 'gt<CR>')
-utils.map('t', '<M-PageDown>', 'gt<CR>')
-utils.map('i', '<M-PageDown>', 'gt<CR>')
+utils.map('n', '<M-PageDown>', '<cmd>tabnext<CR>')
+utils.map('i', '<M-PageDown>', '<cmd>tabnext<CR>')
+utils.map('t', '<M-PageDown>', '<cmd>tabnext<CR>')
+utils.map('n', '<M-PageUp>', '<cmd>tabprevious<CR>')
+utils.map('i', '<M-PageUp>', '<cmd>tabprevious<CR>')
+utils.map('t', '<M-PageUp>', '<cmd>tabprevious<CR>')
+utils.map('n', '<M-Tab>', '<cmd>tabnext<CR>')
+utils.map('i', '<M-Tab>', '<cmd>tabnext<CR>')
+utils.map('t', '<M-Tab>', '<cmd>tabnext<CR>')
+utils.map('n', '<M-S-Tab>', '<cmd>tabprevious<CR>')
+utils.map('i', '<M-S-Tab>', '<cmd>tabprevious<CR>')
+utils.map('t', '<M-S-Tab>', '<cmd>tabprevious<CR>')
 utils.map('n', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
-utils.map('t', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
 utils.map('i', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
+utils.map('t', '<M-S-PageUp>', '<cmd>-tabmove<CR>')
 utils.map('n', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
-utils.map('t', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
 utils.map('i', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
+utils.map('t', '<M-S-PageDown>', '<cmd>+tabmove<CR>')
+utils.map('n', '<M-t>', '<cmd>tabnew<CR>')
+utils.map('i', '<M-t>', '<cmd>tabnew<CR>')
+utils.map('t', '<M-t>', '<cmd>tabnew<CR>')
+utils.map('n', '<M-w>', '<cmd>tabclose<CR>')
+utils.map('i', '<M-w>', '<cmd>tabclose<CR>')
+utils.map('t', '<M-w>', '<cmd>tabclose<CR>')
 
--- spliting windows
-utils.map('n', '<leader>hs', '<cmd>vsplit<CR>')
-utils.map('n', '<leader>vs', '<cmd>split<CR>')
-utils.map('n', '<leader>ot', '<cmd>terminal<CR>')
-utils.map('n', '<leader>vt', '<cmd>split<CR><cmd>terminal<CR>i')
-utils.map('n', '<leader>ht', '<cmd>vsplit<CR><cmd>terminal<CR>i')
+utils.map('n', '<leader><return>', '<cmd>10split<CR><cmd>terminal<CR>i')
+-- utils.map('n', '<leader><S-return>', '<cmd>vsplit<CR>')
 
--- telescope plugin
-utils.map('n', '<leader>ff', '<cmd>Telescope find_files<CR>')
+utils.map('n', '<leader>g', '<cmd>LazyGit<CR>')
 
--- I hate highlighting
-utils.map('n', '<leader>nh', '<cmd>noh<CR>')
-
--- Packer
-utils.map('n', '<leader>pi', '<cmd>PackerInstall<CR>');
-utils.map('n', '<leader>pu', '<cmd>PackerUpdate<CR>');
-
--- commenting
 utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
-utils.map('v', '<M-/>', "<cmd>'<,'>CommentToggle<CR>")
+utils.map('v', '<M-/>', '<cmd>CommentToggle<CR>')
 
-utils.map('n', '<leader>gg', '<cmd>LazyGit<CR>')
+utils.map('n', '<leader>p', '<cmd>PackerUpdate<CR>')

@@ -1,0 +1,4 @@
+brave-bin
+paleofetch
+picom-ibhagwan-git
+illum-git
