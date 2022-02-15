@@ -4,7 +4,6 @@
 .zcompdump
 .Xauthority
 .gtk*
-.fehbg
 .yarnrc
 .python_history
 
