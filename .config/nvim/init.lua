@@ -33,9 +33,9 @@ require('packer').startup(function(use)
 
 	-- syntax highlighting
 	use 'nvim-treesitter/nvim-treesitter'
-
-    -- javascript/jsx/typescript/tsx
-    use 'MaxMEllon/vim-jsx-pretty'
+    -- use 'yuezk/vim-js'
+    use 'pangloss/vim-javascript'
+    use 'maxmellon/vim-jsx-pretty'
 
 	-- editor tools/settings
 	use 'jiangmiao/auto-pairs'	-- auto close brackets
