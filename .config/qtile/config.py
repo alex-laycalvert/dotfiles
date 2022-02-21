@@ -279,7 +279,7 @@ def init_widgets_list():
                     ),
 
                 widget.Clock(
-                    format = clock_icon + " %a %H:%M",
+                    format = clock_icon + " %a %d %H:%M",
                     background = widget_group_color,
                     foreground = arch_color,
                     padding = 10,
