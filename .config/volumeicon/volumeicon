@@ -1,6 +1,6 @@
 [Alsa]
-card=default
-channel=Master
+card=HD-Audio Generic
+channel=Headphone
 
 [Notification]
 show_notification=true

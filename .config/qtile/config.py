@@ -285,18 +285,6 @@ def init_widgets_list():
                     padding = 10,
                     ),
 
-                widget.Battery(
-                    discharge_char = '',
-                    charge_char = '',
-                    full_char = '',
-                    empty_char = '',
-                    unknown_char = '',
-                    background = widget_group_color,
-                    foreground = term_colors[2],
-                    format="{char} {percent:2.0%}",
-                    update_interval = 30,
-                    ),
-
                 # Separator
                 widget.TextBox(
                     foreground = widget_group_color,

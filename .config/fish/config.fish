@@ -130,3 +130,4 @@ alias celar="clear"
 
 alias sdou="sudo"
 alias sodu="sudo"
+alias ssh="kitty +kitten ssh"

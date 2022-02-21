@@ -59,3 +59,16 @@ Downloads
 projects
 .config/libreoffice/4/user
 .gitconfig
+
+.config/deluge
+.config/expressvpn
+.config/nordvpn
+.config/systemd/user
+.cred/expressvpn
+.steam
+.config/autostart/expressvpn-agent.desktop
+downloads
+.pulse-cookie
+.steampath
+.steampid
+alexlaycalvert.ovpn
