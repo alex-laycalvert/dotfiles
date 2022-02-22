@@ -66,3 +66,8 @@ vpn
 .steampath
 .steampid
 .fehbg
+.BurpSuite
+.config/chromium/Crash Reports
+.java/fonts/17.0.1
+dell_service_tag
+hydra.restore
