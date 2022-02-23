@@ -71,3 +71,8 @@ vpn
 .java/fonts/17.0.1
 dell_service_tag
 hydra.restore
+.config/GNS3/2.2
+.docker
+GNS3
+.config/VirtualBox
+VirtualBox VMs/GNS3 VM
