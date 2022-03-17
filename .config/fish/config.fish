@@ -131,4 +131,6 @@ alias celar="clear"
 alias sdou="sudo"
 alias sodu="sudo"
 
-alias localgns3server="gns3server --host 127.0.0.1 --port 3080"
+alias localgns3server="gns3server --host 127.0.0.1 --port 3080 --local"
+
+alias ssh="kitty +kitten ssh"

@@ -13,11 +13,17 @@
                     "snippetSupport": true
                 },
                 "highlight": {
-                    "lsRanges" : true
+                    "lsRanges": true
                 }
             }
         }
     },
     "prettier.tabWidth": 4,
-    "coc.preferences.formatOnSaveFiletypes": ["javascript", "jsx", "typescript", "tsx", "json"]
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "jsx",
+        "typescript",
+        "tsx",
+        "json"
+    ]
 }

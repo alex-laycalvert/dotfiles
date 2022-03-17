@@ -52,6 +52,7 @@ require('packer').startup(function(use)
 	use 'iamcco/markdown-preview.nvim'
 	use 'rhysd/vim-clang-format'
 	use 'eclipse/eclipse.jdt.ls'
+    use 'derekwyatt/vim-fswitch' -- switch between header and c source file
 
 	-- git
 	use 'kdheepak/lazygit.nvim'
@@ -76,6 +77,10 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 -- commenter
 require('nvim_comment').setup()
 
+-- vim-fswitch
+vim.cmd('au BufEnter *.h  let b:fswitchdst = "c,cpp,cc,m"')
+vim.cmd('au BufEnter *.cc let b:fswitchdst = "h,hpp"')
+
 -- colorscheme
 vim.opt.termguicolors = true
 vim.cmd('colorscheme dracula')
@@ -89,7 +94,6 @@ vim.cmd('let NERDTreeAutoDeleteBuffer = 1')
 vim.cmd('let NERDTreeMinimalUI = 1')
 vim.cmd('let NERDTreeDirArrows = 1')
 vim.cmd('let g:NERDTreeShowHidden = 1')
-
 
 -- nvim settings
 local utils = { }
@@ -193,10 +197,23 @@ utils.map('t', '<M-w>', '<cmd>tabclose<CR>')
 utils.map('n', '<leader><return>', '<cmd>10split<CR><cmd>terminal<CR>i')
 -- utils.map('n', '<leader><S-return>', '<cmd>vsplit<CR>')
 
+-- git
 utils.map('n', '<leader>g', '<cmd>LazyGit<CR>')
 
+-- commenting
 utils.map('n', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('i', '<M-/>', '<cmd>CommentToggle<CR>')
 utils.map('v', '<M-/>', '<cmd>CommentToggle<CR>')
 
+-- packages
 utils.map('n', '<leader>p', '<cmd>PackerUpdate<CR>')
+
+-- vim-fswitch mappings
+utils.map('n', '<leader>oo', '<cmd>FSHere<CR>')
+utils.map('n', '<leader>oh', '<cmd>FSSplitLeft<CR>')
+utils.map('n', '<leader>oj', '<cmd>FSSplitBelow<CR>')
+utils.map('n', '<leader>ok', '<cmd>FSSplitAbove<CR>')
+utils.map('n', '<leader>ol', '<cmd>FSSplitRight<CR>')
+
+-- add a TODO
+utils.map('n', '<leader>t', 'OTODO<Esc><cmd>CommentToggle<CR>j')
