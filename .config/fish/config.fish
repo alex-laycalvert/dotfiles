@@ -12,6 +12,20 @@ if test -d ~/.local/bin
     end
 end
 
+# Add ~/scripts to PATH
+if test -d ~/scripts
+    if not contains -- ~/scripts $PATH
+        set -p PATH ~/scripts
+    end
+end
+
+# Add ~/.cargo/bin to PATH
+if test -d ~/.cargo/bin
+    if not contains -- ~/.cargo/bin $PATH
+        set -p PATH ~/.cargo/bin
+    end
+end
+
 ## Starship Prompt
 if status is-interactive
     source ("/usr/bin/starship" init fish --print-full-init | psub)
@@ -134,3 +148,5 @@ alias sodu="sudo"
 alias localgns3server="gns3server --host 127.0.0.1 --port 3080 --local"
 
 alias ssh="kitty +kitten ssh"
+
+thefuck --alias | source
