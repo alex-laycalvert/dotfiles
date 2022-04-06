@@ -25,6 +25,7 @@ arch_icon = ' '
 mail_icon = ''
 github_icon = ''
 reddit_icon = ''
+calendar_icon = ''
 clock_icon = ''
 cpu_icon = ''
 memory_icon = ''
@@ -279,7 +280,7 @@ def init_widgets_list():
                     ),
 
                 widget.Clock(
-                    format = clock_icon + " %a %d %H:%M",
+                    format = calendar_icon + "  %a %m/%d | " + clock_icon + " %H:%M",
                     background = widget_group_color,
                     foreground = arch_color,
                     padding = 10,
