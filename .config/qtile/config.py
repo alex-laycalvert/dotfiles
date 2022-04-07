@@ -38,9 +38,7 @@ widget_lsep = ''
 widget_rsep = ''
 
 widget_sep_size = 30
-
-window_margin = 6
-
+window_margin = 3
 bar_size = 35
 
 term_colors = [
@@ -142,7 +140,7 @@ for i in groups:
 layouts = [
     layout.Columns(
         border_focus = arch_color,
-        border_width = 3, 
+        border_width = 1, 
         margin = window_margin,
         ),
 
