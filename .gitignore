@@ -126,3 +126,7 @@ test
 .zoom/logs
 server
 .minecraft
+.config/obs-studio
+.config/vlc
+.grip/cache-4.6.1
+obs

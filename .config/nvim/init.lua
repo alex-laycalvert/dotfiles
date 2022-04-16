@@ -57,9 +57,15 @@ require('packer').startup(function(use)
 	-- git
 	use 'kdheepak/lazygit.nvim'
 
+    -- telescope
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
     -- vim-doge (doc generator)
-    -- use 'kkoomen/vim-doge'
-    use '/home/alex/git/vim-doge'
+    use 'kkoomen/vim-doge'
+    -- use '/home/alex/git/vim-doge'
 end)
 
 -- plugin setup
@@ -217,3 +223,8 @@ utils.map('n', '<leader>ol', '<cmd>FSSplitRight<CR>')
 
 -- add a TODO
 utils.map('n', '<leader>t', 'OTODO<Esc><cmd>CommentToggle<CR>j')
+
+-- telescope bindings
+utils.map('n', '<leader>f', '<cmd>Telescope find_files<CR>')
+utils.map('n', '<leader>b', '<cmd>Telescope buffers<CR>')
+utils.map('n', '<leader>r', '<cmd>Telescope live_grep<CR>')
