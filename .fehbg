@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '/home/alex/Downloads/glacier-mountains-waterfall-watch-tower-moon-night-time-3840x1080-6404.png' 
