@@ -108,3 +108,4 @@ neo4j/
 .config/spectaclerc
 .config/trashrc
 .kde4/share/config
+.config/systemd/user

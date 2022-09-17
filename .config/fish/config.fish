@@ -90,7 +90,7 @@ alias ll='exa  -l --color=always --group-directories-first --icons'
 alias lt='exa -aT --color=always --group-directories-first --icons'
 alias l.="exa -a | egrep '^\.'"
 alias ip='ip -color'
-alias cat='bat --style header --style rules --style snip --style changes --style header'
+alias cat='bat --style header --style snip --style changes --style header'
 alias yay='yay --color=always'
 alias dotgit='git --work-tree=$HOME --git-dir=$HOME/git/dotfiles'
 alias lazydot='lazygit -w $HOME -g $HOME/git/dotfiles'
