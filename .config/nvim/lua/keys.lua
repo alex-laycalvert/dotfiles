@@ -3,94 +3,88 @@
 -- 
 -- https://github.com/alex-laycalvert
 
-local keys = {}
-
-function keys.setup()
-    local function map(mode, shortcut, command)
+local function map(mode, shortcut, command)
     vim.keymap.set(
         mode,
         shortcut,
         command,
         { noremap = true }
     )
-    end
-    
-    local function nmap(shortcut, command)
-        map('n', shortcut, '<cmd>' .. command .. '<CR>')
-    end
-    
-    local function vmap(shortcut, command)
-        map('v', shortcut, '<cmd>' .. command .. '<CR>')
-    end
-    
-    local function imap(shortcut, command)
-        map('i', shortcut, '<cmd>' .. command .. '<CR>')
-    end
-    
-    local function tmap(shortcut, command)
-        map('t', shortcut, '<cmd>' .. command .. '<CR>')
-    end
-    
-    local function amap(shortcut, command)
-        nmap(shortcut, command)
-        imap(shortcut, command)
-        tmap(shortcut, command)
-    end
-    
-    local function ldrmap(shortcut, command)
-        nmap('<leader>' .. shortcut, command)
-    end
-    
-    -- system
-    nmap('<leader>w', 'w')
-	nmap('<leader>ow', 'w!')
-    nmap('<leader>W', 'wall')
-    nmap('<leader>OW', 'wall!')
-    nmap('<leader>q', 'q')
-	nmap('<leader>oq', 'q!')
-    nmap('<leader>Q', 'qall')
-	nmap('<leader>OQ', 'qall!')
-
-    -- filetree
-	nmap('<leader><Tab>', 'CHADopen')
-    
-    -- windows
-    amap('<M-h>', 'wincmd h')
-    amap('<M-j>', 'wincmd j')
-    amap('<M-k>', 'wincmd k')
-    amap('<M-l>', 'wincmd l')
-    amap('<M-H>', 'wincmd <')
-    amap('<M-J>', 'wincmd -')
-    amap('<M-K>', 'wincmd +')
-    amap('<M-L>', 'wincmd >')
-	amap('<M-v>', 'vsplit')
-	amap('<M-s>', 'split')
-
-    -- tabs
-    amap('<M-t>', 'tabnew')
-    amap('<M-w>', 'tabclose')
-    amap('<M-Tab>', 'tabnext')
-    amap('<M-S-Tab>', 'tabprevious')
-    amap('<M-PageUp>', '-tabmove')
-    amap('<M-PageDown>', '+tabmove')
-
-    -- terminal
-	map('t', '<ESC>', '<C-\\><C-N>')
-    map('n', '<leader><return>', '<cmd>10split<CR><cmd>terminal<CR>i')
-
-    -- git
-    nmap('<leader>g', 'LazyGit')
-
-    -- telescope
-    nmap('<leader>f', 'Telescope find_files')
-    nmap('<leader>b', 'Telescope buffers')
-    nmap('<leader>r', 'Telescope live_grep')
-
-    -- commenting
-    amap('<M-/>', 'CommentToggle')
-
-    -- misc
-    map('n', '<leader>t', 'OTODO<Esc><cmd>CommentToggle<CR>j')
 end
 
-return keys
+local function nmap(shortcut, command)
+    map('n', shortcut, '<cmd>' .. command .. '<CR>')
+end
+
+local function vmap(shortcut, command)
+    map('v', shortcut, '<cmd>' .. command .. '<CR>')
+end
+
+local function imap(shortcut, command)
+    map('i', shortcut, '<cmd>' .. command .. '<CR>')
+end
+
+local function tmap(shortcut, command)
+    map('t', shortcut, '<cmd>' .. command .. '<CR>')
+end
+
+local function amap(shortcut, command)
+    nmap(shortcut, command)
+    imap(shortcut, command)
+    tmap(shortcut, command)
+end
+
+local function ldrmap(shortcut, command)
+    nmap('<leader>' .. shortcut, command)
+end
+
+-- system
+nmap('<leader>w', 'w')
+nmap('<leader>ow', 'w!')
+nmap('<leader>W', 'wall')
+nmap('<leader>OW', 'wall!')
+nmap('<leader>q', 'q')
+nmap('<leader>oq', 'q!')
+nmap('<leader>Q', 'qall')
+nmap('<leader>OQ', 'qall!')
+
+-- filetree
+nmap('<leader><Tab>', 'CHADopen')
+
+-- windows
+amap('<M-h>', 'wincmd h')
+amap('<M-j>', 'wincmd j')
+amap('<M-k>', 'wincmd k')
+amap('<M-l>', 'wincmd l')
+amap('<M-H>', 'wincmd <')
+amap('<M-J>', 'wincmd -')
+amap('<M-K>', 'wincmd +')
+amap('<M-L>', 'wincmd >')
+amap('<M-v>', 'vsplit')
+amap('<M-s>', 'split')
+
+-- tabs
+amap('<M-t>', 'tabnew')
+amap('<M-w>', 'tabclose')
+amap('<M-Tab>', 'tabnext')
+amap('<M-S-Tab>', 'tabprevious')
+amap('<M-PageUp>', '-tabmove')
+amap('<M-PageDown>', '+tabmove')
+
+-- terminal
+map('t', '<ESC>', '<C-\\><C-N>')
+map('n', '<leader><return>', '<cmd>10split<CR><cmd>terminal<CR>i')
+
+-- git
+nmap('<leader>g', 'LazyGit')
+
+-- telescope
+nmap('<leader>f', 'Telescope find_files')
+nmap('<leader>b', 'Telescope buffers')
+nmap('<leader>r', 'Telescope live_grep')
+
+-- commenting
+amap('<M-/>', 'CommentToggle')
+
+-- misc
+map('n', '<leader>t', 'OTODO<Esc><cmd>CommentToggle<CR>j')

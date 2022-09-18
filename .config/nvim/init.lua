@@ -3,4 +3,4 @@
 -- 
 -- https://github.com/alex-laycalvert
 
-require('lua.init').setup()
+require('setup')

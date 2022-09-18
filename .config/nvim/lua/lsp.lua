@@ -3,16 +3,11 @@
 -- 
 -- https://github.com/alex-laycalvert
 
-local lspsetup = {}
+vim.cmd([[let g:coq_settings = { 'auto_start': 'shut-up', 'keymap.jump_to_mark': '<M-n>' }]])
 
-function lspsetup.setup()
+local lsp = require('lspconfig')
+local coq = require('coq')
 
-    vim.cmd([[let g:coq_settings = { 'auto_start': 'shut-up', 'keymap.jump_to_mark': '<M-n>' }]])
+lsp.tsserver.setup(coq.lsp_ensure_capabilities())
 
-    local lsp = require('lspconfig')
-    local coq = require('coq')
-
-    lsp.tsserver.setup(coq.lsp_ensure_capabilities())
-end
-
-return lspsetup
+vim.cmd('COQsnips compile')
