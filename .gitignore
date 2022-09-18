@@ -109,3 +109,6 @@ neo4j/
 .config/trashrc
 .kde4/share/config
 .config/systemd/user
+.config/draw.io
+.config/lazygit
+.config/mypaint

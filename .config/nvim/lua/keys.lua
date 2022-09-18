@@ -74,6 +74,10 @@ amap('<M-PageDown>', '+tabmove')
 -- terminal
 map('t', '<ESC>', '<C-\\><C-N>')
 map('n', '<leader><return>', '<cmd>10split<CR><cmd>terminal<CR>i')
+map('n', '<M-return>', '<cmd>term<CR>i')
+map('i', '<M-return>', '<cmd>term<CR>i')
+map('t', '<M-return>', '<cmd>term<CR>i')
+map('v', '<M-return>', '<cmd>term<CR>i')
 
 -- git
 nmap('<leader>g', 'LazyGit')
@@ -88,3 +92,4 @@ amap('<M-/>', 'CommentToggle')
 
 -- misc
 map('n', '<leader>t', 'OTODO<Esc><cmd>CommentToggle<CR>j')
+nmap('<leader>n', 'noh')

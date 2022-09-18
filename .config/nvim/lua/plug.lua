@@ -38,4 +38,4 @@ require('nvim_comment').setup({
 })
 require('lualine').setup()
 
-vim.g.AutoPairsShortcutJump = '<M-j>'
+vim.g.AutoPairsShortcutJump = '<M-b>'

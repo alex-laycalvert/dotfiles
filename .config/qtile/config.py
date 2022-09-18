@@ -51,7 +51,7 @@ home = os.path.expanduser('~')
 # dmenu_run setup
 def drun_ext():
     return extension.DmenuRun(
-        dmenu_font = 'SourceCodePro',
+        dmenu_font = 'Hasklug Nerd Font Mono',
         background = bar_bg,
         foreground = arch_color,
         selected_background = widget_group_color,
@@ -145,7 +145,7 @@ layouts = [
         ),
 
     layout.TreeTab(
-        font = "Sauce Code Pro Nerd Font",
+        font = "Hasklug Nerd Font",
         bg_color = bar_bg,
         active_bg = arch_color,
         section_fg = arch_color,
@@ -164,7 +164,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font = "Sauce Code Pro Nerd Font",
+    font = "Hasklug Nerd Font",
     fontsize = 18,
     padding = 10,
     background = bar_bg,
@@ -194,7 +194,6 @@ def init_widgets_list():
                     foreground = arch_color,
                     ),
 
-                # Separator
                 widget.TextBox(
                     foreground = widget_group_color,
                     text = widget_rsep,
@@ -204,14 +203,12 @@ def init_widgets_list():
 
                 widget.WidgetBox(
                     widgets = [
-                        # CPU Usage
                         widget.CPU(
                             foreground = term_colors[3],
                             background = widget_group_color,
                             format = cpu_icon + ' {load_percent}%',
                             ),
 
-                        # Memory Usage
                         widget.Memory(
                             foreground = term_colors[2],
                             background = widget_group_color,
@@ -219,7 +216,6 @@ def init_widgets_list():
                             format = memory_icon + ' {MemPercent:.0f}%',
                             ),
 
-                        # Disk Space
                         widget.DF(
                             foreground = term_colors[5],
                             background = widget_group_color,
@@ -227,7 +223,6 @@ def init_widgets_list():
                             format = disk_icon + ' {r:.0f}%',
                             ),
 
-                        # Download Speed
                         widget.Net(
                             foreground = term_colors[6],
                             background = widget_group_color,
@@ -240,7 +235,6 @@ def init_widgets_list():
                     text_open = '>',
                 ),
 
-                # Separator
                 widget.TextBox(
                     foreground = widget_group_color,
                     text = widget_lsep + " ",
@@ -248,7 +242,6 @@ def init_widgets_list():
                     fontsize = widget_sep_size,
                     ),
 
-                # Separator
                 widget.TextBox(
                     foreground = widget_group_color,
                     text = widget_rsep,
@@ -265,7 +258,6 @@ def init_widgets_list():
                     background = widget_group_color,
                     ),
 
-                # Separator
                 widget.TextBox(
                     foreground = widget_group_color,
                     text = widget_lsep + " ",
@@ -273,7 +265,6 @@ def init_widgets_list():
                     fontsize = widget_sep_size,
                     ),
 
-                # Separator
                 widget.TextBox(
                     foreground = widget_group_color,
                     text = widget_rsep,
@@ -288,7 +279,6 @@ def init_widgets_list():
                     padding = 10,
                     ),
 
-                # Separator
                 widget.TextBox(
                     foreground = widget_group_color,
                     text = widget_lsep,
