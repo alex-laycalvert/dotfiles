@@ -1,7 +1,7 @@
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -Ux EDITOR "nvim"
+set -Ux EDITOR "/usr/bin/nvim-nightly"
 set -Ux TERM "kitty"
 
 # Add ~/.local/bin to PATH
@@ -149,5 +149,7 @@ alias localgns3server="gns3server --host 127.0.0.1 --port 3080 --local"
 alias ssh="kitty +kitten ssh"
 
 alias test-mic="arecord -vvv -f dat /dev/null"
+
+alias nvim="/usr/bin/nvim-nightly"
 
 thefuck --alias | source

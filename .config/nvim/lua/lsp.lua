@@ -23,9 +23,6 @@ cmp.setup({
     snippet = {
         expand = function(args)
             vim.fn['vsnip#anonymous'](args.body) -- vsnip
-            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-            -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end
     },
     window = {
@@ -56,7 +53,8 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'vsnip' },
-        { name = 'cmp_tabnine' }
+        { name = 'cmp_tabnine' },
+        { name = 'orgmode' }
     }, {
         { name = 'buffer' }
     })
@@ -96,7 +94,15 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig').tsserver.setup {
-    capabilities = capabilities
-}
+require('lspconfig').tsserver.setup { capabilities = capabilities }
+require('lspconfig').pyright.setup { capabilities = capabilities }
+
+require('nvim-treesitter.configs').setup({
+    ensure_installed = { "norg", "org", "c", "rust", "lua", "javascript", "typescript", "bash", "cpp", "html", "json", "tsx", "dockerfile", "http" },
+    sync_install = false,
+    auto_install = true,
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { 'org', 'norg' }
+    }
+})

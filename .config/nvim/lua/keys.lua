@@ -29,9 +29,9 @@ local function tmap(shortcut, command)
 end
 
 local function amap(shortcut, command)
-    nmap(shortcut, command)
     imap(shortcut, command)
     tmap(shortcut, command)
+    nmap(shortcut, command)
 end
 
 local function ldrmap(shortcut, command)
@@ -93,3 +93,7 @@ amap('<M-/>', 'CommentToggle')
 -- misc
 map('n', '<leader>t', 'OTODO<Esc><cmd>CommentToggle<CR>j')
 nmap('<leader>n', 'noh')
+nmap('<leader>l', 'luafile %')
+nmap('<leader>p', 'PackerUpdate')
+vim.api.nvim_set_keymap('v', '<M-r>', '<Plug>SnipRun', { silent = true })
+amap('<M-i>', 'lua require("nabla").popup()')

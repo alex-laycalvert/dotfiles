@@ -83,7 +83,7 @@
         ]
     },
     "Express Router": {
-        "scope": "javascript,typescript",
+        "scope": ["javascript", "typescript"],
         "prefix": ["expressrouter", "exprtr", "rtr", "router"],
         "description": "Boilerplate for Express router",
         "body": [
@@ -95,13 +95,23 @@
         ]
     },
     "Express Router Route": {
-        "scope": "javascript,typescript",
+        "scope": ["javascript", "typescript"],
         "prefix": ["route", "exproute", "rt", "expressroute"],
         "description": "Boilerplate for Express router route",
         "body": [
             "router.route('${1:route}').${2:method}(",
             "\t${1:callback}",
             ")",
+            "$0"
+        ]
+    },
+    "Agenda TODO": {
+        "scope": "org",
+        "prefix": ["TODO", "todo", "agendatodo"],
+        "description": "Orgmode TODO template",
+        "body": [
+            "* TODO ${1:item}",
+            "  DEADLINE: <${2:deadline}>",
             "$0"
         ]
     }

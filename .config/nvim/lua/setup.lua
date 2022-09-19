@@ -6,5 +6,8 @@
 require('auto')
 require('plug')
 require('lsp')
+require('tele')
+require('org')
 require('opt')
 require('keys')
+-- require('db')

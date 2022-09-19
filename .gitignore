@@ -113,3 +113,5 @@ neo4j/
 .config/lazygit
 .config/mypaint
 .config/TabNine
+.config/gh
+.config/nvim/plugin

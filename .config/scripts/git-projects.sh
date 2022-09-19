@@ -25,5 +25,5 @@ RESPONSE=$(echo -e "$GIT_PROJECTS" |
 
 if [ ! "$RESPONSE" = "" ]; then
     cd "$GIT_PROJECTS_DIR/$RESPONSE"
-    kitty nvim .
+    nvim .
 fi

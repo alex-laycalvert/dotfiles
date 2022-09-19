@@ -39,5 +39,5 @@ RESPONSE=$(echo -e "$DOTFILES" |
 
 if [ ! "$RESPONSE" = "" ]; then
     cd "$HOME/.config/$RESPONSE"
-    kitty nvim .
+    nvim .
 fi

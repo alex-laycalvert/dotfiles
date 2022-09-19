@@ -13,6 +13,16 @@ require('packer').startup(function(use)
     -- plugin manager
     use { 'wbthomason/packer.nvim' }
 
+    -- dashboard 
+    -- use { 'glepnir/dashboard-nvim' }
+
+    -- organization
+    use { 'nvim-orgmode/orgmode' }
+    -- use {
+    --     'nvim-neorg/neorg',
+    --     requires = 'nvim-lua/plenary.nvim'
+    -- }
+    
     -- lsp
     use { 'neovim/nvim-lspconfig' }
     use { 'hrsh7th/cmp-nvim-lsp' }
@@ -21,55 +31,50 @@ require('packer').startup(function(use)
     use { 'hrsh7th/cmp-cmdline' }
     use { 'hrsh7th/nvim-cmp' }
     use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
+    use { 'nvim-lua/plenary.nvim' }
+
+    -- tree-sitter
+    use { 'nvim-treesitter/nvim-treesitter', run =  ':TSUpdate' }
 
     -- snippets
     use { 'hrsh7th/cmp-vsnip' }
     use { 'hrsh7th/vim-vsnip' }
-
-    -- -- luasnips
-    -- use { 'L3MON4D3/LuaSnip' }
-    -- use { 'saadparwaiz1/cmp_luasnip' }
-
-    -- -- ultisnips
-    -- use { 'SirVer/ultisnips' }
-    -- use { 'quangnguyen30192/cmp-nvim-ultisnips' }
-
-    -- -- snippy
-    -- use { 'dcampos/nvim-snippy' }
-    -- use { 'dcampos/cmp-snippy' }
 
     -- colortheme
     use { 'dracula/vim' }
 
     -- filetree
     use { 'ms-jpq/chadtree', branch = 'chad', run = 'python3 -m chadtree deps' }
-    -- use { 'ms-jpq/coq_nvim', branch = 'coq' }
-    -- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
-    -- use { 'ms-jpq/coq.thirdparty', branch = '3p' }
 
     -- commentor
     use { 'terrortylor/nvim-comment' }
 
     -- status line
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
+    use { 'nvim-lualine/lualine.nvim' }
+
+    -- math symbols
+    use { 'jbyuki/nabla.nvim' }
 
     -- icons
-    use { 'ryanoasis/vim-devicons' }
+    use { 'kyazdani42/nvim-web-devicons' }
 
-    -- lazygit
+    -- git
     use { 'kdheepak/lazygit.nvim' }
+    use { 'pwntester/octo.nvim' }
 
-    -- fuzzy finding of files and buffers
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
+    -- telescope (fzf)
+    use { 'nvim-telescope/telescope.nvim' }
 
     -- auto docs
     use { 'kkoomen/vim-doge' }
+
+    -- web dev
+    use { 'ray-x/web-tools.nvim' }
+    use { 'NTBBloodbath/rest.nvim' }
+
+    -- sniprun
+    use { 'michaelb/sniprun', run = 'bash install.sh' }
+
 end)
 
 require('nvim_comment').setup({
@@ -77,3 +82,36 @@ require('nvim_comment').setup({
     operator_mapping = '<M-/>',
 })
 require('lualine').setup()
+require('octo').setup()
+require('rest-nvim').setup({
+    result_split_horizontal = false,
+    result_split_in_place = false,
+    skip_ssl_verification = true,
+    encode_url = true,
+    highlight = {
+        enabled = true,
+        timeout = 150
+    },
+    result = {
+        show_url = true,
+        show_http_info = true,
+        show_headers = true,
+        formatters = {
+            json = 'jq',
+            html = function (body)
+                return vim.fn.system({ 'tidy', '-i', '-q', '-' }, body)
+            end
+        }
+    },
+    jump_to_request = false,
+    env_file = '.env',
+    custom_dynamic_variables = {},
+    yank_dry_run = true
+})
+require('sniprun').setup({
+    display = {
+        "VirtualTextOk",
+        "VirtualTextErr",
+        "TempFloatingWindow"
+    }
+})
