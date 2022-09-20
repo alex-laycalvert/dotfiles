@@ -14,15 +14,11 @@ require('packer').startup(function(use)
     use { 'wbthomason/packer.nvim' }
 
     -- dashboard 
-    -- use { 'glepnir/dashboard-nvim' }
+    use { 'glepnir/dashboard-nvim' }
 
     -- organization
     use { 'nvim-orgmode/orgmode' }
-    -- use {
-    --     'nvim-neorg/neorg',
-    --     requires = 'nvim-lua/plenary.nvim'
-    -- }
-    
+
     -- lsp
     use { 'neovim/nvim-lspconfig' }
     use { 'hrsh7th/cmp-nvim-lsp' }
@@ -64,6 +60,8 @@ require('packer').startup(function(use)
 
     -- telescope (fzf)
     use { 'nvim-telescope/telescope.nvim' }
+    -- use { 'nvim-telescope/telescope-project.nvim' }
+    -- use { 'cljoly/telescope-repo.nvim' }
 
     -- auto docs
     use { 'kkoomen/vim-doge' }
@@ -75,6 +73,9 @@ require('packer').startup(function(use)
     -- sniprun
     use { 'michaelb/sniprun', run = 'bash install.sh' }
 
+    --- CUSTOM PLUGINS ---
+    -- flashcards IN PROGRESS
+    use { '~/git/flashcards.nvim' }
 end)
 
 require('nvim_comment').setup({
@@ -115,3 +116,4 @@ require('sniprun').setup({
         "TempFloatingWindow"
     }
 })
+require('flashcards').setup({})

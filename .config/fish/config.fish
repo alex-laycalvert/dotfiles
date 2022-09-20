@@ -150,6 +150,6 @@ alias ssh="kitty +kitten ssh"
 
 alias test-mic="arecord -vvv -f dat /dev/null"
 
-alias nvim="/usr/bin/nvim-nightly"
+alias nvim="/usr/bin/nvim-stable"
 
 thefuck --alias | source
