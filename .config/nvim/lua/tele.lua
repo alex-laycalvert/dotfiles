@@ -7,5 +7,19 @@ telescope.setup({
             ".git/"
         }
     },
-    extensions = {}
+    extensions = {
+        symbols = {
+            sources = {
+                'emoji',
+                'kaomofi',
+                'gitmoji'
+            }
+        },
+        media_files = {
+            filetypes = { 'png', 'webp', 'jpg', 'jpeg', 'mp4', 'pdf', 'mkv' },
+            find_cmd = 'rg'
+        }
+    }
 })
+
+telescope.load_extension('media_files')

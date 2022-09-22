@@ -21,6 +21,7 @@ set.softtabstop = 4
 set.shiftwidth = 4
 set.expandtab = true
 set.clipboard = 'unnamedplus'
+-- set.virtualedit = 'all'
 
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin indent on')

@@ -115,3 +115,4 @@ neo4j/
 .config/TabNine
 .config/gh
 .config/nvim/plugin
+.config/obs-studio

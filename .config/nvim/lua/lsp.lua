@@ -54,7 +54,8 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'vsnip' },
         { name = 'cmp_tabnine' },
-        { name = 'orgmode' }
+        { name = 'orgmode' },
+        { name = 'tags' },
     }, {
         { name = 'buffer' }
     })
@@ -96,9 +97,10 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 require('lspconfig').tsserver.setup { capabilities = capabilities }
 require('lspconfig').pyright.setup { capabilities = capabilities }
+require('lspconfig').luau_lsp.setup { capabilities = capabilities }
 
 require('nvim-treesitter.configs').setup({
-    ensure_installed = { "norg", "org", "c", "rust", "lua", "javascript", "typescript", "bash", "cpp", "html", "json", "tsx", "dockerfile", "http" },
+    ensure_installed = { "norg", "org", "c", "markdown", "rust", "lua", "javascript", "typescript", "bash", "cpp", "html", "json", "tsx", "dockerfile", "http" },
     sync_install = false,
     auto_install = true,
     highlight = {

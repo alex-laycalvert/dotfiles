@@ -90,10 +90,21 @@ nmap('<leader>r', 'Telescope live_grep')
 -- commenting
 amap('<M-/>', 'CommentToggle')
 
+-- telekasten
+nmap('<leader>oo', 'lua require("telekasten").panel()')
+nmap('<leader>of', 'lua require("telekasten").find_notes()')
+nmap('<leader>od', 'lua require("telekasten").find_daily_notes()')
+nmap('<leader>ow', 'lua require("telekasten").find_weekly_notes()')
+nmap('<leader>os', 'lua require("telekasten").search_notes()')
+nmap('<leader>og', 'lua require("telekasten").follow_link()')
+nmap('<leader>on', 'lua require("telekasten").new_note()')
+nmap('<leader>ot', 'lua require("telekasten").new_templated_note()')
+nmap('<leader>oo', 'lua require("telekasten").panel()')
+
 -- misc
 map('n', '<leader>t', 'OTODO<Esc><cmd>CommentToggle<CR>j')
 nmap('<leader>n', 'noh')
 nmap('<leader>l', 'luafile %')
 nmap('<leader>p', 'PackerUpdate')
 vim.api.nvim_set_keymap('v', '<M-r>', '<Plug>SnipRun', { silent = true })
-amap('<M-i>', 'lua require("nabla").popup()')
+amap('<M-i>', 'Telescope symbols')

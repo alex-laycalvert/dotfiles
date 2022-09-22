@@ -16,8 +16,15 @@ require('packer').startup(function(use)
     -- dashboard 
     use { 'glepnir/dashboard-nvim' }
 
-    -- organization
-    use { 'nvim-orgmode/orgmode' }
+    -- organization/notes
+    use { 'jbyuki/venn.nvim' }
+    use { 'renerocksai/calendar-vim' }
+    use { 'renerocksai/telekasten.nvim' }
+    use { 'mzlogin/vim-markdown-toc' }
+
+    -- ctags
+    use { 'ludovicchabant/vim-gutentags' }
+    use { 'quangnguyen30192/cmp-nvim-tags' }
 
     -- lsp
     use { 'neovim/nvim-lspconfig' }
@@ -59,9 +66,10 @@ require('packer').startup(function(use)
     use { 'pwntester/octo.nvim' }
 
     -- telescope (fzf)
+    use { 'nvim-lua/popup.nvim' }
     use { 'nvim-telescope/telescope.nvim' }
-    -- use { 'nvim-telescope/telescope-project.nvim' }
-    -- use { 'cljoly/telescope-repo.nvim' }
+    use { 'nvim-telescope/telescope-media-files.nvim' }
+    use { 'nvim-telescope/telescope-symbols.nvim' }
 
     -- auto docs
     use { 'kkoomen/vim-doge' }
