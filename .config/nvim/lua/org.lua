@@ -94,10 +94,9 @@ require('telekasten').setup({
 api.nvim_set_hl(0, 'tkLink', { ctermfg = 72, fg = '#689d6a', bold = true, underline = true })
 api.nvim_set_hl(0, 'tkBrackets', { ctermfg = 'gray', fg = 'gray' })
 api.nvim_set_hl(0, 'tkHighlight', { ctermbg = 'yellow', ctermfg = 'darkred', bold = true, bg = 'yellow', fg = 'darkred' })
-
--- hi link CalNavi CalRuler
--- hi tkTagSep ctermfg=gray guifg=gray
--- hi tkTag ctermfg=175 guifg=#d3869B
+api.nvim_set_hl(0, 'tkTagSep', { ctermfg = 'gray', fg = 'gray' })
+api.nvim_set_hl(0, 'tkTag', { ctermfg = 175, fg = '#D3869B' })
+vim.cmd('hi link CalNavi CalRuler')
 
 -- venn.vim
 function _G.Toggle_venn()

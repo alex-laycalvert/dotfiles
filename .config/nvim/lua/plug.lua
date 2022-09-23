@@ -70,6 +70,8 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope.nvim' }
     use { 'nvim-telescope/telescope-media-files.nvim' }
     use { 'nvim-telescope/telescope-symbols.nvim' }
+    use { 'alex-laycalvert/telescope-dotfiles.nvim' }
+    use { 'alex-laycalvert/telescope-projects.nvim' }
 
     -- auto docs
     use { 'kkoomen/vim-doge' }
@@ -82,8 +84,8 @@ require('packer').startup(function(use)
     use { 'michaelb/sniprun', run = 'bash install.sh' }
 
     --- CUSTOM PLUGINS ---
-    -- flashcards IN PROGRESS
     use { '~/git/flashcards.nvim' }
+    use { '~/git/sudoku.nvim' }
 end)
 
 require('nvim_comment').setup({

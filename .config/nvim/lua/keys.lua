@@ -79,9 +79,18 @@ map('v', '<M-return>', '<cmd>term<CR>i')
 nmap('<leader>g', 'LazyGit')
 
 -- telescope
-nmap('<leader>f', 'Telescope find_files')
-nmap('<leader>b', 'Telescope buffers')
-nmap('<leader>r', 'Telescope live_grep')
+nmap('<leader>r', 'lua require("telescope.builtin").live_grep()')
+nmap('<leader>f', 'lua require("telescope.builtin").find_files()')
+nmap('<leader>ff', 'lua require("telescope.builtin").find_files()')
+nmap('<leader>fr', 'lua require("telescope.builtin").oldfiles()')
+nmap('<leader>fb', 'lua require("telescope.builtin").buffers()')
+nmap('<leader>fc', 'lua require("telescope.builtin").commands()')
+nmap('<leader>fh', 'lua require("telescope.builtin").search_history()')
+nmap('<leader>fm', 'lua require("telescope.builtin").man_pages()')
+nmap('<leader>fk', 'lua require("telescope.builtin").marks()')
+nmap('<leader>fq', 'lua require("telescope.builtin").quickfix()')
+nmap('<leader>fd', 'Telescope dotfiles')
+nmap('<leader>fg', 'Telescope projects')
 
 -- commenting
 amap('<M-/>', 'CommentToggle')

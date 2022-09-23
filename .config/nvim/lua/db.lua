@@ -11,7 +11,7 @@ db.custom_center = {
     --     shortcut = 'SPC s l',
     --     action ='SessionLoad'
     -- },
-    -- {
+   -- {
     --     icon = '  ',
     --     desc = 'Recently opened files                   ',
     --     action =  'DashboardFindHistory',
