@@ -1,4 +1,5 @@
 -- telekasten.nvim
+local api = vim.api
 local notes_dir = vim.fn.expand('~/git/notebook')
 
 require('telekasten').setup({
@@ -25,7 +26,7 @@ require('telekasten').setup({
     plug_into_calendar = true,
     calendar_opts = {
         -- calendar week display mode: 1 .. 'WK01', 2 .. 'WK 1', 3 .. 'KW01', 4 .. 'KW 1', 5 .. '1'
-        weeknm = 4,
+        weeknm = 1,
         -- use monday as first day of week: 1 .. true, 0 .. false
         calendar_monday = 1,
         -- calendar mark: where to put mark for marked days: 'left', 'right', 'left-fit'
@@ -84,20 +85,19 @@ require('telekasten').setup({
     -- should all links be updated when a file is renamed
     rename_update_links = true,
 
-    vaults = {
-        vault2 = {
-            -- alternate configuration for vault2 here. Missing values are defaulted to
-            -- default values from telekasten.
-            -- e.g.
-            -- home = '/home/user/vaults/personal',
-        },
-    },
-
     -- how to preview media files
     -- 'telescope-media-files' if you have telescope-media-files.nvim installed
     -- 'catimg-previewer' if you have catimg installed
     media_previewer = 'telescope-media-files',
 })
+
+api.nvim_set_hl(0, 'tkLink', { ctermfg = 72, fg = '#689d6a', bold = true, underline = true })
+api.nvim_set_hl(0, 'tkBrackets', { ctermfg = 'gray', fg = 'gray' })
+api.nvim_set_hl(0, 'tkHighlight', { ctermbg = 'yellow', ctermfg = 'darkred', bold = true, bg = 'yellow', fg = 'darkred' })
+
+-- hi link CalNavi CalRuler
+-- hi tkTagSep ctermfg=gray guifg=gray
+-- hi tkTag ctermfg=175 guifg=#d3869B
 
 -- venn.vim
 function _G.Toggle_venn()
@@ -118,5 +118,3 @@ function _G.Toggle_venn()
         vim.b.venn_enabled = nil
     end
 end
--- toggle keymappings for venn using <leader>v
-vim.api.nvim_set_keymap('n', '<leader>v', ':lua Toggle_venn()<CR>', { noremap = true})

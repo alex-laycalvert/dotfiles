@@ -5,6 +5,7 @@
 
 local set = vim.opt
 local g = vim.g
+local api = vim.api
 
 g.mapleader = ' '
 g.timeoutlen = 1500
@@ -26,4 +27,4 @@ set.clipboard = 'unnamedplus'
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin indent on')
 vim.cmd('colorscheme dracula')
-vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+api.nvim_set_hl(0, 'Normal', { fg = 'NONE', bg = 'NONE' })
