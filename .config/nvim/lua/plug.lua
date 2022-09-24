@@ -24,7 +24,6 @@ require('packer').startup(function(use)
 
     -- ctags
     use { 'ludovicchabant/vim-gutentags' }
-    use { 'quangnguyen30192/cmp-nvim-tags' }
 
     -- lsp
     use { 'neovim/nvim-lspconfig' }

@@ -104,15 +104,5 @@
             ")",
             "$0"
         ]
-    },
-    "Agenda TODO": {
-        "scope": "org",
-        "prefix": ["TODO", "todo", "agendatodo"],
-        "description": "Orgmode TODO template",
-        "body": [
-            "* TODO ${1:item}",
-            "  DEADLINE: <${2:deadline}>",
-            "$0"
-        ]
     }
 }
