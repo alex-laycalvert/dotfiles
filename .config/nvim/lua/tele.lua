@@ -23,7 +23,8 @@ telescope.setup({
             filetypes = { 'png', 'webp', 'jpg', 'jpeg', 'mp4', 'pdf', 'mkv' },
             find_cmd = 'rg'
         },
-        dotfiles = {},
+        dotfiles = {
+        },
         projects = {
             projects_dir = '~/git'
         },

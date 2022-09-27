@@ -31,6 +31,7 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
         { name = 'vsnip' },
         { name = 'cmp_tabnine', max_item_count = 5 },
     }, {

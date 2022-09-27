@@ -19,7 +19,7 @@ require('packer').startup(function(use)
     -- organization/notes
     use { 'jbyuki/venn.nvim' }
     use { 'renerocksai/calendar-vim' }
-    use { 'renerocksai/telekasten.nvim' }
+    use { '~/git/telekasten.nvim' }
     use { 'mzlogin/vim-markdown-toc' }
 
     -- ctags
@@ -33,6 +33,7 @@ require('packer').startup(function(use)
     use { 'hrsh7th/cmp-cmdline' }
     use { 'hrsh7th/nvim-cmp' }
     use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
+    use { 'hrsh7th/cmp-nvim-lua' }
     use { 'nvim-lua/plenary.nvim' }
 
     -- tree-sitter
@@ -69,8 +70,6 @@ require('packer').startup(function(use)
     use { 'nvim-telescope/telescope.nvim' }
     use { 'nvim-telescope/telescope-media-files.nvim' }
     use { 'nvim-telescope/telescope-symbols.nvim' }
-    use { 'alex-laycalvert/telescope-dotfiles.nvim' }
-    use { 'alex-laycalvert/telescope-projects.nvim' }
 
     -- auto docs
     use { 'kkoomen/vim-doge' }
@@ -85,6 +84,8 @@ require('packer').startup(function(use)
     --- CUSTOM PLUGINS ---
     use { '~/git/flashcards.nvim' }
     use { '~/git/sudoku.nvim' }
+    use { '~/git/telescope-dotfiles.nvim' }
+    use { '~/git/telescope-projects.nvim' }
 end)
 
 require('nvim_comment').setup({
