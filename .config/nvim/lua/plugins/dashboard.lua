@@ -1,3 +1,8 @@
+-- plugins/dashboard.lua
+-- alex-laycalvert
+-- 
+-- https://github.com/alex-laycalvert
+
 local home = os.getenv('HOME')
 local db = require('dashboard')
 
@@ -11,7 +16,7 @@ db.custom_center = {
     --     shortcut = 'SPC s l',
     --     action ='SessionLoad'
     -- },
-    -- {
+   -- {
     --     icon = '  ',
     --     desc = 'Recently opened files                   ',
     --     action =  'DashboardFindHistory',

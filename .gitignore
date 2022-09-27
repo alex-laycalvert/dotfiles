@@ -57,3 +57,4 @@ vpn/
 .config/simple-update-notifier
 .config/swi-prolog/dir-history
 .config/thefuck/__pycache__
+.config/nvim.old
