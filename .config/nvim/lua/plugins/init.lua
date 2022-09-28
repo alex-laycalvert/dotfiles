@@ -43,14 +43,16 @@ require('packer').startup({
         }
 
         -- organization/neorg
-        use {
-            'nvim-neorg/neorg',
-            tag = '*',
-            run = ':Neorg sync-parsers',
-            after = { 'nvim-treesitter', 'telescope.nvim' },
-            requires = 'nvim-lua/plenary.nvim',
-        }
-        -- use { 'renerocksai/calendar-vim' }
+        -- use {
+        --     'nvim-neorg/neorg',
+        --     tag = '*',
+        --     run = ':Neorg sync-parsers',
+        --     after = { 'nvim-treesitter', 'telescope.nvim' },
+        --     requires = 'nvim-lua/plenary.nvim',
+        -- }
+        use { 'renerocksai/calendar-vim' }
+        use { 'renerocksai/telekasten.nvim' }
+        -- use { 'tools-life/taskwiki' }
 
         -- snippets
         use { 'hrsh7th/cmp-vsnip' }
@@ -111,6 +113,7 @@ require('packer').startup({
         use { 'alex-laycalvert/sudoku.nvim' }
         use { '~/git/telescope-dotfiles.nvim' }
         use { '~/git/telescope-projects.nvim' }
+        use { '~/git/life.nvim' }
     end,
     config = {
         display = {
@@ -125,7 +128,9 @@ require('packer').startup({
 require('plugins.lspconfig')
 require('plugins.cmp')
 require('plugins.treesitter')
-require('plugins.neorg')
+require('plugins.telekasten')
+-- require('plugins.neorg')
+-- require('plugins.taskwiki')
 require('plugins.dashboard')
 require('plugins.telescope')
 require('plugins.chadtree')
@@ -135,6 +140,7 @@ require('plugins.lazygit')
 require('plugins.diagram')
 require('plugins.rest')
 require('plugins.statusline')
+
 require('flashcards').setup({})
 
 -- keybindings

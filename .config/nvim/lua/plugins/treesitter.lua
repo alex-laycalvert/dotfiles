@@ -9,6 +9,7 @@ require('nvim-treesitter.configs').setup({
         "org",
         "c",
         "markdown",
+        "markdown_inline",
         "rust",
         "lua",
         "javascript",
