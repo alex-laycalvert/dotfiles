@@ -1,0 +1,21 @@
+@document.meta
+title: test
+description: 
+authors: alex
+categories: 
+created: 2022-09-28
+updated: 2022-09-28
+version: 0.0.14
+@end
+
+* This is the first slide
+  This is a thing
+
+* THis is a second slide
+  Here is some stuff
+
+  @code typescript
+  const test = async (): Promise<Number> => {
+      return 10
+  }
+  @end

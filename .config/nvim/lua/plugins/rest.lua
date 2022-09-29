@@ -3,6 +3,8 @@
 -- 
 -- https://github.com/alex-laycalvert
 
+local utils = require('utils')
+
 require('rest-nvim').setup({
     result_split_horizontal = false,
     result_split_in_place = false,
@@ -28,3 +30,5 @@ require('rest-nvim').setup({
     custom_dynamic_variables = {},
     yank_dry_run = true
 })
+
+utils.map('n', '<leader>R', '<Plug>RestNvim')

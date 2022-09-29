@@ -39,20 +39,19 @@ require('packer').startup({
         -- tree-sitter
         use {
             'nvim-treesitter/nvim-treesitter',
-            run =  ':TSUpdate',
+            run =  function () require('nvim-treesitter.install').update({ with_sync = true }) end
         }
 
         -- organization/neorg
         -- use {
-        --     'nvim-neorg/neorg',
+        --     '~/git/neorg',
         --     tag = '*',
         --     run = ':Neorg sync-parsers',
-        --     after = { 'nvim-treesitter', 'telescope.nvim' },
         --     requires = 'nvim-lua/plenary.nvim',
         -- }
-        use { 'renerocksai/calendar-vim' }
+        -- use { 'renerocksai/telekasten.nvim' }
         use { 'renerocksai/telekasten.nvim' }
-        -- use { 'tools-life/taskwiki' }
+        use { 'renerocksai/calendar-vim' }
 
         -- snippets
         use { 'hrsh7th/cmp-vsnip' }
@@ -60,6 +59,10 @@ require('packer').startup({
 
         -- colorscheme
         use { 'dracula/vim' }
+
+        -- zenmode
+        use { 'folke/zen-mode.nvim' }
+        use { 'Pocco81/true-zen.nvim' }
 
         -- filetree
         use {
@@ -108,29 +111,41 @@ require('packer').startup({
             run = 'bash install.sh',
         }
 
+        -- easy window management
+        use {
+            "anuvyklack/windows.nvim",
+            requires = {
+                "anuvyklack/middleclass",
+                "anuvyklack/animation.nvim"
+            }
+        }
+
         --- CUSTOM PLUGINS ---
         use { 'alex-laycalvert/flashcards.nvim' }
         use { 'alex-laycalvert/sudoku.nvim' }
+        use { '~/git/life.nvim' }
+        use { '~/git/slack.nvim' }
         use { '~/git/telescope-dotfiles.nvim' }
         use { '~/git/telescope-projects.nvim' }
-        use { '~/git/life.nvim' }
     end,
     config = {
         display = {
             open_fn = function()
-              return require('packer.util').float({ border = 'single' })
+                return require('packer.util').float({ border = 'single' })
             end
         }
     }
+})
+
+require('slack').setup({
 })
 
 -- plugin setup
 require('plugins.lspconfig')
 require('plugins.cmp')
 require('plugins.treesitter')
-require('plugins.telekasten')
 -- require('plugins.neorg')
--- require('plugins.taskwiki')
+require('plugins.telekasten')
 require('plugins.dashboard')
 require('plugins.telescope')
 require('plugins.chadtree')
@@ -140,6 +155,9 @@ require('plugins.lazygit')
 require('plugins.diagram')
 require('plugins.rest')
 require('plugins.statusline')
+require('plugins.zen')
+require('plugins.telekasten')
+require('plugins.windows')
 
 require('flashcards').setup({})
 

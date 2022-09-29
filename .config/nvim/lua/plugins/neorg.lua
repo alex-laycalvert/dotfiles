@@ -3,7 +3,7 @@
 -- 
 -- https://github.com/alex-laycalvert
 
-require('neorg').setup({
+return require('neorg').setup({
     load = {
         ['core.defaults'] = {},
         ['core.syntax'] = {},
@@ -18,7 +18,6 @@ require('neorg').setup({
                 }
             }
         },
-        ["core.highlights"] = {},
         -- ['core.norg.concealer'] = {},
         ['core.norg.completion'] = {
             config = {
@@ -32,7 +31,7 @@ require('neorg').setup({
         },
         ['core.presenter'] = {
             config = {
-                zen_mode = 'truezen'
+                zen_mode = 'zen-mode'
             }
         },
         ['core.norg.journal'] = {
@@ -41,5 +40,8 @@ require('neorg').setup({
             }
         },
         ['core.norg.qol.toc'] = {},
+    },
+    logger = {
+        level = 'warn'
     }
 })
