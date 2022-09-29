@@ -23,6 +23,7 @@
 
 .pki/
 .ssh/
+.cred/
 
 .steam/
 .steampath
@@ -117,3 +118,5 @@ neo4j/
 .config/nvim/plugin
 .config/obs-studio
 .node_repl_history
+
+slack.nvim.log

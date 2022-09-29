@@ -1,3 +1,8 @@
+-- plugins/dashboard.lua
+-- alex-laycalvert
+-- 
+-- https://github.com/alex-laycalvert
+
 local home = os.getenv('HOME')
 local db = require('dashboard')
 

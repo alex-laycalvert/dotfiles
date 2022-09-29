@@ -1,4 +1,4 @@
--- opt.lua
+-- options/options.lua
 -- alex-laycalvert
 -- 
 -- https://github.com/alex-laycalvert
@@ -22,10 +22,9 @@ set.softtabstop = 4
 set.shiftwidth = 4
 set.expandtab = true
 set.clipboard = 'unnamedplus'
--- set.virtualedit = 'all'
 
 vim.cmd('syntax enable')
 vim.cmd('filetype plugin indent on')
-vim.cmd('colorscheme dracula')
-api.nvim_set_hl(0, 'Normal', { fg = 'NONE', bg = 'NONE' })
--- api.nvim_set_hl(0, 'TabLine', { bg = 'Red' })
+
+vim.cmd 'autocmd BufWinEnter,WinEnter term://* startinsert'
+vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'

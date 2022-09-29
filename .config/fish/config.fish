@@ -1,7 +1,7 @@
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -Ux EDITOR "/usr/bin/nvim-nightly"
+set -Ux EDITOR "/usr/bin/nvim-stable"
 set -Ux TERM "kitty"
 
 # Add ~/.local/bin to PATH
