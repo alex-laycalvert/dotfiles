@@ -43,15 +43,14 @@ require('packer').startup({
         }
 
         -- organization/neorg
-        -- use {
-        --     '~/git/neorg',
-        --     tag = '*',
-        --     run = ':Neorg sync-parsers',
-        --     requires = 'nvim-lua/plenary.nvim',
-        -- }
+        use {
+            'nvim-neorg/neorg',
+            tag = '*',
+            run = ':Neorg sync-parsers',
+            requires = 'nvim-lua/plenary.nvim',
+        }
         -- use { 'renerocksai/telekasten.nvim' }
-        use { 'renerocksai/telekasten.nvim' }
-        use { 'renerocksai/calendar-vim' }
+        -- use { 'renerocksai/calendar-vim' }
 
         -- snippets
         use { 'hrsh7th/cmp-vsnip' }
@@ -111,11 +110,23 @@ require('packer').startup({
             run = 'bash install.sh',
         }
 
+        -- window management
+        -- use {
+        --     'anuvyklack/windows.nvim',
+        --     requires = {
+        --         "anuvyklack/middleclass",
+        --         "anuvyklack/animation.nvim"
+        --     },
+        -- }
+
+        -- colorizer
+        use { 'uga-rosa/ccc.nvim' }
+
         --- CUSTOM PLUGINS ---
         use { 'alex-laycalvert/flashcards.nvim' }
-        use { 'alex-laycalvert/sudoku.nvim' }
-        use { '~/git/life.nvim' }
-        use { '~/git/slack.nvim' }
+        -- use { 'alex-laycalvert/sudoku.nvim' }
+        -- use { '~/git/life.nvim' }
+        -- use { '~/git/slack.nvim' }
         use { '~/git/telescope-dotfiles.nvim' }
         use { '~/git/telescope-projects.nvim' }
     end,
@@ -128,16 +139,15 @@ require('packer').startup({
     }
 })
 
-require('slack').setup({
-    slack_api_token = '<YOUR_SLACK_API_TOKEN>'
-})
+--require('slack').setup({
+--    slack_api_token = '<YOUR_SLACK_API_TOKEN>'
+--})
 
 -- plugin setup
 require('plugins.lspconfig')
 require('plugins.cmp')
 require('plugins.treesitter')
--- require('plugins.neorg')
-require('plugins.telekasten')
+require('plugins.neorg')
 require('plugins.dashboard')
 require('plugins.telescope')
 require('plugins.chadtree')
@@ -148,9 +158,12 @@ require('plugins.diagram')
 require('plugins.rest')
 require('plugins.statusline')
 require('plugins.zen')
-require('plugins.telekasten')
+-- require('plugins.windows')
+require('plugins.ccc')
+--require('plugins.telekasten')
 
 require('flashcards').setup({})
+-- require('life').setup({})
 
 -- keybindings
 utils.nmap('<leader>p', 'PackerUpdate')

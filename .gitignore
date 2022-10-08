@@ -120,3 +120,5 @@ neo4j/
 .node_repl_history
 
 slack.nvim.log
+htb
+output

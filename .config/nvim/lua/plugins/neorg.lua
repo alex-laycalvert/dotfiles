@@ -3,11 +3,16 @@
 -- 
 -- https://github.com/alex-laycalvert
 
+local utils = require('utils')
+
+-- keybindings
+utils.nmap('<leader>aa', ':Neorg gtd views')
+utils.nmap('<leader>an', ':Neorg gtd capture')
+utils.nmap('<leader>ae', ':Neorg gtd edit')
+
 return require('neorg').setup({
     load = {
         ['core.defaults'] = {},
-        ['core.syntax'] = {},
-        ['core.integrations.treesitter'] = {},
         ['core.norg.dirman'] = {
             config = {
                 workspaces = {

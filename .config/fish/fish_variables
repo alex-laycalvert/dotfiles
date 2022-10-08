@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export EDITOR:/usr/bin/nvim\x2dstable
+SETUVAR --export EDITOR:/usr/bin/nvim
 SETUVAR --export TERM:kitty
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:555\x1ebrblack

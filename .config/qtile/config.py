@@ -304,7 +304,7 @@ def init_screens():
         Screen(top = bar.Bar(
                 widgets = init_widgets_screen(),
                 size = bar_size,
-                opacity = 0.85,
+                opacity = 0.7,
                 margin = window_margin,
                 border_width = [5, 5, 5, 0],
                 border_color = bar_bg,
@@ -313,7 +313,7 @@ def init_screens():
         Screen(top = bar.Bar(
                 widgets = init_widgets_screen_secondary(),
                 size = bar_size,
-                opacity = 0.85,
+                opacity = 0.7,
                 margin = window_margin,
                 border_width = [5, 5, 5, 0],
                 border_color = bar_bg,
