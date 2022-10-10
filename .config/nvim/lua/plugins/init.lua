@@ -47,7 +47,6 @@ require('packer').startup({
             'nvim-neorg/neorg',
             tag = '*',
             run = ':Neorg sync-parsers',
-            requires = 'nvim-lua/plenary.nvim',
         }
         -- use { 'renerocksai/telekasten.nvim' }
         -- use { 'renerocksai/calendar-vim' }
@@ -61,7 +60,6 @@ require('packer').startup({
 
         -- zenmode
         use { 'folke/zen-mode.nvim' }
-        use { 'Pocco81/true-zen.nvim' }
 
         -- filetree
         use {
@@ -76,30 +74,29 @@ require('packer').startup({
         -- status line
         use { 'nvim-lualine/lualine.nvim' }
 
-        -- math symbols
-        use { 'jbyuki/nabla.nvim' }
-
         -- icons
-        use { 'kyazdani42/nvim-web-devicons' }
+        -- use { 'kyazdani42/nvim-web-devicons' }
 
         -- git
-        use { 'kdheepak/lazygit.nvim' }
+        use { 'pwntester/octo.nvim' }
+        use {
+            'akinsho/git-conflict.nvim',
+            tag = '*',
+            config = function ()
+                require('git-conflict').setup()
+            end,
+        }
 
         -- telescope (fzf)
         use { 'nvim-lua/popup.nvim' }
         use { 'nvim-telescope/telescope-media-files.nvim' }
         use { 'nvim-telescope/telescope-symbols.nvim' }
-        use { 'pwntester/octo.nvim' }
         use { 'nvim-telescope/telescope.nvim' }
 
         -- auto docs
         use { 'kkoomen/vim-doge' }
 
-        -- diagrams
-        use { 'jbyuki/venn.nvim' }
-
         -- web dev
-        use { 'ray-x/web-tools.nvim' }
         use {
             'NTBBloodbath/rest.nvim',
         }
@@ -110,25 +107,23 @@ require('packer').startup({
             run = 'bash install.sh',
         }
 
-        -- window management
-        -- use {
-        --     'anuvyklack/windows.nvim',
-        --     requires = {
-        --         "anuvyklack/middleclass",
-        --         "anuvyklack/animation.nvim"
-        --     },
-        -- }
-
         -- colorizer
         use { 'uga-rosa/ccc.nvim' }
 
+        -- noice
+        use({
+            'folke/noice.nvim',
+            requires = {
+                'MunifTanjim/nui.nvim',
+                'rcarriga/nvim-notify',
+            },
+        })
+
         --- CUSTOM PLUGINS ---
         use { 'alex-laycalvert/flashcards.nvim' }
-        -- use { 'alex-laycalvert/sudoku.nvim' }
-        -- use { '~/git/life.nvim' }
-        -- use { '~/git/slack.nvim' }
         use { '~/git/telescope-dotfiles.nvim' }
         use { '~/git/telescope-projects.nvim' }
+        use { '~/git/todo.nvim' }
     end,
     config = {
         display = {
@@ -153,17 +148,17 @@ require('plugins.telescope')
 require('plugins.chadtree')
 require('plugins.sniprun')
 require('plugins.comment')
-require('plugins.lazygit')
-require('plugins.diagram')
 require('plugins.rest')
 require('plugins.statusline')
 require('plugins.zen')
--- require('plugins.windows')
 require('plugins.ccc')
---require('plugins.telekasten')
+require('plugins.noice')
+require('plugins.octo')
 
 require('flashcards').setup({})
--- require('life').setup({})
+require('todo').setup({
+    dir = '/home/alex/git/notebook'
+})
 
 -- keybindings
 utils.nmap('<leader>p', 'PackerUpdate')
