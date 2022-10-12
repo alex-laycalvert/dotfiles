@@ -122,3 +122,5 @@ neo4j/
 slack.nvim.log
 htb
 output
+.npmrc
+.profile

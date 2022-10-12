@@ -75,7 +75,7 @@ require('packer').startup({
         use { 'nvim-lualine/lualine.nvim' }
 
         -- icons
-        -- use { 'kyazdani42/nvim-web-devicons' }
+        use { 'kyazdani42/nvim-web-devicons' }
 
         -- git
         use { 'pwntester/octo.nvim' }
