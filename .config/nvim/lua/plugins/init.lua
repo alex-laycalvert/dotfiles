@@ -62,11 +62,16 @@ require('packer').startup({
         use { 'folke/zen-mode.nvim' }
 
         -- filetree
+        -- use {
+        --     'ms-jpq/chadtree',
+        --     branch = 'chad',
+        --     run = 'python3 -m chadtree deps',
+        -- }
         use {
-            'ms-jpq/chadtree',
-            branch = 'chad',
-            run = 'python3 -m chadtree deps',
+            'nvim-neo-tree/neo-tree.nvim',
+            branch = 'v2.x',
         }
+
 
         -- commentor
         use { 'terrortylor/nvim-comment' }
@@ -75,7 +80,7 @@ require('packer').startup({
         use { 'nvim-lualine/lualine.nvim' }
 
         -- icons
-        -- use { 'kyazdani42/nvim-web-devicons' }
+        use { 'kyazdani42/nvim-web-devicons' }
 
         -- git
         use { 'pwntester/octo.nvim' }
@@ -110,11 +115,13 @@ require('packer').startup({
         -- colorizer
         use { 'uga-rosa/ccc.nvim' }
 
+        -- nui
+        use { 'MunifTanjim/nui.nvim' }
+
         -- noice
         use({
             'folke/noice.nvim',
             requires = {
-                'MunifTanjim/nui.nvim',
                 'rcarriga/nvim-notify',
             },
         })
