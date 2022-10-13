@@ -13,6 +13,7 @@ telescope.setup({
         }
     },
     defaults = {
+        dynamic_preview_title = true,
         file_ignore_patterns = {
             "node_modules/",
         }

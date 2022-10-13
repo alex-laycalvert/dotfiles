@@ -11,6 +11,25 @@ lsp.tsserver.setup({ capabilities = capabilities })
 lsp.pyright.setup({ capabilities = capabilities })
 lsp.emmet_ls.setup({ capabilities = capabilities })
 lsp.ccls.setup({ capabilities = capabilities })
+lsp.sumneko_lua.setup({
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                globals = { 'vim' },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file('', true),
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+})
 
 vim.diagnostic.config({
   virtual_text = false
