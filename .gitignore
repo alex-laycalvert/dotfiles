@@ -59,3 +59,4 @@ vpn/
 .config/thefuck/__pycache__
 .config/nvim.old
 .config/gh
+.config/karabiner/automatic_backups

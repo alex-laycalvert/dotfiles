@@ -43,11 +43,11 @@ require('packer').startup({
         }
 
         -- organization/neorg
-        use {
-            'nvim-neorg/neorg',
-            tag = '*',
-            run = ':Neorg sync-parsers',
-        }
+        -- use {
+        --     'nvim-neorg/neorg',
+        --     tag = '*',
+        --     run = ':Neorg sync-parsers',
+        -- }
         -- use { 'renerocksai/telekasten.nvim' }
         -- use { 'renerocksai/calendar-vim' }
 
@@ -126,6 +126,9 @@ require('packer').startup({
             },
         })
 
+        -- formatting
+        use { 'rhysd/vim-clang-format' }
+
         --- CUSTOM PLUGINS ---
         use { 'alex-laycalvert/flashcards.nvim' }
         use { '~/git/telescope-dotfiles.nvim' }
@@ -152,7 +155,7 @@ require('plugins.treesitter')
 require('plugins.neorg')
 require('plugins.dashboard')
 require('plugins.telescope')
-require('plugins.chadtree')
+require('plugins.neotree')
 require('plugins.sniprun')
 require('plugins.comment')
 require('plugins.rest')

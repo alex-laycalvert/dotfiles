@@ -10,7 +10,9 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 lsp.tsserver.setup({ capabilities = capabilities })
 lsp.pyright.setup({ capabilities = capabilities })
 lsp.emmet_ls.setup({ capabilities = capabilities })
-lsp.ccls.setup({ capabilities = capabilities })
+lsp.clangd.setup({
+    capabilities = capabilities,
+})
 lsp.sumneko_lua.setup({
     capabilities = capabilities,
     settings = {

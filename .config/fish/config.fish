@@ -25,13 +25,10 @@ if test -d ~/.cargo/bin
     end
 end
 
-## Starship Prompt
+# Starship Prompt
 if status is-interactive
     source ("/usr/local/bin/starship" init fish --print-full-init | psub)
 end
-
-## Advanced command-not-found hook
-# source /usr/share/doc/find-the-command/ftc.fish
 
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
@@ -62,28 +59,6 @@ else
   bind '$' __history_previous_command_arguments
 end
 
-# Fish command history
-function history
-    builtin history --show-time='%F %T '
-end
-
-function backup --argument filename
-    cp $filename $filename.bak
-end
-
-# Copy DIR1 DIR2
-function copy
-    set count (count $argv | tr -d \n)
-    if test "$count" = 2; and test -d "$argv[1]"
-	set from (echo $argv[1] | trim-right /)
-	set to (echo $argv[2])
-        command cp -r $from $to
-    else
-        command cp $argv
-    end
-end
-
-
 alias ls='exa -al --color=always --group-directories-first --icons'
 alias la='exa  -a --color=always --group-directories-first --icons'
 alias ll='exa  -l --color=always --group-directories-first --icons'
@@ -92,21 +67,13 @@ alias l.="exa -a | egrep '^\.'"
 alias cat='bat --style header --style snip --style changes --style header'
 alias dotgit='git --work-tree=$HOME --git-dir=$HOME/git/dotfiles'
 alias lazydot='lazygit -w $HOME -g $HOME/git/dotfiles'
-alias tarnow='tar -acf '
-alias untar='tar -xvf '
 alias wget='wget -c '
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias hw='hwinfo --short'                                   # Hardware Info
-alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB
 
 # typos
 alias clera="clear"
@@ -119,7 +86,5 @@ alias sdou="sudo"
 alias sodu="sudo"
 
 alias ssh="kitty +kitten ssh"
-
-alias test-mic="arecord -vvv -f dat /dev/null"
 
 thefuck --alias | source
