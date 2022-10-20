@@ -6,9 +6,11 @@
 local utils = require('utils')
 
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    PACKER_BOOTSTRAP = fn.system({
+        'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
+    })
 end
 
 require('packer').startup({
@@ -23,18 +25,17 @@ require('packer').startup({
         use { 'neovim/nvim-lspconfig' }
 
         -- nvim-cmp
+        use { 'nvim-lua/plenary.nvim' }
         use { 'hrsh7th/cmp-nvim-lsp' }
         use { 'hrsh7th/cmp-buffer' }
         use { 'hrsh7th/cmp-path' }
         use { 'hrsh7th/cmp-cmdline' }
+        use { 'hrsh7th/nvim-cmp' }
         use {
             'tzachar/cmp-tabnine',
             run = './install.sh',
-            requires = 'hrsh7th/nvim-cmp'
         }
         use { 'hrsh7th/cmp-nvim-lua' }
-        use { 'nvim-lua/plenary.nvim' }
-        use { 'hrsh7th/nvim-cmp' }
 
         -- tree-sitter
         use {
@@ -62,11 +63,6 @@ require('packer').startup({
         use { 'folke/zen-mode.nvim' }
 
         -- filetree
-        -- use {
-        --     'ms-jpq/chadtree',
-        --     branch = 'chad',
-        --     run = 'python3 -m chadtree deps',
-        -- }
         use {
             'nvim-neo-tree/neo-tree.nvim',
             branch = 'v2.x',
@@ -119,12 +115,15 @@ require('packer').startup({
         use { 'MunifTanjim/nui.nvim' }
 
         -- noice
-        use({
+        use {
             'folke/noice.nvim',
             requires = {
                 'rcarriga/nvim-notify',
             },
-        })
+        }
+
+        -- which-key
+        use { 'folke/which-key.nvim' }
 
         -- formatting
         use { 'rhysd/vim-clang-format' }
@@ -141,18 +140,18 @@ require('packer').startup({
                 return require('packer.util').float({ border = 'single' })
             end
         }
-    }
+    },
 })
 
---require('slack').setup({
---    slack_api_token = '<YOUR_SLACK_API_TOKEN>'
---})
+-- --require('slack').setup({
+-- --    slack_api_token = '<YOUR_SLACK_API_TOKEN>'
+-- --})
 
--- plugin setup
+-- -- plugin setup
 require('plugins.lspconfig')
 require('plugins.cmp')
 require('plugins.treesitter')
-require('plugins.neorg')
+-- require('plugins.neorg')
 require('plugins.dashboard')
 require('plugins.telescope')
 require('plugins.neotree')
@@ -163,8 +162,8 @@ require('plugins.statusline')
 require('plugins.zen')
 require('plugins.ccc')
 require('plugins.noice')
+require('plugins.whichkey')
 require('plugins.octo')
-
 require('flashcards').setup({})
 require('yaam').setup({
     dir = '/Users/alex/git/notebook'

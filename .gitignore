@@ -60,3 +60,7 @@ vpn/
 .config/nvim.old
 .config/gh
 .config/karabiner/automatic_backups
+.bundle/cache/compact_index/rubygems.org.443.29b0360b937aa4d161703e6160654e47
+.cargo/registry
+.cargo
+.gem/specs/rubygems.org%443/quick/Marshal.4.8

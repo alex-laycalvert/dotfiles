@@ -8,7 +8,7 @@ local g = vim.g
 local api = vim.api
 
 g.mapleader = ' '
-g.timeoutlen = 1500
+g.timeoutlen = 100
 
 set.splitbelow = true
 set.splitright = true
