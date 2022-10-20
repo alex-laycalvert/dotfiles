@@ -11,6 +11,8 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
+:e README.md
+|2,0,1666193013,,"e README.md"
 :q
 |2,0,1663780071,,"q"
 
@@ -25,7 +27,20 @@
 # Registers:
 
 # File marks:
+'0  1  21  ~/README.md
+|4,48,1,21,1666193742,"~/README.md"
 
 # Jumplist (newest first):
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
 
 # History of marks within files (newest to oldest):
+
+> ~/README.md
+	*	1666193740	0
+	"	1	21
+	^	1	0
+	.	1	0
+	+	1	0

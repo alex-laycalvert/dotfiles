@@ -28,8 +28,8 @@ utils.amap('<M-t>', 'tabnew')
 utils.amap('<M-w>', 'tabclose')
 utils.amap('<M-Tab>', 'tabnext')
 utils.amap('<M-S-Tab>', 'tabprevious')
-utils.amap('<M-PageUp>', '-tabmove')
-utils.amap('<M-PageDown>', '+tabmove')
+utils.amap('<C-M-h>', '-tabmove')
+utils.amap('<C-M-l>', '+tabmove')
 
 -- terminal
 utils.map('t', '<ESC>', '<C-\\><C-N>')

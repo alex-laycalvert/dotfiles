@@ -3,4 +3,4 @@
 -- 
 -- https://github.com/alex-laycalvert
 
-require('lualine').setup()
+require('lualine').setup({})

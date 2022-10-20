@@ -3,5 +3,6 @@ nm-applet &
 volumeicon &
 nitrogen --restore
 flameshot &
-setxkbmap -option caps:escape
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
 

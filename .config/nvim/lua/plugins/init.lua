@@ -43,11 +43,11 @@ require('packer').startup({
         }
 
         -- organization/neorg
-        use {
-            'nvim-neorg/neorg',
-            tag = '*',
-            run = ':Neorg sync-parsers',
-        }
+        -- use {
+        --     'nvim-neorg/neorg',
+        --     tag = '*',
+        --     run = ':Neorg sync-parsers',
+        -- }
         -- use { 'renerocksai/telekasten.nvim' }
         -- use { 'renerocksai/calendar-vim' }
 
@@ -63,10 +63,10 @@ require('packer').startup({
 
         -- filetree
         use {
-            'ms-jpq/chadtree',
-            branch = 'chad',
-            run = 'python3 -m chadtree deps',
+            'nvim-neo-tree/neo-tree.nvim',
+            branch = 'v2.x',
         }
+
 
         -- commentor
         use { 'terrortylor/nvim-comment' }
@@ -110,20 +110,25 @@ require('packer').startup({
         -- colorizer
         use { 'uga-rosa/ccc.nvim' }
 
+        -- nui
+        use { 'MunifTanjim/nui.nvim' }
+
         -- noice
         use({
             'folke/noice.nvim',
             requires = {
-                'MunifTanjim/nui.nvim',
                 'rcarriga/nvim-notify',
             },
         })
+
+        -- formatting
+        use { 'rhysd/vim-clang-format' }
 
         --- CUSTOM PLUGINS ---
         use { 'alex-laycalvert/flashcards.nvim' }
         use { '~/git/telescope-dotfiles.nvim' }
         use { '~/git/telescope-projects.nvim' }
-        use { '~/git/todo.nvim' }
+        use { '~/git/yaam.nvim' }
     end,
     config = {
         display = {
@@ -145,7 +150,7 @@ require('plugins.treesitter')
 require('plugins.neorg')
 require('plugins.dashboard')
 require('plugins.telescope')
-require('plugins.chadtree')
+require('plugins.neotree')
 require('plugins.sniprun')
 require('plugins.comment')
 require('plugins.rest')
@@ -155,8 +160,9 @@ require('plugins.ccc')
 require('plugins.noice')
 require('plugins.octo')
 
+-- custom plugins
 require('flashcards').setup({})
-require('todo').setup({
+require('yaam').setup({
     dir = '/home/alex/git/notebook'
 })
 

@@ -97,8 +97,6 @@ alias lazydot='lazygit -w $HOME -g $HOME/git/dotfiles'
 alias nmcli='nmcli -c yes'
 alias grubup="sudo update-grub"
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
-alias tarnow='tar -acf '
-alias untar='tar -xvf '
 alias wget='wget -c '
 alias rmpkg="sudo pacman -Rdd"
 alias psmem='ps auxf | sort -nr -k 4'
@@ -143,8 +141,6 @@ alias celar="clear"
 
 alias sdou="sudo"
 alias sodu="sudo"
-
-alias localgns3server="gns3server --host 127.0.0.1 --port 3080 --local"
 
 alias ssh="kitty +kitten ssh"
 

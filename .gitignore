@@ -124,3 +124,4 @@ htb
 output
 .npmrc
 .profile
+.config/nvim.old
