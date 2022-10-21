@@ -125,3 +125,4 @@ output
 .npmrc
 .profile
 .config/nvim.old
+.gnupg
