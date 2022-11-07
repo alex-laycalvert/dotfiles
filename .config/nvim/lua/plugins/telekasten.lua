@@ -1,9 +1,5 @@
--- plugins/telekasten.lua
 -- alex-laycalvert
--- 
 -- https://github.com/alex-laycalvert
-
-local utils = require('utils')
 
 local api = vim.api
 local notes_dir = vim.fn.expand('~/git/notebook')
@@ -103,29 +99,3 @@ api.nvim_set_hl(0, 'tkHighlight', { ctermbg = 'yellow', ctermfg = 'darkred', bol
 api.nvim_set_hl(0, 'tkTagSep', { ctermfg = 'gray', fg = 'gray' })
 api.nvim_set_hl(0, 'tkTag', { ctermfg = 175, fg = '#D3869B' })
 vim.cmd('hi link CalNavi CalRuler')
-
--- keybinings
-utils.nmap('<leader>o', 'lua require("telekasten").panel()')
-utils.nmap('<leader>oo', 'lua require("telekasten").find_notes()')
-utils.nmap('<leader>os', 'lua require("telekasten").search_notes()')
-utils.nmap('<leader>of', 'lua require("telekasten").follow_link()')
-utils.nmap('<leader>od', 'lua require("telekasten").goto_today()')
-utils.nmap('<leader>ow', 'lua require("telekasten").goto_thisweek()')
-utils.nmap('<leader>oD', 'lua require("telekasten").find_daily_notes()')
-utils.nmap('<leader>oW', 'lua require("telekasten").find_weekly_notes()')
-utils.nmap('<leader>oc', 'lua require("telekasten").show_calendar()')
-utils.nmap('<leader>oC', 'CalendarT')
-utils.nmap('<leader>ol', 'lua require("telekasten").insert_link()')
-utils.nmap('<leader>oL', 'lua require("telekasten").insert_img_link({ i = true })')
-utils.nmap('<leader>oi', 'lua require("telekasten").preview_img()')
-utils.nmap('<leader>oI', 'lua require("telekasten").paste_img_and_link()')
-utils.nmap('<leader>ob', 'lua require("telekasten").show_backlinks()')
-utils.nmap('<leader>oF', 'lua require("telekasten").find_friends()')
-utils.nmap('<leader>om', 'lua require("telekasten").browse_media()')
-utils.nmap('<leader>on', 'lua require("telekasten").new_note()')
-utils.nmap('<leader>oN', 'lua require("telekasten").new_templated_note()')
-utils.nmap('<leader>ot', 'lua require("telekasten").toggle_todo()')
-utils.map('v', '<leader>ot', ':Telekasten toggle_todo<CR>')
-utils.nmap('<leader>oy', 'lua require("telekasten").yank_notelink()')
-utils.nmap('<leader>or', 'lua require("telekasten").rename_note()')
-utils.nmap('<leader>oT', 'lua require("telekasten").show_tags()')

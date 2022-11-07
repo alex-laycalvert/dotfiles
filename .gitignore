@@ -126,3 +126,6 @@ output
 .profile
 .config/nvim.old
 .gnupg
+.cargo
+.rustup
+.thunderbird
