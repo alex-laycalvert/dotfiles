@@ -13,6 +13,8 @@ keymap('n', '<leader>h', '<cmd>noh<cr>')
 keymap('n', '<leader>gf', '!git fetch')
 keymap('n', '<leader>gp', '!git pull')
 keymap('i', '<C-return>', '<esc>o')
+keymap('i', '<C-e>', '<esc>A')
+keymap('i', '<C-a>', '<esc>I')
 
 -- windows
 keymap({ 'n', 'i', 'v', 't' }, '<M-h>', '<cmd>wincmd h<cr>')
@@ -69,6 +71,7 @@ keymap('n', '<leader>gld', '<cmd>Octo label delete<cr>')
 keymap('n', '<leader>glc', '<cmd>Octo label create<cr>')
 keymap('n', '<leader>gaa', '<cmd>Octo assignee add<cr>')
 keymap('n', '<leader>gad', '<cmd>Octo assignee remove<cr>')
+keymap('n', '<leader>z', '<cmd>ZenMode<cr>')
 
 keymap('n', '<leader>t', '<cmd>Telekasten toggle_todo<cr>')
 keymap('v', '<leader>t', ':Telekasten toggle_todo<cr>')

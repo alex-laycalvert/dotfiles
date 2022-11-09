@@ -71,6 +71,9 @@ require('packer').startup({
         use({ 'saadparwaiz1/cmp_luasnip' })
 
         use({ '~/git/telekasten.nvim' })
+
+        use({ 'elkowar/yuck.vim' })
+        use({ 'prettier/vim-prettier' })
     end,
     config = {
         display = {

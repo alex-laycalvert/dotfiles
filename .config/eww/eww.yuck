@@ -1,0 +1,15 @@
+(defwindow top_bar
+  :monitor 0
+  :geometry (geometry
+              :x "3px"
+              :y "3px"
+              :width "99.8%"
+              :height "37px"
+              :anchor "top left")
+  :stacking "fg"
+  :reserve (struts
+             :distance "40px"
+             :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  "bar")

@@ -38,6 +38,7 @@ widget_lsep = ''
 widget_rsep = ''
 
 widget_sep_size = 30
+top_window_margin = 3
 window_margin = 3
 bar_size = 35
 
@@ -141,7 +142,7 @@ layouts = [
     layout.Columns(
         border_focus = arch_color,
         border_width = 1, 
-        margin = window_margin,
+        margin = [top_window_margin, window_margin, window_margin, window_margin],
         ),
 
     layout.TreeTab(
@@ -301,24 +302,26 @@ def init_widgets_screen_secondary():
 
 def init_screens():
     return [
-        Screen(top = bar.Bar(
-                widgets = init_widgets_screen(),
-                size = bar_size,
-                opacity = 0.7,
-                margin = window_margin,
-                border_width = [5, 5, 5, 0],
-                border_color = bar_bg,
-                ),
-            ),
-        Screen(top = bar.Bar(
-                widgets = init_widgets_screen_secondary(),
-                size = bar_size,
-                opacity = 0.7,
-                margin = window_margin,
-                border_width = [5, 5, 5, 0],
-                border_color = bar_bg,
-                ),
-            ),
+#        Screen(top = bar.Bar(
+#                widgets = init_widgets_screen(),
+#                size = bar_size,
+#                opacity = 0.7,
+#                margin = window_margin,
+#                border_width = [5, 5, 5, 0],
+#                border_color = bar_bg,
+#                ),
+#            ),
+#        Screen(top = bar.Bar(
+#                widgets = init_widgets_screen_secondary(),
+#                size = bar_size,
+#                opacity = 0.7,
+#                margin = window_margin,
+#                border_width = [5, 5, 5, 0],
+#                border_color = bar_bg,
+#                ),
+#            ),
+        Screen(),
+        Screen(),
         ]
 
 if __name__ in { "config", "__main__" }:
