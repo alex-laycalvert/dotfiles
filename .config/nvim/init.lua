@@ -1,4 +1,5 @@
 -- alex-laycalvert
 -- https://github.com/alex-laycalvert
 
-require('lualine').setup({})
+require('impatient')
+require('setup')

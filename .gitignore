@@ -64,3 +64,15 @@ vpn/
 .cargo/registry
 .cargo
 .gem/specs/rubygems.org%443/quick/Marshal.4.8
+.aspnet/DataProtection-Keys
+.azure
+.azure-functions-core-tools/Functions/ExtensionBundles/Microsoft.Azure.Functions.ExtensionBundle
+.azurefunctions
+.config/wireshark
+.degit/github/solidjs/solid-start
+.ghcup
+.nvm
+test/loan
+.dockeraccess
+PLF_TABLES_18-99.XLS
+nvim.log

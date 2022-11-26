@@ -25,6 +25,9 @@ if test -d ~/.cargo/bin
     end
 end
 
+# You must call it on initialization or listening to directory switching won't work
+load_nvm > /dev/stderr
+
 # Starship Prompt
 if status is-interactive
     source ("/usr/local/bin/starship" init fish --print-full-init | psub)

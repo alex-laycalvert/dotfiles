@@ -1,138 +1,94 @@
--- plugins/init.lua
 -- alex-laycalvert
---
 -- https://github.com/alex-laycalvert
 
-local utils = require('utils')
-
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-    PACKER_BOOTSTRAP = fn.system({
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    PACKER_BOOTSTRAP = vim.fn.system({
         'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
     })
 end
 
 require('packer').startup({
-    function(use)
-        -- plugin manager
-        use { 'wbthomason/packer.nvim' }
+    function (use)
 
-        -- dashboard 
-        use { 'glepnir/dashboard-nvim' }
+        -- packer
+        use({ 'wbthomason/packer.nvim' })
 
-        -- lsp
-        use { 'neovim/nvim-lspconfig' }
-
-        -- nvim-cmp
-        use { 'nvim-lua/plenary.nvim' }
-        use { 'hrsh7th/cmp-nvim-lsp' }
-        use { 'hrsh7th/cmp-buffer' }
-        use { 'hrsh7th/cmp-path' }
-        use { 'hrsh7th/cmp-cmdline' }
-        use { 'hrsh7th/nvim-cmp' }
-        use {
-            'tzachar/cmp-tabnine',
-            run = './install.sh',
-        }
-        use { 'hrsh7th/cmp-nvim-lua' }
+        -- impatient / startup time
+        use({ 'lewis6991/impatient.nvim' })
 
         -- tree-sitter
-        use {
+        use({
             'nvim-treesitter/nvim-treesitter',
             run =  function () require('nvim-treesitter.install').update({ with_sync = true }) end
-        }
-
-        -- organization/neorg
-        -- use {
-        --     'nvim-neorg/neorg',
-        --     tag = '*',
-        --     run = ':Neorg sync-parsers',
-        -- }
-        -- use { 'renerocksai/telekasten.nvim' }
-        -- use { 'renerocksai/calendar-vim' }
-
-        -- snippets
-        use { 'hrsh7th/cmp-vsnip' }
-        use { 'hrsh7th/vim-vsnip' }
+        })
 
         -- colorscheme
-        use { 'dracula/vim' }
-
-        -- zenmode
-        use { 'folke/zen-mode.nvim' }
+        use({ 'folke/tokyonight.nvim' })
 
         -- filetree
-        use {
+        use({
             'nvim-neo-tree/neo-tree.nvim',
             branch = 'v2.x',
-        }
+            requires = {
+                'nvim-lua/plenary.nvim',
+                'kyazdani42/nvim-web-devicons',
+                'MunifTanjim/nui.nvim',
+            }
+        })
 
-
-        -- commentor
-        use { 'terrortylor/nvim-comment' }
-
-        -- status line
-        use { 'nvim-lualine/lualine.nvim' }
+        -- zenmode
+        use({ 'folke/zen-mode.nvim' })
 
         -- icons
-        use { 'kyazdani42/nvim-web-devicons' }
+        use({ 'kyazdani42/nvim-web-devicons' })
 
         -- git
-        use { 'pwntester/octo.nvim' }
-        use {
-            'akinsho/git-conflict.nvim',
-            tag = '*',
-            config = function ()
-                require('git-conflict').setup()
-            end,
-        }
-
-        -- telescope (fzf)
-        use { 'nvim-lua/popup.nvim' }
-        use { 'nvim-telescope/telescope-media-files.nvim' }
-        use { 'nvim-telescope/telescope-symbols.nvim' }
-        use { 'nvim-telescope/telescope.nvim' }
-
-        -- auto docs
-        use { 'kkoomen/vim-doge' }
-
-        -- web dev
-        use {
-            'NTBBloodbath/rest.nvim',
-        }
-
-        -- sniprun
-        use {
-            'michaelb/sniprun',
-            run = 'bash install.sh',
-        }
-
-        -- colorizer
-        use { 'uga-rosa/ccc.nvim' }
-
-        -- nui
-        use { 'MunifTanjim/nui.nvim' }
-
-        -- noice
-        use {
-            'folke/noice.nvim',
-            requires = {
-                'rcarriga/nvim-notify',
-            },
-        }
+        use({ 'pwntester/octo.nvim' })
 
         -- which-key
-        use { 'folke/which-key.nvim' }
+        use({ 'folke/which-key.nvim' })
 
         -- formatting
-        use { 'rhysd/vim-clang-format' }
+        use({ 'rhysd/vim-clang-format' })
 
-        --- CUSTOM PLUGINS ---
-        use { 'alex-laycalvert/flashcards.nvim' }
-        use { '~/git/telescope-dotfiles.nvim' }
-        use { '~/git/telescope-projects.nvim' }
-        use { '~/git/yaam.nvim' }
+        -- telescope
+        use({ 'nvim-telescope/telescope.nvim' })
+        use({ 'nvim-telescope/telescope-media-files.nvim' })
+        use({ 'nvim-telescope/telescope-symbols.nvim' })
+        use({ 'alex-laycalvert/telescope-dotfiles.nvim' })
+        use({ 'alex-laycalvert/telescope-projects.nvim' })
+
+        -- dashboard
+        use({ 'glepnir/dashboard-nvim' })
+
+        -- lsp
+        use({ 'neovim/nvim-lspconfig' })
+
+        -- autocomplete
+        use({ 'hrsh7th/nvim-cmp' })
+        use({ 'hrsh7th/cmp-nvim-lsp' })
+        use({ 'hrsh7th/cmp-buffer' })
+        use({ 'hrsh7th/cmp-path' })
+        use({ 'L3MON4D3/LuaSnip' })
+        use({ 'saadparwaiz1/cmp_luasnip' })
+
+        -- screenshots
+        use({
+            'krivahtoo/silicon.nvim',
+            run = './install.sh'
+        })
+
+        -- todos
+        use({
+            "folke/todo-comments.nvim",
+            requires = "nvim-lua/plenary.nvim",
+        })
+
+        use({ '~/git/telekasten.nvim' })
+
+        use({ 'elkowar/yuck.vim' })
+        use({ 'prettier/vim-prettier' })
     end,
     config = {
         display = {
@@ -143,31 +99,12 @@ require('packer').startup({
     },
 })
 
--- --require('slack').setup({
--- --    slack_api_token = '<YOUR_SLACK_API_TOKEN>'
--- --})
-
--- -- plugin setup
 require('plugins.lspconfig')
 require('plugins.cmp')
-require('plugins.treesitter')
--- require('plugins.neorg')
-require('plugins.dashboard')
 require('plugins.telescope')
 require('plugins.neotree')
-require('plugins.sniprun')
-require('plugins.comment')
-require('plugins.rest')
-require('plugins.statusline')
-require('plugins.zen')
-require('plugins.ccc')
-require('plugins.noice')
-require('plugins.whichkey')
 require('plugins.octo')
-require('flashcards').setup({})
-require('yaam').setup({
-    dir = '/Users/alex/git/notebook'
-})
-
--- keybindings
-utils.nmap('<leader>p', 'PackerUpdate')
+require('plugins.dashboard')
+require('plugins.telekasten')
+require('plugins.todo')
+require('plugins.silicon')

@@ -1,10 +1,8 @@
--- plugins/telescope.nvim
 -- alex-laycalvert
---
 -- https://github.com/alex-laycalvert
 
-local utils = require('utils')
 local telescope = require('telescope')
+local actions = require('telescope.actions')
 
 telescope.setup({
     pickers = {
@@ -48,8 +46,6 @@ telescope.setup({
         generic_sorter = require('telescope.sorters').get_generic_fuzzy_sorter,
         path_display = { 'truncate' },
         winblend = 0,
-        border = {},
-        borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
         color_devicons = true,
         set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
         file_previewer = require('telescope.previewers').vim_buffer_cat.new,
@@ -58,7 +54,15 @@ telescope.setup({
         -- Developer configurations: Not meant for general override
         buffer_previewer_maker = require('telescope.previewers').buffer_previewer_maker,
         mappings = {
-            n = { ['q'] = require('telescope.actions').close },
+            n = {
+                ['q'] = actions.close,
+                ['<C-s>'] = actions.select_horizontal,
+                ['<C-v>'] = actions.select_vertical,
+            },
+            i = {
+                ['<C-s>'] = actions.select_horizontal,
+                ['<C-v>'] = actions.select_vertical,
+            },
         },
         dynamic_preview_title = true,
     },
@@ -85,21 +89,3 @@ telescope.setup({
 telescope.load_extension('media_files')
 telescope.load_extension('dotfiles')
 telescope.load_extension('projects')
-
-require('octo').setup()
-
--- keybindings
-utils.nmap('<leader>r', 'lua require("telescope.builtin").live_grep()')
-utils.nmap('<leader>f', 'lua require("telescope.builtin").find_files()')
-utils.nmap('<leader>ff', 'lua require("telescope.builtin").find_files()')
-utils.nmap('<leader>fr', 'lua require("telescope.builtin").oldfiles()')
-utils.nmap('<leader>fb', 'lua require("telescope.builtin").buffers()')
-utils.nmap('<leader>fc', 'lua require("telescope.builtin").commands()')
-utils.nmap('<leader>fh', 'lua require("telescope.builtin").search_history()')
-utils.nmap('<leader>fm', 'lua require("telescope.builtin").man_pages()')
-utils.nmap('<leader>fk', 'lua require("telescope.builtin").marks()')
-utils.nmap('<leader>fq', 'lua require("telescope.builtin").quickfix()')
-utils.nmap('<leader>fd', 'Telescope dotfiles')
-utils.nmap('<leader>fg', 'Telescope projects')
-utils.nmap('<leader>gb', 'Telescope git_branches')
-utils.amap('<M-i>', 'Telescope symbols')

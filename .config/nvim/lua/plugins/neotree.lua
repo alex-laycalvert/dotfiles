@@ -1,9 +1,5 @@
--- .config/nvim/plugins/neotree.lua
 -- alex-laycalvert
---
 -- https://github.com/alex-laycalvert
-
-local utils = require('utils')
 
 require('neo-tree').setup({
     close_if_last_window = false,
@@ -13,8 +9,12 @@ require('neo-tree').setup({
             hide_dotfiles = false,
             hide_gitignored = false,
         },
+        window = {
+            mappings = {
+                ['u'] = 'navigate_up',
+                ['U'] = 'set_root',
+                ['.'] = 'toggle_hidden'
+            }
+        }
     },
 })
-
--- keybindings
-utils.nmap('<leader><Tab>', 'Neotree toggle')

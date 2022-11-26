@@ -1,6 +1,4 @@
--- plugins/treesitter.lua
 -- alex-laycalvert
--- 
 -- https://github.com/alex-laycalvert
 
 require('nvim-treesitter.configs').setup({
@@ -22,10 +20,9 @@ require('nvim-treesitter.configs').setup({
         'json',
         'tsx',
         'dockerfile',
-        'http',
     },
     highlight = {
         enable = true,
-    },
+    }
 })
 
