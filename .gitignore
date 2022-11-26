@@ -129,3 +129,10 @@ output
 .cargo
 .rustup
 .thunderbird
+.azure/commands
+.azure
+.config/Cypress
+.config/chromium
+.config/libreoffice/4
+.config/nextjs-nodejs
+.config/wireshark
