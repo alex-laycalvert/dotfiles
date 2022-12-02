@@ -23,7 +23,7 @@ lsp.tsserver.setup({
     on_attach = set_lsp_keymaps,
 })
 
--- rust-analyzer
+-- rust
 lsp.rust_analyzer.setup({
     capabilities = capabilities,
     on_attach = set_lsp_keymaps,
@@ -41,10 +41,15 @@ lsp.emmet_ls.setup({
     on_attach = set_lsp_keymaps,
 })
 
--- clang
+-- C/C++
 lsp.clangd.setup({
     capabilities = capabilities,
     on_attach = set_lsp_keymaps,
+})
+
+-- haskell
+lsp.ghcide.setup({
+    capabilities = capabilities
 })
 
 -- lua

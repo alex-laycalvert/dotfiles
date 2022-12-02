@@ -4,3 +4,4 @@
 require('options.options')
 require('options.keybindings')
 require('options.color')
+require('options.autocommands')

@@ -14,6 +14,9 @@ require('packer').startup({
         -- packer
         use({ 'wbthomason/packer.nvim' })
 
+        -- impatient / startup time
+        use({ 'lewis6991/impatient.nvim' })
+
         -- tree-sitter
         use({
             'nvim-treesitter/nvim-treesitter',
@@ -70,6 +73,18 @@ require('packer').startup({
         use({ 'L3MON4D3/LuaSnip' })
         use({ 'saadparwaiz1/cmp_luasnip' })
 
+        -- screenshots
+        use({
+            'krivahtoo/silicon.nvim',
+            run = './install.sh'
+        })
+
+        -- todos
+        use({
+            "folke/todo-comments.nvim",
+            requires = "nvim-lua/plenary.nvim",
+        })
+
         use({ '~/git/telekasten.nvim' })
 
         use({ 'elkowar/yuck.vim' })
@@ -91,3 +106,5 @@ require('plugins.neotree')
 require('plugins.octo')
 require('plugins.dashboard')
 require('plugins.telekasten')
+require('plugins.todo')
+require('plugins.silicon')

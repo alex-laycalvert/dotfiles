@@ -4,17 +4,17 @@
 local keymap = vim.keymap.set
 
 -- generic
-keymap('n', '<leader>w', '<cmd>w<cr>')
-keymap('n', '<leader>W', '<cmd>wall<cr>')
-keymap('n', '<leader>q', '<cmd>q<cr>')
-keymap('n', '<leader>Q', '<cmd>qall<cr>')
-keymap('n', '<leader>l', '<cmd>luafile %<cr>')
-keymap('n', '<leader>h', '<cmd>noh<cr>')
-keymap('n', '<leader>gf', '!git fetch')
-keymap('n', '<leader>gp', '!git pull')
-keymap('i', '<C-return>', '<esc>o')
-keymap('i', '<C-e>', '<esc>A')
-keymap('i', '<C-a>', '<esc>I')
+keymap('n', '<leader>w', '<cmd>w<cr>', { desc = 'Save File' })
+keymap('n', '<leader>W', '<cmd>wall<cr>', { desc = 'Save All Open Files' })
+keymap('n', '<leader>q', '<cmd>q<cr>', { desc = 'Close File' })
+keymap('n', '<leader>Q', '<cmd>qall<cr>', { desc = 'Close All' })
+keymap('n', '<leader>l', '<cmd>luafile %<cr>', { desc = 'Load Current Lua File' })
+keymap('n', '<leader>h', '<cmd>noh<cr>', { desc = 'Turn off highlight from search' })
+keymap('n', '<leader>gf', '!git fetch', { desc = 'Git Fetch' })
+keymap('n', '<leader>gp', '!git pull', { desc = 'Git Pull' })
+keymap('i', '<C-return>', '<esc>o', { desc = 'Add New Line Below' })
+keymap('i', '<C-a>', '<esc>I', { desc = 'Terminal Ctrl-A Goto Start of Line' })
+keymap('i', '<C-e>', '<esc>A', { desc = 'Terminal Ctrl-E Goto End of Line' })
 
 -- windows
 keymap({ 'n', 'i', 'v', 't' }, '<M-h>', '<cmd>wincmd h<cr>')
@@ -71,7 +71,31 @@ keymap('n', '<leader>gld', '<cmd>Octo label delete<cr>')
 keymap('n', '<leader>glc', '<cmd>Octo label create<cr>')
 keymap('n', '<leader>gaa', '<cmd>Octo assignee add<cr>')
 keymap('n', '<leader>gad', '<cmd>Octo assignee remove<cr>')
-keymap('n', '<leader>z', '<cmd>ZenMode<cr>')
+keymap('n', '<leader>z', '<cmd>ZenMode<cr>', { desc = 'Toggle ZenMode' })
+keymap({'n', 'i', 'v' }, '<M-S-n>', function ()
+    require('todo-comments').jump_next()
+end, { desc = 'Jump to next TODO' })
+keymap({'n', 'i', 'v' }, '<M-S-p>', function ()
+    require('todo-comments').jump_prev()
+end, { desc = 'Jump to previous TODO' })
+
+-- file formatting
+keymap({ 'n', 'i', 'v' }, '<M-f>', function ()
+    local filetype = vim.bo.filetype
+    if
+        filetype == 'javascript' or
+        filetype == 'typescript' or
+        filetype == 'javascriptreact' or
+        filetype == 'typescriptreact' or
+        filetype == 'json' or
+        filetype == 'markdown' then
+        vim.cmd('Prettier')
+    elseif
+        filetype == 'c' or
+        filetype == 'cpp' then
+        vim.cmd('ClangFormat')
+    end
+end, { desc = 'Format File' })
 
 keymap('n', '<leader>t', '<cmd>Telekasten toggle_todo<cr>')
-keymap('v', '<leader>t', ':Telekasten toggle_todo<cr>')
+keymap('v', '<leader>t', ':lua require("telekasten").toggle_todo({ v = true })<cr>')
