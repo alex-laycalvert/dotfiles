@@ -11,10 +11,26 @@
 # hlsearch on (H) or off (h):
 ~h
 # Command Line History (newest to oldest):
+:wq
+|2,0,1680919416,,"wq"
+:e lua/plugins/init.lua
+|2,0,1680919413,,"e lua/plugins/init.lua"
+:e lua/setup.lua
+|2,0,1680919192,,"e lua/setup.lua"
+:q
+|2,0,1680919110,,"q"
+:w
+|2,0,1680919107,,"w"
+:e init.lua
+|2,0,1680919105,,"e init.lua"
+:e ./init.lua
+|2,0,1680919067,,"e ./init.lua"
+:q!
+|2,0,1675969384,,"q!"
+:'<,'>q!
+|2,0,1675969378,,"'<,'>q!"
 :e README.md
 |2,0,1666193013,,"e README.md"
-:q
-|2,0,1663780071,,"q"
 
 # Search String History (newest to oldest):
 
@@ -25,18 +41,299 @@
 # Debug Line History (newest to oldest):
 
 # Registers:
+"0	CHAR	0
+	now i put whatever i want her
+|3,0,0,0,1,0,1675969364,"now i put whatever i want her"
+""1	LINE	0
+		asdf
+		asdf
+		asdf
+		asdf
+		asdf
+		asdf
+		asdf
+		asdf
+		asdf
+		asdf
+|3,1,1,1,10,0,1675969371,"	asdf","	asdf","	asdf","	asdf","	asdf","	asdf","	asdf","	asdf","	asdf","	asdf"
+"2	LINE	0
+	now i put whatever i want her
+|3,0,2,1,1,0,1675969369,"now i put whatever i want her"
+"3	LINE	0
+	aasaklfjasdlkfaskl
+	asdkfklj
+	asdkfklj
+	asdkfklj
+	asdkfklj
+	asdkfklj
+	asdkfklj
+	
+	
+	
+	
+|3,0,3,1,11,0,1675969266,"aasaklfjasdlkfaskl","asdkfklj","asdkfklj","asdkfklj","asdkfklj","asdkfklj","asdkfklj","","","",""
+"4	LINE	0
+	
+	
+	
+	
+|3,0,4,1,4,0,1675969264,"","","",""
+"5	BLOCK	4
+	jfasj
+	jfasj
+	jfasj
+	jfasj
+	jfasj
+	jfasj
+|3,0,5,2,6,4,1675969261,"jfasj","jfasj","jfasj","jfasj","jfasj","jfasj"
+"-	CHAR	0
+	now i put whatever i want her
+|3,0,36,0,1,0,1675969346,"now i put whatever i want her"
 
 # File marks:
-'0  1  21  ~/README.md
-|4,48,1,21,1666193742,"~/README.md"
+'0  115  1  ~/.config/nvim/lua/plugins/init.lua
+|4,48,115,1,1680919416,"~/.config/nvim/lua/plugins/init.lua"
+'1  4  9  ~/.config/nvim/lua/setup.lua
+|4,49,4,9,1680919198,"~/.config/nvim/lua/setup.lua"
+'2  5  1  ~/.config/nvim/init.lua
+|4,50,5,1,1680919110,"~/.config/nvim/init.lua"
+'3  5  1  ~/.config/nvim/init.lua
+|4,51,5,1,1680919082,"~/.config/nvim/init.lua"
+'4  15  0  /etc/pacman.conf
+|4,52,15,0,1671578757,"/etc/pacman.conf"
+'5  1  21  ~/README.md
+|4,53,1,21,1666193742,"~/README.md"
 
 # Jumplist (newest first):
+-'  115  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,115,1,1680919416,"~/.config/nvim/lua/plugins/init.lua"
+-'  1  0  ~/.config/nvim/lua/plugins/init.lua
+|4,39,1,0,1680919413,"~/.config/nvim/lua/plugins/init.lua"
+-'  4  9  ~/.config/nvim/lua/setup.lua
+|4,39,4,9,1680919198,"~/.config/nvim/lua/setup.lua"
+-'  4  9  ~/.config/nvim/lua/setup.lua
+|4,39,4,9,1680919198,"~/.config/nvim/lua/setup.lua"
+-'  1  0  ~/.config/nvim/lua/setup.lua
+|4,39,1,0,1680919192,"~/.config/nvim/lua/setup.lua"
+-'  1  0  ~/.config/nvim/lua/setup.lua
+|4,39,1,0,1680919192,"~/.config/nvim/lua/setup.lua"
+-'  5  1  ~/.config/nvim/init.lua
+|4,39,5,1,1680919110,"~/.config/nvim/init.lua"
+-'  5  1  ~/.config/nvim/init.lua
+|4,39,5,1,1680919110,"~/.config/nvim/init.lua"
+-'  5  1  ~/.config/nvim/init.lua
+|4,39,5,1,1680919110,"~/.config/nvim/init.lua"
+-'  5  1  ~/.config/nvim/init.lua
+|4,39,5,1,1680919110,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1680919105,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1680919105,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1680919105,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1680919105,"~/.config/nvim/init.lua"
+-'  5  1  ~/.config/nvim/init.lua
+|4,39,5,1,1680919082,"~/.config/nvim/init.lua"
+-'  5  1  ~/.config/nvim/init.lua
+|4,39,5,1,1680919082,"~/.config/nvim/init.lua"
+-'  5  1  ~/.config/nvim/init.lua
+|4,39,5,1,1680919082,"~/.config/nvim/init.lua"
+-'  5  1  ~/.config/nvim/init.lua
+|4,39,5,1,1680919082,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1680919067,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1680919067,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1680919067,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1680919067,"~/.config/nvim/init.lua"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  15  0  /etc/pacman.conf
+|4,39,15,0,1671578757,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  0  /etc/pacman.conf
+|4,39,1,0,1671578754,"/etc/pacman.conf"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
 -'  1  21  ~/README.md
 |4,39,1,21,1666193742,"~/README.md"
 -'  1  21  ~/README.md
 |4,39,1,21,1666193742,"~/README.md"
 
 # History of marks within files (newest to oldest):
+
+> ~/.config/nvim/lua/plugins/init.lua
+	*	1680919415	0
+	"	115	1
+	^	115	2
+	.	115	1
+	+	115	1
+
+> ~/.config/nvim/lua/setup.lua
+	*	1680919196	0
+	"	4	9
+	^	4	2
+	.	4	1
+	+	5	1
+	+	4	1
+
+> ~/.config/nvim/init.lua
+	*	1680919107	0
+	"	5	1
+	^	5	2
+	.	5	1
+	+	4	19
+	+	5	1
+
+> /etc/pacman.conf
+	*	1671578756	0
+	"	15	0
 
 > ~/README.md
 	*	1666193740	0

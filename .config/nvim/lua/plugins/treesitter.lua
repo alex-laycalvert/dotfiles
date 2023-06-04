@@ -5,6 +5,7 @@ require('nvim-treesitter.configs').setup({
     ensure_installed = {
         'css',
         'scss',
+        'norg',
         'fish',
         'c',
         'cpp',

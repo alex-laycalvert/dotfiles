@@ -1,0 +1,41 @@
+{
+	"analytics-uuid": "a2b5b8e8-6ead-428b-ab05-90c7db43b421",
+	"motd": {
+		"cloudBuildErrorAfter": 1594252800000,
+		"cloudBuildWarnAfter": 1590019200000,
+		"defaultNode10After": 1594252800000,
+		"minVersion": "3.0.5",
+		"node8DeploysDisabledAfter": 1613390400000,
+		"node8RuntimeDisabledAfter": 1615809600000,
+		"node8WarnAfter": 1600128000000,
+		"fetched": 1678807941302
+	},
+	"usage": true,
+	"user": {
+		"iss": "accounts.google.com",
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "105947671248178244037",
+		"email": "alex.laycalvert@gmail.com",
+		"email_verified": true,
+		"at_hash": "sYFdaP1NENacgR4yOHKhMQ",
+		"iat": 1678807953,
+		"exp": 1678811553
+	},
+	"tokens": {
+		"expires_at": 1678811552318,
+		"access_token": "ya29.a0AVvZVsrBGoLZAYjoFqBZDLBcdiIpOMch9mALQrLrb1wOkIVVQzrSZ73pMzGO44vj0AWwpUn-uVyDcgG4cFpUASwggVp-WZ8H49Y7iPStTeFYy1SoAakj-65BKbtd_W7pTfJzrM_wEFOUwn8VemFWsn4XLsDYH5iayC-ZaCgYKAbsSARISFQGbdwaI0vaM21A3q2vNeKSDrdZoCQ0171",
+		"expires_in": 3599,
+		"refresh_token": "1//01pfAo2p4IeytCgYIARAAGAESNwF-L9IrQ1moqK9tOAR9b3mkDpkDN-QhrNQD0_PpRSNfYSq62x4wpZbjmVYi8JBNo9I7QhwVKmo",
+		"scope": "https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email openid",
+		"token_type": "Bearer",
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjVkZjFmOTQ1ZmY5MDZhZWFlZmE5M2MyNzY5OGRiNDA2ZDYwNmIwZTgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA1OTQ3NjcxMjQ4MTc4MjQ0MDM3IiwiZW1haWwiOiJhbGV4LmxheWNhbHZlcnRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJzWUZkYVAxTkVOYWNnUjR5T0hLaE1RIiwiaWF0IjoxNjc4ODA3OTUzLCJleHAiOjE2Nzg4MTE1NTN9.y1wVewiU6OUmlUvIspk5ueK0q02qFuEjEjDxmNOPWYJJqbeIIOlTMHttPut0hNJGY0RNYJpIoLlBF6hwpR_QbwQA4wwyMJ_yHcwS4QfrHiqO4J6z0hg82UOwetCDOzkerMoAwYI7uT46Bgq_tvN781oyO3F64PFFnmPaFZUW8QgTqm08ZutSsECgLB_8r3B95anYJmhrxr5B8dcYgwh_BbqjJV2uL8OcgPAzd3f147DdPpF_UAlQ-m97Mll5Wndr7fHWR2p4T-F-v1OMTRwc6YU1pfLQgmmYFFAyU1F1RejSIF1BM1Fj9sdPUNeWy9lpDRnVux6yjszfzKng88nX4g"
+	},
+	"emulator-analytics-clientId": "096604b6-9c7b-4713-81d4-af902ba82861",
+	"adminsdkconfig": {
+		"alexs-questions": {
+			"projectId": "alexs-questions",
+			"storageBucket": "alexs-questions.appspot.com"
+		}
+	}
+}

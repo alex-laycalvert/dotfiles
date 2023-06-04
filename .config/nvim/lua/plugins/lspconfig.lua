@@ -53,7 +53,7 @@ lsp.ghcide.setup({
 })
 
 -- lua
-lsp.sumneko_lua.setup({
+lsp.lua_ls.setup({
     capabilities = capabilities,
     on_attach = set_lsp_keymaps,
     settings = {

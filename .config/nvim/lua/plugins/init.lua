@@ -37,35 +37,32 @@ require('packer').startup({
             }
         })
 
-        -- zenmode
+        ---- zenmode
         use({ 'folke/zen-mode.nvim' })
 
-        -- icons
+        ---- icons
         use({ 'kyazdani42/nvim-web-devicons' })
 
-        -- git
+        ---- git
         use({ 'pwntester/octo.nvim' })
 
-        -- which-key
+        ---- which-key
         use({ 'folke/which-key.nvim' })
 
-        -- formatting
+        ---- formatting
         use({ 'rhysd/vim-clang-format' })
 
-        -- telescope
+        ---- telescope
         use({ 'nvim-telescope/telescope.nvim' })
         use({ 'nvim-telescope/telescope-media-files.nvim' })
         use({ 'nvim-telescope/telescope-symbols.nvim' })
         use({ 'alex-laycalvert/telescope-dotfiles.nvim' })
         use({ 'alex-laycalvert/telescope-projects.nvim' })
 
-        -- dashboard
-        use({ 'glepnir/dashboard-nvim' })
-
-        -- lsp
+        ---- lsp
         use({ 'neovim/nvim-lspconfig' })
 
-        -- autocomplete
+        ---- autocomplete
         use({ 'hrsh7th/nvim-cmp' })
         use({ 'hrsh7th/cmp-nvim-lsp' })
         use({ 'hrsh7th/cmp-buffer' })
@@ -73,22 +70,29 @@ require('packer').startup({
         use({ 'L3MON4D3/LuaSnip' })
         use({ 'saadparwaiz1/cmp_luasnip' })
 
-        -- screenshots
+        ---- screenshots
         use({
             'krivahtoo/silicon.nvim',
             run = './install.sh'
         })
 
-        -- todos
+        ---- todos
         use({
             "folke/todo-comments.nvim",
             requires = "nvim-lua/plenary.nvim",
         })
 
-        use({ '~/git/telekasten.nvim' })
+        --use({ '~/git/telekasten.nvim' })
 
         use({ 'elkowar/yuck.vim' })
         use({ 'prettier/vim-prettier' })
+
+        use({ '~/git/telescope-containers.nvim' })
+
+        --use({
+        --    'nvim-neorg/neorg',
+        --    requires = 'nvim-lua/plenary.nvim',
+        --})
     end,
     config = {
         display = {
@@ -104,7 +108,8 @@ require('plugins.cmp')
 require('plugins.telescope')
 require('plugins.neotree')
 require('plugins.octo')
-require('plugins.dashboard')
-require('plugins.telekasten')
+--require('plugins.telekasten')
+--require('plugins.neorg')
+--require('neorg')
 require('plugins.todo')
 require('plugins.silicon')

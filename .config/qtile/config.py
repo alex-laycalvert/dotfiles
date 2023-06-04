@@ -21,16 +21,18 @@ widget_group_color = '303045'
 arch_color = '1793d1'
 
 ### ICONS
-arch_icon = ' '
-mail_icon = ''
+arch_icon = ''
+browser_icon = '󰖟'
+terminal_icon = ''
+mail_icon = ''
 github_icon = ''
 reddit_icon = ''
 calendar_icon = ''
-clock_icon = ''
-cpu_icon = ''
+clock_icon = ''
+cpu_icon = ''
 memory_icon = ''
-disk_icon = ''
-net_icon = ''
+disk_icon = ''
+net_icon = '󰈀'
 down_arrow_icon = '↓'
 up_arrow_icon = '↑'
 power_icon = ''
@@ -52,7 +54,7 @@ home = os.path.expanduser('~')
 # dmenu_run setup
 def drun_ext():
     return extension.DmenuRun(
-        dmenu_font = 'Hasklug Nerd Font Mono',
+        dmenu_font = 'Hasklug Nerd Font',
         background = bar_bg,
         foreground = arch_color,
         selected_background = widget_group_color,
@@ -108,6 +110,8 @@ keys = [
         desc = "Spawn DistroTube's dmenu_run"),
     Key([mod], "e", lazy.spawn(home + "/.config/scripts/edit-dotfiles.sh"), desc = "Edit dotfiles"),
     Key([mod], "g", lazy.spawn(home + "/.config/scripts/git-projects.sh"), desc = "Edit git projects"),
+    Key([mod, "shift", "control"], "l", lazy.spawn("xsecurelock")),
+    Key([mod], "s", lazy.spawn("flameshot gui")),
 ]
 
 groups = [Group(i) for i in "1234567890"]
@@ -180,8 +184,24 @@ def init_widgets_list():
                 widget.TextBox(
                     foreground = arch_color,
                     text = " " + arch_icon,
-                    mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://archlinux.org/') },
+                    mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(myBrowser + ' https://archlinux.org/') },
                     fontsize = 20,
+                    ),
+
+                # Terminal
+                widget.TextBox(
+                    foreground = arch_color,
+                    text = " " + terminal_icon + " ",
+                    mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(myTerm) },
+                    fontsize = 30,
+                    ),
+
+                # Browser Link
+                widget.TextBox(
+                    foreground = arch_color,
+                    text = browser_icon,
+                    mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(myBrowser) },
+                    fontsize = 30,
                     ),
 
                 widget.CurrentLayoutIcon(
@@ -278,6 +298,34 @@ def init_widgets_list():
                     background = widget_group_color,
                     foreground = arch_color,
                     padding = 10,
+                    ),
+
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_lsep + " ",
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
+
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_rsep,
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
+
+                widget.Battery(
+                    background = widget_group_color,
+                    foreground = term_colors[2],
+                    format = "{char} {percent:2.0%} {hour:d}:{min:02d}",
+                    charge_char = "󰂄",
+                    discharge_char = "󰁾",
+                    empty_char = "󰂎",
+                    full_char = "󰁹",
+                    low_foreground = term_colors[1],
+                    low_percentage = 0.1,
+                    notify_below = 0.1,
+                    unknown_char = "󱃍",
                     ),
 
                 widget.TextBox(

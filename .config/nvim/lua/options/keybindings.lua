@@ -88,12 +88,19 @@ keymap({ 'n', 'i', 'v' }, '<M-f>', function ()
         filetype == 'javascriptreact' or
         filetype == 'typescriptreact' or
         filetype == 'json' or
-        filetype == 'markdown' then
+        filetype == 'css' or
+        filetype == 'scss' or
+        filetype == 'sass' or
+        filetype == 'markdown' or
+        filetype == 'html' then
         vim.cmd('Prettier')
     elseif
         filetype == 'c' or
         filetype == 'cpp' then
         vim.cmd('ClangFormat')
+    elseif
+        filetype == 'rust' then
+        vim.lsp.buf.format({ timeout_ms = 2000 })
     end
 end, { desc = 'Format File' })
 
