@@ -25,6 +25,13 @@ if test -d ~/.cargo/bin
     end
 end
 
+# Add homebrew to PATH
+if test -d /home/linuxbrew/.linuxbrew/bin
+    if not contains -- /home/linuxbrew/.linuxbrew/bin $PATH
+        set -p PATH /home/linuxbrew/.linuxbrew/bin
+    end
+end
+
 ## Starship Prompt
 if status is-interactive
     source ("/usr/bin/starship" init fish --print-full-init | psub)

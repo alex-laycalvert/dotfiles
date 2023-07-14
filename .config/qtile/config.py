@@ -93,6 +93,7 @@ keys = [
 
     Key([mod], "Return", lazy.spawn(myTerm), desc = "Launch terminal"),
     Key([mod], "b", lazy.spawn(myBrowser), desc = "Spawn Browser"),
+    Key([mod], "s", lazy.spawn("flameshot gui"), desc = "Take Screenshot"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc = "Toggle between layouts"),
@@ -305,7 +306,8 @@ def init_screens():
         Screen(top = bar.Bar(
                 widgets = init_widgets_screen(),
                 size = bar_size,
-                #opacity = 0.7,
+            background_opacity = 0.5,
+                #opacity = 0.6,
                 margin = window_margin,
                 border_width = [5, 5, 5, 0],
                 border_color = bar_bg,
@@ -314,7 +316,7 @@ def init_screens():
         Screen(top = bar.Bar(
                 widgets = init_widgets_screen_secondary(),
                 size = bar_size,
-                opacity = 0.7,
+                #opacity = 0.7,
                 margin = window_margin,
                 border_width = [5, 5, 5, 0],
                 border_color = bar_bg,
