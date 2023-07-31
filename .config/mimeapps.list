@@ -5,7 +5,7 @@ text/html=brave-browser.desktop
 x-scheme-handler/postman=Postman.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
-x-scheme-handler/mailto=userapp-Thunderbird-S8ZVU1.desktop
+x-scheme-handler/mailto=brave-browser.desktop
 message/rfc822=userapp-Thunderbird-S8ZVU1.desktop
 x-scheme-handler/mid=userapp-Thunderbird-S8ZVU1.desktop
 

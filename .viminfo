@@ -10,13 +10,22 @@
 
 # hlsearch on (H) or off (h):
 ~h
+# Last Search Pattern:
+~MSle0~/dash
+
 # Command Line History (newest to oldest):
+:wq
+|2,0,1681745109,,"wq"
+:q!
+|2,0,1681745096,,"q!"
+:q
+|2,0,1681745095,,"q"
 :e README.md
 |2,0,1666193013,,"e README.md"
-:q
-|2,0,1663780071,,"q"
 
 # Search String History (newest to oldest):
+?/dash
+|2,1,1681745067,47,"dash"
 
 # Expression History (newest to oldest):
 
@@ -27,16 +36,140 @@
 # Registers:
 
 # File marks:
-'0  1  21  ~/README.md
-|4,48,1,21,1666193742,"~/README.md"
+'0  4  1  ~/.config/nvim/lua/setup.lua
+|4,48,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
+'1  5  0  ~/.config/nvim/init.lua
+|4,49,5,0,1681745096,"~/.config/nvim/init.lua"
+'2  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,50,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+'3  1  21  ~/README.md
+|4,51,1,21,1666193742,"~/README.md"
 
 # Jumplist (newest first):
+-'  4  1  ~/.config/nvim/lua/setup.lua
+|4,39,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
+-'  1  0  ~/.config/nvim/lua/setup.lua
+|4,39,1,0,1681745105,"~/.config/nvim/lua/setup.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  63  25  ~/.config/nvim/lua/plugins/init.lua
+|4,39,63,25,1681745069,"~/.config/nvim/lua/plugins/init.lua"
+-'  63  25  ~/.config/nvim/lua/plugins/init.lua
+|4,39,63,25,1681745069,"~/.config/nvim/lua/plugins/init.lua"
+-'  63  25  ~/.config/nvim/lua/plugins/init.lua
+|4,39,63,25,1681745069,"~/.config/nvim/lua/plugins/init.lua"
+-'  63  25  ~/.config/nvim/lua/plugins/init.lua
+|4,39,63,25,1681745069,"~/.config/nvim/lua/plugins/init.lua"
+-'  1  0  ~/.config/nvim/lua/plugins/init.lua
+|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
+-'  1  0  ~/.config/nvim/lua/plugins/init.lua
+|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
+-'  1  0  ~/.config/nvim/lua/plugins/init.lua
+|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
+-'  1  0  ~/.config/nvim/lua/plugins/init.lua
+|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
+-'  1  21  ~/README.md
+|4,39,1,21,1666193742,"~/README.md"
 -'  1  21  ~/README.md
 |4,39,1,21,1666193742,"~/README.md"
 -'  1  21  ~/README.md
 |4,39,1,21,1666193742,"~/README.md"
 
 # History of marks within files (newest to oldest):
+
+> ~/.config/nvim/lua/setup.lua
+	*	1681745107	0
+	"	4	1
+	^	4	2
+	.	4	1
+	+	4	1
+
+> ~/.config/nvim/init.lua
+	*	1681745095	0
+	"	5	0
+	^	5	0
+	.	5	0
+	+	5	0
+
+> ~/.config/nvim/lua/plugins/init.lua
+	*	1681745070	0
+	"	112	1
+	^	112	2
+	.	112	1
+	+	63	9
+	+	112	1
 
 > ~/README.md
 	*	1666193740	0

@@ -15,11 +15,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-
-  -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   'MunifTanjim/nui.nvim',
   'nvim-lua/plenary.nvim',
@@ -27,7 +24,7 @@ require('lazy').setup({
 
   {
     'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     config = function()
       require('neo-tree').setup({
         close_if_last_window = false,
@@ -41,12 +38,36 @@ require('lazy').setup({
             mappings = {
               ['u'] = 'navigate_up',
               ['U'] = 'set_root',
-              ['.'] = 'toggle_hidden'
+              ['.'] = 'toggle_hidden',
+              ['F'] = 'clear_filter',
             }
           }
         },
+        sources = {
+          'filesystem',
+          'buffers',
+          'git_status',
+          'document_symbols'
+        },
+        source_selector = {
+          winbar = true,
+          statusline = false,
+          sources = {
+            { source = 'filesystem' },
+            { source = 'document_symbols' },
+            { source = 'buffers' },
+            { source = 'git_status' },
+          }
+        }
       })
     end
+  },
+
+  {
+    "kelly-lin/ranger.nvim",
+    config = function()
+      require("ranger-nvim").setup({ replace_netrw = true })
+    end,
   },
 
   {
@@ -176,8 +197,18 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  --{
+  --  'edluffy/hologram.nvim',
+  --  config = function()
+  --    require('hologram').setup {
+  --      auto_display = true
+  --    }
+  --  end
+  --},
+
   'alex-laycalvert/telescope-projects.nvim',
   'alex-laycalvert/telescope-dotfiles.nvim',
+  'nvim-telescope/telescope-media-files.nvim',
 }, {})
 
 -- [[ Setting options ]]
@@ -205,6 +236,7 @@ vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { silent = true, desc = 'Save Fil
 vim.keymap.set('n', '<leader>W', '<cmd>wall<cr>', { silent = true, desc = 'Save All Open Files' })
 vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { silent = true, desc = 'Close File' })
 vim.keymap.set('n', '<leader>Q', '<cmd>qall<cr>', { silent = true, desc = 'Close Neovim' })
+vim.keymap.set('n', '<leader>l', '<cmd>luafile %<cr>', { desc = '[L]oad Lua File' })
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<M-return>', '<cmd>term<cr><cmd>startinsert<cr>', { desc = 'Open Terminal' })
 vim.keymap.set('t', '<esc>', '<c-\\><c-n>', { desc = "Escape Terminal Mode" })
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<M-t>', '<cmd>tabnew<cr>', { desc = 'Open New Tab' })
@@ -219,7 +251,9 @@ vim.keymap.set({ 'n', 'i', 'v', 't' }, '<M-k>', '<cmd>wincmd k<cr>', { desc = 'M
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<M-l>', '<cmd>wincmd l<cr>', { desc = 'Move to Right Window' })
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<M-v>', '<cmd>vsplit<cr>', { desc = 'Vertical Split' })
 vim.keymap.set({ 'n', 'i', 'v' }, '<M-s>', '<cmd>split<cr>', { desc = 'Horizontal Split' })
-vim.keymap.set('n', '<leader><Tab>', '<cmd>Neotree toggle<cr>', { desc = 'Open File Tree' })
+vim.keymap.set('n', '<leader><Tab>', '<cmd>Neotree toggle<cr>', { desc = 'Open File Tree Tab' })
+vim.keymap.set('n', '<leader>b', '<cmd>Neotree source=buffers toggle<cr>', { desc = 'Open Buffer Tree Tab' })
+vim.keymap.set('n', '<leader>r', function() require('ranger-nvim').open() end, { desc = 'Open File Tree Tab' })
 vim.keymap.set({ 'n', 'i', 'v' }, '<M-S-n>', function() require('todo-comments').jump_next() end,
   { desc = "Goto Next TODO" })
 vim.keymap.set({ 'n', 'i', 'v' }, '<M-S-p>', function() require('todo-comments').jump_prev() end,
@@ -250,6 +284,10 @@ require('telescope').setup {
     projects = {
       projects_dir = '~/git'
     },
+    media_files = {
+      filetypes = { "png", "webp", "jpg", "jpeg", "svg" },
+      find_cmd = "rg"
+    },
   }
 }
 
@@ -257,6 +295,7 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'dotfiles')
 pcall(require('telescope').load_extension, 'projects')
+pcall(require('telescope').load_extension, 'media_files')
 
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
@@ -274,8 +313,10 @@ vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc =
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sp', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sc', '<cmd>Telescope dotfiles<cr>', { desc = '[S]earch [C]onfig' })
 vim.keymap.set('n', '<leader>sp', '<cmd>Telescope projects<cr>', { desc = '[S]earch [P]rojects' })
+vim.keymap.set('n', '<leader>sm', '<cmd>Telescope media_files<cr>', { desc = '[S]earch [M]edia Files' })
 
 -- [[ Configure Treesitter ]]
 require('nvim-treesitter.configs').setup {

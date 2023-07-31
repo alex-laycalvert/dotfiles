@@ -1,0 +1,134 @@
+--------------------------------------------
+   Hyprland Crash Report
+--------------------------------------------
+"stable"
+
+Hyprland received signal 6 (Aborted)
+
+Version: 5e577acf516b80173f695a458c2cc188a4d64560
+Tag: v0.27.0
+
+System info:
+	System name: Linux
+	Node name: nathan
+	Release: 6.4.3-zen1-1-zen
+	Version: #1 ZEN SMP PREEMPT_DYNAMIC Tue, 11 Jul 2023 05:13:16 +0000
+
+GPU:
+	09:00.0 VGA compatible controller [0300]: NVIDIA Corporation GA104 [GeForce RTX 3070 Ti] [10de:2482] (rev a1) (prog-if 00 [VGA controller])
+
+
+os-release:
+	NAME="Arch Linux"
+	PRETTY_NAME="Arch Linux"
+	ID=arch
+	BUILD_ID=rolling
+	ANSI_COLOR="38;2;23;147;209"
+	HOME_URL="https://archlinux.org/"
+	DOCUMENTATION_URL="https://wiki.archlinux.org/"
+	SUPPORT_URL="https://bbs.archlinux.org/"
+	BUG_REPORT_URL="https://bugs.archlinux.org/"
+	PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+	LOGO=archlinux-logo
+	
+
+
+Backtrace:
+	#0 | Hyprland(_ZN13CrashReporter18createAndSaveCrashEi+0x75e) [0x55adeb9f6e9e]
+		??
+		??:0
+	#1 | Hyprland(_Z25handleUnrecoverableSignali+0x3c) [0x55adeb99027c]
+		??
+		??:0
+	#2 | /usr/lib/libc.so.6(+0x39ab0) [0x7fd66124fab0]
+		??
+		??:0
+	#3 | /usr/lib/libc.so.6(+0x8926c) [0x7fd66129f26c]
+		??
+		??:0
+	#4 | /usr/lib/libc.so.6(gsignal+0x18) [0x7fd66124fa08]
+		??
+		??:0
+	#5 | /usr/lib/libc.so.6(abort+0xd7) [0x7fd661238538]
+		??
+		??:0
+	#6 | /usr/lib/libstdc++.so.6(+0x9ca6f) [0x7fd66149ca6f]
+		??
+		??:0
+	#7 | /usr/lib/libstdc++.so.6(+0xb011c) [0x7fd6614b011c]
+		??
+		??:0
+	#8 | /usr/lib/libstdc++.so.6(+0xb0189) [0x7fd6614b0189]
+		??
+		??:0
+	#9 | /usr/lib/libstdc++.so.6(+0xb03ed) [0x7fd6614b03ed]
+		??
+		??:0
+	#10 | Hyprland(+0x699e9) [0x55adeb95c9e9]
+		??
+		??:0
+	#11 | Hyprland(main+0x48f) [0x55adeb980e7f]
+		??
+		??:0
+	#12 | /usr/lib/libc.so.6(+0x23850) [0x7fd661239850]
+		??
+		??:0
+	#13 | /usr/lib/libc.so.6(__libc_start_main+0x8a) [0x7fd66123990a]
+		??
+		??:0
+	#14 | Hyprland(_start+0x25) [0x55adeb990125]
+		??
+		??:0
+
+
+Log tail:
+[LOG] GPU information:
+09:00.0 VGA compatible controller [0300]: NVIDIA Corporation GA104 [GeForce RTX 3070 Ti] [10de:2482] (rev a1) (prog-if 00 [VGA controller])
+
+
+[WARN] Warning: you're using an NVIDIA GPU. Make sure you follow the instructions on the wiki if anything is amiss.
+
+[LOG] os-release:
+NAME="Arch Linux"
+PRETTY_NAME="Arch Linux"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://archlinux.org/"
+DOCUMENTATION_URL="https://wiki.archlinux.org/"
+SUPPORT_URL="https://bbs.archlinux.org/"
+BUG_REPORT_URL="https://bugs.archlinux.org/"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=archlinux-logo
+
+[LOG] ========================
+
+
+
+[INFO] If you are crashing, or encounter any bugs, please consult https://wiki.hyprland.org/Crashes-and-Bugs/
+
+
+[LOG] 
+Current splash: Never gonna let you down (I am trying!)
+
+
+[LOG] Creating the HookSystem!
+[LOG] Creating the KeybindManager!
+[LOG] Creating the AnimationManager!
+[LOG] Created a bezier curve, baked 255 points, mem usage: 4.08kB, time to bake: 20.03µs. Estimated average calc time: 0.00µs.
+[LOG] Creating the ConfigManager!
+[LOG] Creating the CHyprError!
+[LOG]  [hookSystem] New hook event registered: focusedMon
+[LOG]  [hookSystem] New hook event registered: preRender
+[LOG] Creating the LayoutManager!
+[LOG] Reloading the config!
+[LOG] Created a bezier curve, baked 255 points, mem usage: 4.08kB, time to bake: 8.53µs. Estimated average calc time: 0.00µs.
+[LOG] Using config: /home/alex/.config/hypr/hyprland.conf
+[WARN] Creating config home directory
+[WARN] No config file found; attempting to generate.
+[LOG] Created a bezier curve, baked 255 points, mem usage: 4.08kB, time to bake: 8.59µs. Estimated average calc time: 0.00µs.
+[LOG] Registered dynamic var "$mainMod" -> SUPER
+[LOG] Overriding XWayland scale with 0.00
+[LOG] Disabling stdout logs! Check the log for further logs.
+[LOG]  [hookSystem] New hook event registered: configReloaded
+[CRITICAL] m_sWLRBackend was NULL!

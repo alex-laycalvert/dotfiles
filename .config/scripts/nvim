@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+NVIM_CMD="/usr/bin/nvim-cmd"
+NVR_CMD="/usr/bin/nvr"
+NVIM_SOCKET_PATH="/tmp/nvimsocket"
+
+if [ -S "$NVIM_SOCKET_PATH" ]; then
+    $NVR_CMD "$@"
+else
+    $NVIM_CMD --listen "$NVIM_SOCKET_PATH" "$@"
+fi
