@@ -4,6 +4,10 @@ set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -Ux EDITOR "/usr/bin/nvim"
 set -Ux TERM "kitty"
 
+# opam configuration
+source /home/alex/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+eval (opam env)
+
 # Add ~/.local/bin to PATH
 if test -d ~/.local/bin
     if not contains -- ~/.local/bin $PATH
@@ -34,7 +38,7 @@ end
 
 ## Starship Prompt
 if status is-interactive
-    source ("/usr/bin/starship" init fish --print-full-init | psub)
+	source ("/usr/bin/starship" init fish --print-full-init | psub)
 end
 
 ## Advanced command-not-found hook

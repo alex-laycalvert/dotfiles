@@ -179,3 +179,9 @@ octave-workspace
 speedcc.fit
 test.csv
 test.http
+.config/flameshot/flameshot.ini
+.config/gtk-2.0
+.config/QtProject.conf
+.opam
+.ocamlinit
+2023-07-31_11-55.png
