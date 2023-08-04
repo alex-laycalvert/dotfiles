@@ -1,5 +1,4 @@
 -- alex-laycalvert
 -- https://github.com/alex-laycalvert
 
-require('impatient')
-require('setup')
+vim.cmd('colorscheme tokyonight-storm')
