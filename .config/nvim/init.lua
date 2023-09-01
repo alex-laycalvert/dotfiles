@@ -73,7 +73,13 @@ require("lazy").setup({
 					lua = {
 						require("formatter.filetypes.lua").stylua,
 					},
+					json = {
+						require("formatter.filetypes.json").prettierd,
+					},
 					javascript = {
+						require("formatter.filetypes.javascript").prettier,
+					},
+					astro = {
 						require("formatter.filetypes.javascript").prettier,
 					},
 					javascriptreact = {
@@ -317,6 +323,12 @@ vim.keymap.set({ "n", "i", "v" }, "<M-S-p>", function()
 	require("todo-comments").jump_prev()
 end, { desc = "Goto Previous TODO" })
 vim.keymap.set("n", "<leader>t", "<cmd>TodoLocList<cr>", { desc = "Open TODO List" })
+vim.keymap.set(
+	"n",
+	"<leader>c",
+	"<cmd>vsplit<cr><cmd>wincmd l<cr><cmd>term<cr><cmd>startinsert<cr>khal interactive<cr>",
+	{ desc = "Open Calendar" }
+)
 
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -379,8 +391,24 @@ vim.keymap.set("n", "<leader>sm", "<cmd>Telescope media_files<cr>", { desc = "[S
 
 -- [[ Configure Treesitter ]]
 require("nvim-treesitter.configs").setup({
+	modules = {},
+	sync_install = true,
+	ignore_install = {},
 	-- Add languages to be installed here that you want installed for treesitter
-	ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "tsx", "typescript", "vimdoc", "vim" },
+	ensure_installed = {
+		"c",
+		"cpp",
+		"go",
+		"lua",
+		"python",
+		"rust",
+		"tsx",
+		"typescript",
+		"vimdoc",
+		"vim",
+		"markdown_inline",
+		"markdown",
+	},
 
 	-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
 	auto_install = false,
@@ -496,6 +524,7 @@ local servers = {
 	tsserver = {},
 	eslint = {},
 	ocamllsp = {},
+	marksman = {},
 
 	lua_ls = {
 		Lua = {

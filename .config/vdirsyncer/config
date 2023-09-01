@@ -1,0 +1,17 @@
+[general]
+status_path = "~/.vdirsyncer/status"
+
+[storage calendar_local]
+type = "filesystem"
+path = "~/.local/share/khal/calendars/"
+
+[storage calendar_remote]
+type = "caldav"
+url = "https://xandikos.alexlc.org/"
+username = ""
+password = ""
+
+[pair calendar]
+a = "calendar_local"
+b = "calendar_remote"
+collections = ["from a", "from b"]

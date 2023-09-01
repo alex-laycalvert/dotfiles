@@ -1,0 +1,31 @@
+[calendars]
+
+[[home]]
+path = /home/alex/.local/share/khal/calendars/home
+color = light green
+type = calendar
+
+[[school]]
+path = /home/alex/.local/share/khal/calendars/school
+color = dark red
+type = calendar
+
+[[aam]]
+path = /home/alex/.local/share/khal/calendars/aam
+color = dark cyan
+type = calendar
+
+[[ep]]
+path = /home/alex/.local/share/khal/calendars/ep
+color = yellow
+type = calendar
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y-%m-%d %H:%M
+
+[default]
+default_calendar = home

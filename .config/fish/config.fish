@@ -1,12 +1,19 @@
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
-set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+# set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -Ux EDITOR "/usr/bin/nvim"
 set -Ux TERM "kitty"
 
 # opam configuration
 source /home/alex/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 eval (opam env)
+
+# Add ~/.local/bin to PATH
+if test -d ~/go/bin
+    if not contains -- ~/go/bin $PATH
+        set -p PATH ~/go/bin
+    end
+end
 
 # Add ~/.local/bin to PATH
 if test -d ~/.local/bin
@@ -101,7 +108,7 @@ alias ll='exa  -l --color=always --group-directories-first --icons'
 alias lt='exa -aT --color=always --group-directories-first --icons'
 alias l.="exa -a | egrep '^\.'"
 alias ip='ip -color'
-alias cat='bat --style header --style snip --style changes --style header'
+alias cat='bat'
 alias yay='yay --color=always'
 alias dotgit='git --work-tree=$HOME --git-dir=$HOME/git/dotfiles'
 alias lazydot='lazygit -w $HOME -g $HOME/git/dotfiles'
