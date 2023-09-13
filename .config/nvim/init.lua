@@ -63,6 +63,13 @@ require("lazy").setup({
 	},
 
 	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("treesitter-context").setup({})
+		end,
+	},
+
+	{
 		"mhartington/formatter.nvim",
 		config = function()
 			require("formatter").setup({
