@@ -225,9 +225,11 @@ require("lazy").setup({
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
 		opts = {
-			char = "┊",
-			show_trailing_blankline_indent = false,
+			indent = {
+				char = "┊",
+			},
 		},
 	},
 
@@ -270,6 +272,30 @@ require("lazy").setup({
 	"alex-laycalvert/telescope-projects.nvim",
 	"alex-laycalvert/telescope-dotfiles.nvim",
 	"nvim-telescope/telescope-media-files.nvim",
+
+	{
+		"mfussenegger/nvim-dap",
+	},
+	{
+		"nvim-telescope/telescope-dap.nvim",
+	},
+	{
+		"rcarriga/nvim-dap-ui",
+		config = function()
+			require("dapui").setup()
+		end,
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
+	},
+	{
+		"mxsdev/nvim-dap-vscode-js",
+	},
+
+	{
+		dir = "/home/alex/git/vscode-js-debug",
+		dev = true,
+	},
 }, {})
 
 -- [[ Setting options ]]
@@ -289,8 +315,8 @@ vim.o.completeopt = "menuone,noselect"
 vim.o.termguicolors = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-vim.g.tabstop = 4
-vim.g.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.expandtab = true
 vim.o.number = true
 
 -- [[ Basic Keymaps ]]
@@ -383,6 +409,7 @@ vim.keymap.set("n", "<leader>/", function()
 	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
+vim.keymap.set("n", "<leader>gb", require("telescope.builtin").git_branches, { desc = "Search [G]it [B]ranches" })
 vim.keymap.set("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
 vim.keymap.set("n", "<leader>o", require("telescope.builtin").find_files, { desc = "[O]pen File" })
 vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
@@ -608,6 +635,40 @@ cmp.setup({
 		{ name = "luasnip" },
 	},
 })
+
+require("dap-vscode-js").setup({
+	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+	debugger_path = "/home/alex/git/vscode-js-debug",
+})
+
+for _, language in ipairs({ "typescript", "javascript" }) do
+	require("dap").configurations[language] = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
+		},
+	}
+end
+
+vim.keymap.set("n", "<leader>dc", ":lua require'dap'.continue()<CR>")
+vim.keymap.set("n", "<leader>du", ":lua require'dapui'.open()<CR>")
+vim.keymap.set("n", "<leader>dso", ":lua require'dap'.step_over()<CR>")
+vim.keymap.set("n", "<leader>dsi", ":lua require'dap'.step_into()<CR>")
+vim.keymap.set("n", "<leader>dsu", ":lua require'dap'.step_out()<CR>")
+vim.keymap.set("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>")
+vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
+
+require("nvim-dap-virtual-text").setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -43,7 +43,7 @@ window_margin = 3
 bar_size = 35
 
 term_colors = [
-            '000000', 'ff5555', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'bbbbbb', 
+            '000000', 'ff5555', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'bbbbbb',
             '999999', 'ff5454', '50fa7b', 'f0fa8b', '2c79d9', 'ff78c5', '8ae9fc', 'ffffff'
             ]
 
@@ -142,7 +142,7 @@ for i in groups:
 layouts = [
     layout.Columns(
         border_focus = arch_color,
-        border_width = 1, 
+        border_width = 1,
         margin = [top_window_margin, window_margin, window_margin, window_margin],
         ),
 
@@ -160,7 +160,7 @@ layouts = [
         ),
 
     layout.Floating(
-        border_focus = "#d75f5f", 
+        border_focus = "#d75f5f",
         border_normal = "#8f3d3d",
         ),
 ]
@@ -176,12 +176,11 @@ extension_defaults = widget_defaults.copy()
 
 def init_widgets_list():
     widgets_list = [
-
                 # Arch Icon Link
                 widget.TextBox(
                     foreground = arch_color,
                     text = " " + arch_icon,
-                    mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(browser + ' https://archlinux.org/') },
+                    mouse_callbacks = { 'Button1': lambda: qtile.cmd_spawn(myBrowser + ' https://archlinux.org/') },
                     fontsize = 20,
                     ),
 
@@ -236,6 +235,25 @@ def init_widgets_list():
                     text_closed = '<',
                     text_open = '>',
                 ),
+
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_lsep + " ",
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
+
+                widget.TextBox(
+                    foreground = widget_group_color,
+                    text = widget_rsep,
+                    padding = 0,
+                    fontsize = widget_sep_size,
+                    ),
+
+                widget.Moc(
+                    background = widget_group_color,
+                    foreground = arch_color,
+                    ),
 
                 widget.TextBox(
                     foreground = widget_group_color,

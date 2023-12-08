@@ -1,0 +1,19 @@
+[Desktop Entry]
+FullScreen=false
+
+[General]
+LockSidebar=true
+ShowSidebar=true
+
+[MainWindow]
+2 screens: Height=1383
+2 screens: Width=2554
+2 screens: XPosition=3
+2 screens: YPosition=54
+DP-2 HDMI-0=DP-2
+State=AAAA/wAAAAD9AAAAAQAAAAAAAADIAAAFLPwCAAAAAfsAAAAcAG8AawB1AGwAYQByAF8AcwBpAGQAZQBiAGEAcgEAAAA7AAAFLAAAAOoA///+AAAJLAAABSwAAAAEAAAABAAAAAgAAAAI/AAAAAMAAAABAAAAAQAAACwAcQB1AGkAYwBrAEEAbgBuAG8AdABhAHQAaQBvAG4AVABvAG8AbABCAGEAcgIAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAAiAGEAbgBuAG8AdABhAHQAaQBvAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+
+[Recent Files]
+File1[$e]=$HOME/Downloads/Navy Federal Credit Union Statement2.pdf
+Name1[$e]=Navy Federal Credit Union Statement2.pdf

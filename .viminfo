@@ -40,20 +40,28 @@
 # global variables:
 
 # File marks:
-'0  18  0  ~/git/ep-application/application/client/layouts/Home/index.tsx
-|4,48,18,0,1693254964,"~/git/ep-application/application/client/layouts/Home/index.tsx"
-'1  4  1  ~/.config/nvim/lua/setup.lua
-|4,49,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
-'2  5  0  ~/.config/nvim/init.lua
-|4,50,5,0,1681745096,"~/.config/nvim/init.lua"
-'3  112  1  ~/.config/nvim/lua/plugins/init.lua
-|4,51,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
-'4  1  21  ~/README.md
-|4,52,1,21,1666193742,"~/README.md"
+'0  1  0  ~/git/test/test.ts
+|4,48,1,0,1699476788,"~/git/test/test.ts"
+'1  18  0  ~/git/ep-application/application/client/layouts/Home/index.tsx
+|4,49,18,0,1693254964,"~/git/ep-application/application/client/layouts/Home/index.tsx"
+'2  4  1  ~/.config/nvim/lua/setup.lua
+|4,50,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
+'3  5  0  ~/.config/nvim/init.lua
+|4,51,5,0,1681745096,"~/.config/nvim/init.lua"
+'4  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,52,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+'5  1  21  ~/README.md
+|4,53,1,21,1666193742,"~/README.md"
 
 # Jumplist (newest first):
+-'  1  0  ~/git/test/test.ts
+|4,39,1,0,1699476788,"~/git/test/test.ts"
 -'  18  0  ~/git/ep-application/application/client/layouts/Home/index.tsx
 |4,39,18,0,1693254964,"~/git/ep-application/application/client/layouts/Home/index.tsx"
+-'  18  0  ~/git/ep-application/application/client/layouts/Home/index.tsx
+|4,39,18,0,1693254964,"~/git/ep-application/application/client/layouts/Home/index.tsx"
+-'  1  0  ~/git/ep-application/application/client/layouts/Home/index.tsx
+|4,39,1,0,1693254773,"~/git/ep-application/application/client/layouts/Home/index.tsx"
 -'  1  0  ~/git/ep-application/application/client/layouts/Home/index.tsx
 |4,39,1,0,1693254773,"~/git/ep-application/application/client/layouts/Home/index.tsx"
 -'  4  1  ~/.config/nvim/lua/setup.lua
@@ -64,6 +72,22 @@
 |4,39,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
 -'  4  1  ~/.config/nvim/lua/setup.lua
 |4,39,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
+-'  4  1  ~/.config/nvim/lua/setup.lua
+|4,39,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
+-'  4  1  ~/.config/nvim/lua/setup.lua
+|4,39,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
+-'  4  1  ~/.config/nvim/lua/setup.lua
+|4,39,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
+-'  4  1  ~/.config/nvim/lua/setup.lua
+|4,39,4,1,1681745109,"~/.config/nvim/lua/setup.lua"
+-'  1  0  ~/.config/nvim/lua/setup.lua
+|4,39,1,0,1681745105,"~/.config/nvim/lua/setup.lua"
+-'  1  0  ~/.config/nvim/lua/setup.lua
+|4,39,1,0,1681745105,"~/.config/nvim/lua/setup.lua"
+-'  1  0  ~/.config/nvim/lua/setup.lua
+|4,39,1,0,1681745105,"~/.config/nvim/lua/setup.lua"
+-'  1  0  ~/.config/nvim/lua/setup.lua
+|4,39,1,0,1681745105,"~/.config/nvim/lua/setup.lua"
 -'  1  0  ~/.config/nvim/lua/setup.lua
 |4,39,1,0,1681745105,"~/.config/nvim/lua/setup.lua"
 -'  1  0  ~/.config/nvim/lua/setup.lua
@@ -88,6 +112,38 @@
 |4,39,5,0,1681745096,"~/.config/nvim/init.lua"
 -'  5  0  ~/.config/nvim/init.lua
 |4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  5  0  ~/.config/nvim/init.lua
+|4,39,5,0,1681745096,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
+-'  1  0  ~/.config/nvim/init.lua
+|4,39,1,0,1681745091,"~/.config/nvim/init.lua"
 -'  1  0  ~/.config/nvim/init.lua
 |4,39,1,0,1681745091,"~/.config/nvim/init.lua"
 -'  1  0  ~/.config/nvim/init.lua
@@ -136,6 +192,38 @@
 |4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
 -'  112  1  ~/.config/nvim/lua/plugins/init.lua
 |4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
+-'  112  1  ~/.config/nvim/lua/plugins/init.lua
+|4,39,112,1,1681745071,"~/.config/nvim/lua/plugins/init.lua"
 -'  63  25  ~/.config/nvim/lua/plugins/init.lua
 |4,39,63,25,1681745069,"~/.config/nvim/lua/plugins/init.lua"
 -'  63  25  ~/.config/nvim/lua/plugins/init.lua
@@ -166,92 +254,6 @@
 |4,39,63,25,1681745069,"~/.config/nvim/lua/plugins/init.lua"
 -'  63  25  ~/.config/nvim/lua/plugins/init.lua
 |4,39,63,25,1681745069,"~/.config/nvim/lua/plugins/init.lua"
--'  63  25  ~/.config/nvim/lua/plugins/init.lua
-|4,39,63,25,1681745069,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  0  ~/.config/nvim/lua/plugins/init.lua
-|4,39,1,0,1681745067,"~/.config/nvim/lua/plugins/init.lua"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
--'  1  21  ~/README.md
-|4,39,1,21,1666193742,"~/README.md"
 
 # History of marks within files (newest to oldest):
 
