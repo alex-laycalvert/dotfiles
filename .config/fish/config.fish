@@ -104,6 +104,7 @@ set --export ANDROID_HOME "$HOME/Android/Sdk"
 
 alias claude="/home/alex/.claude/local/claude"
 alias dotgit="/usr/bin/git --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
+alias lazydot="lazygit --git-dir=$HOME/git/dotfiles --work-tree=$HOME"
 
 # opencode
 fish_add_path /home/alex/.opencode/bin
