@@ -1,18 +1,33 @@
 *
 !.gitignore
+!README.md
 !.config/
+
+# Text editor
 !.config/nvim
 !.config/nvim/**
+
+# Shell
 !.config/fish
 !.config/fish/**
+
+# Window manager
 !.config/qtile
 !.config/qtile/**
+
+# Terminal
 !.config/ghostty
 !.config/ghostty/**
-!.config/ghostty
-!.config/ghostty/**
+
+# SDDM Themes
+!.config/sddm-astronaut-theme
+!.config/sddm-astronaut-theme/**
+
+# Tmux
 !.tmux.conf
 !.tmux/
 !.tmux/**
+
+# Wallpapers
 !.wallpaper
 !.wallpaper/**
