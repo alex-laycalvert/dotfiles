@@ -1,0 +1,11 @@
+new-session -d -s lineup-dancing-mvp -n nvim -c ~/git/lineup-dancing-mvp
+send-keys -t lineup-dancing-mvp:1 'nvim' Enter
+
+new-window -t lineup-dancing-mvp:2 -n backend -c ~/git/lineup-dancing-mvp/lineup-dancing-backend
+
+new-window -t lineup-dancing-mvp:3 -n mobile -c ~/git/lineup-dancing-mvp/lineup-dancing-mobile
+
+new-window -t lineup-dancing-mvp:4 -n git -c ~/git/lineup-dancing-mvp
+send-keys -t lineup-dancing-mvp:4 'lazygit' Enter
+
+new-window -t lineup-dancing-mvp:5 -n shell -c ~/git/lineup-dancing-mvp

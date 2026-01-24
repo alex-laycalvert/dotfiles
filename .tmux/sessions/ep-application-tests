@@ -1,0 +1,9 @@
+new-session -d -s ep-application-tests -n nvim -c ~/git/ep-application-tests
+send-keys -t ep-application-tests:1 'nvim' Enter
+
+new-window -t ep-application-tests:2 -n shell -c ~/git/ep-application-tests
+
+new-window -t ep-application-tests:3 -n claude -c ~/git/ep-application-tests
+
+new-window -t ep-application-tests:4 -n git -c ~/git/ep-application-tests
+send-keys -t ep-application-tests:4 'lazygit' Enter

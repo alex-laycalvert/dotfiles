@@ -1,0 +1,6 @@
+theme = TokyoNight Moon
+window-decoration = false
+font-family = "Hasklug Nerd Font Mono"
+font-size = 14
+
+keybind = ctrl+1=increase_font_size:12

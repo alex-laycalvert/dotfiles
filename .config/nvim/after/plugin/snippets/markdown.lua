@@ -1,0 +1,33 @@
+local ls = require 'luasnip'
+local fmt = require('luasnip.extras.fmt').fmt
+local s = ls.snippet
+local i = ls.insert_node
+
+return {
+  s(
+    'prompt',
+    fmt(
+      [[
+      ## Requirements
+
+      {}
+
+      - [ ] {}
+
+      ## Relevant Files
+
+      - {}
+
+      ## References
+
+      - {}
+      ]],
+      {
+        i(1),
+        i(2),
+        i(3),
+        i(4),
+      }
+    )
+  ),
+}

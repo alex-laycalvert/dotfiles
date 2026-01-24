@@ -1,0 +1,11 @@
+new-session -d -s ai-communication-platform-mvp -n nvim -c ~/git/ai-communication-platform-mvp
+send-keys -t ai-communication-platform-mvp:1 'nvim' Enter
+
+new-window -t ai-communication-platform-mvp:2 -n backend -c ~/git/ai-communication-platform-mvp/packages/backend
+
+new-window -t ai-communication-platform-mvp:3 -n frontend -c ~/git/ai-communication-platform-mvp/packages/frontend
+
+new-window -t ai-communication-platform-mvp:4 -n git -c ~/git/ai-communication-platform-mvp
+send-keys -t ai-communication-platform-mvp:4 'lazygit' Enter
+
+new-window -t ai-communication-platform-mvp:5 -n shell -c ~/git/ai-communication-platform-mvp

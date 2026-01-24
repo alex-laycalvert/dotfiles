@@ -1,0 +1,13 @@
+new-session -d -s $TMUX_SESSION_NAME -n nvim -c ~/git/$TMUX_SESSION_NAME
+send-keys -t $TMUX_SESSION_NAME:1 'docker start percona_ep neo4j && nvm use default && nvim' Enter
+
+new-window -t $TMUX_SESSION_NAME:2 -n server -c ~/git/$TMUX_SESSION_NAME/application
+send-keys -t $TMUX_SESSION_NAME:2 'nvm use && yarn workspace server dev' Enter
+
+new-window -t $TMUX_SESSION_NAME:3 -n client -c ~/git/$TMUX_SESSION_NAME/application
+send-keys -t $TMUX_SESSION_NAME:3 'nvm use && yarn workspace client dev' Enter
+
+new-window -t $TMUX_SESSION_NAME:4 -n git -c ~/git/$TMUX_SESSION_NAME
+send-keys -t $TMUX_SESSION_NAME:4 'lazygit' Enter
+
+new-window -t $TMUX_SESSION_NAME:5 -n claude -c ~/git/$TMUX_SESSION_NAME

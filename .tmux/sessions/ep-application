@@ -1,0 +1,13 @@
+new-session -d -s ep-application -n nvim -c ~/git/ep-application
+send-keys -t ep-application:1 'docker start percona_ep neo4j && nvm use default && nvim' Enter
+
+new-window -t ep-application:2 -n server -c ~/git/ep-application/application
+send-keys -t ep-application:2 'nvm use && yarn workspace server dev' Enter
+
+new-window -t ep-application:3 -n client -c ~/git/ep-application/application
+send-keys -t ep-application:3 'nvm use && yarn workspace client dev' Enter
+
+new-window -t ep-application:4 -n git -c ~/git/ep-application
+send-keys -t ep-application:4 'lazygit' Enter
+
+new-window -t ep-application:5 -n shell -c ~/git/ep-application

@@ -1,0 +1,4 @@
+new-session -d -s usmc -n nvim -c ~/git/usmc
+send-keys -t usmc:1 'nvim' Enter
+
+new-window -t usmc:2 -n shell -c ~/git/usmc

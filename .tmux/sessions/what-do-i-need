@@ -1,0 +1,11 @@
+new-session -d -s what-do-i-need -n nvim -c ~/git/what-do-i-need
+send-keys -t what-do-i-need:1 'nvim' Enter
+
+new-window -t what-do-i-need:2 -n server -c ~/git/what-do-i-need
+send-keys -t what-do-i-need:2 'npx expo start' Enter
+
+new-window -t what-do-i-need:3 -n claude -c ~/git/what-do-i-need
+send-keys -t what-do-i-need:3 'claude' Enter
+
+new-window -t what-do-i-need:4 -n git -c ~/git/what-do-i-need
+send-keys -t what-do-i-need:4 'lazygit' Enter
