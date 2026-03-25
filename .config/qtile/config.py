@@ -93,6 +93,7 @@ class DmenuScreenLayout(extension.Dmenu):
         choice_path = home + "/.screenlayout/" + choice
         if not os.path.exists(choice_path):
             return
+
         # execute the selected screen layout script
         subprocess.call(
             ["bash", choice_path], shell=True
@@ -162,9 +163,9 @@ keys = [
     Key(
         [mod], "r", lazy.run_extension(dmenu_run()), desc="Spawn DistroTube's dmenu_run"
     ),
-    # Key(
-    #     [mod, "control"], "s", lazy.run_extension(dmenu_run_screen_layout()), desc="Spawn screen layout dmenu"
-    # ),
+    Key(
+        [mod, "control"], "s", lazy.run_extension(dmenu_run_screen_layout()), desc="Spawn screen layout dmenu"
+    ),
     # emulating the macOS keybinding
     Key(
         ["mod1"],

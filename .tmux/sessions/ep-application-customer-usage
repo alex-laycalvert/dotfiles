@@ -1,0 +1,10 @@
+new-session -d -s ep-application-customer-usage -n nvim -c ~/git/ep-application-customer-usage
+send-keys -t ep-application-customer-usage:1 'nvm use default && nvim' Enter
+
+new-window -t ep-application-customer-usage:2 -n servers -c ~/git/ep-application-customer-usage
+send-keys -t ep-application-customer-usage:2 'nvm use' Enter
+
+new-window -t ep-application-customer-usage:3 -n git -c ~/git/ep-application-customer-usage
+send-keys -t ep-application-customer-usage:3 'lazygit' Enter
+
+new-window -t ep-application-customer-usage:4 -n shell -c ~/git/ep-application-customer-usage
