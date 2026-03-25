@@ -73,7 +73,7 @@ projects_dir="$HOME/git"
 sessions_dir="$HOME/.tmux/sessions"
 
 projects=$(find "$projects_dir"/* -type d -prune | cut -d'/' -f 5)
-sessions=$(/usr/bin/ls "$sessions_dir")
+sessions=$(ls "$sessions_dir")
 # OPTIONAL
 # If you want to include any sessions that are not directories.
 # options=$(echo "$projects" ; echo "$sessions")
