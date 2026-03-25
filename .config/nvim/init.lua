@@ -372,8 +372,8 @@ require('lazy').setup({
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
 
-      { 'alex-laycalvert/telescope-projects.nvim' },
-      { 'alex-laycalvert/telescope-dotfiles.nvim' },
+      { dir = '~/git/telescope-projects.nvim' },
+      { dir = '~/git/telescope-dotfiles.nvim' },
       { 'alex-laycalvert/telescope-restartlsp.nvim' },
     },
     config = function()
