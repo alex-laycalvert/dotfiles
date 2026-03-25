@@ -7,11 +7,6 @@ function nvm
 	bass source ~/.nvm/nvm.sh --no-use ";" nvm $argv
 end
 
-function set-keymaps
-    setxkbmap -option ctrl:nocaps
-    pgrep -x xcape > /dev/null || xcape -e "Control_L=Escape"
-end
-
 # nvm use default > /dev/null
 
 # Add ~/.local/bin to PATH
@@ -58,11 +53,6 @@ if test -d ~/Apps
 	if not contains -- ~/Apps $PATH
 		set -p PATH ~/Apps
 	end
-end
-
-if status is-interactive
-    set-keymaps
-	source (/usr/bin/starship init fish --print-full-init | psub)
 end
 
 alias ls="eza -la --color=always --group-directories-first --icons"
