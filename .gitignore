@@ -31,3 +31,10 @@
 # Wallpapers
 !.wallpaper
 !.wallpaper/**
+
+# Screen layouts
+!.screenlayout
+!.screenlayout/**
+
+# Keybinds
+!.xbindkeysrc
