@@ -1,5 +1,5 @@
 theme = TokyoNight Moon
-window-decoration = false
+#window-decoration = false
 font-family = "Hasklug Nerd Font Mono"
 font-size = 14
 

@@ -31,3 +31,7 @@
 # Wallpapers
 !.wallpaper
 !.wallpaper/**
+
+!.config/karabiner
+!.config/karabiner/**
+/.config/karabiner/automatic_backups

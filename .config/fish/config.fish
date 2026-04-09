@@ -55,6 +55,10 @@ if test -d ~/Apps
 	end
 end
 
+if status is-interactive
+    source (starship init fish --print-full-init | psub)
+end
+
 alias ls="eza -la --color=always --group-directories-first --icons"
 alias grep="grep --color=always"
 alias cat="bat"
